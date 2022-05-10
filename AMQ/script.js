@@ -117,42 +117,43 @@ $(document).ready(function () {
 
       var randno = Math.floor(Math.random()*10)
       randno = 0;
+      console.log(player.getDuration(data.items[randno]))
       let startime = 30;
       let endtime = 50;
       let newurl = "https://www.youtube.com/embed/" + data.items[randno].id.videoId
       newurl +=  "?enablejsapi=1&version=3&playerapiid=ytplayer" + "&start=" + startime + "&end=" + endtime
       document.getElementById("videoplayed").src = newurl;
 
-      recPerPage = data.pageInfo.resultsPerPage;
-      nextPageToken = data.nextPageToken;
-      totalRecords = data.pageInfo.totalResults;
-      totalPages = Math.ceil(totalRecords / recPerPage);
-      apply_pagination();
-      $("#search").val("");
+      //recPerPage = data.pageInfo.resultsPerPage;
+      //nextPageToken = data.nextPageToken;
+      //totalRecords = data.pageInfo.totalResults;
+      //totalPages = Math.ceil(totalRecords / recPerPage);
+      //apply_pagination();
+      //$("#search").val("");
    
-      var videoData = "";
+      //var videoData = "";
    
-      $("#table").show();
+      //$("#table").show();
    
-      data.items.forEach((item) => {
-        videoData = `
+      //data.items.forEach((item) => {
+        //videoData = `
                       
-                      <tr>
-                      <td>
-                      <a target="_blank" href="https://www.youtube.com/watch?v=${item.id.videoId}">
-                      ${item.snippet.title}</td>
-                      <td>
-                      <img width="200" height="200" src="${item.snippet.thumbnails.high.url}"/>
-                      </td>
-                      <td>
-                      <a target="_blank" href="https://www.youtube.com/channel/${item.snippet.channelId}">${item.snippet.channelTitle}</a>
-                      </td>
-                      </tr>
+                      //<tr>
+                      //<td>
+                     //<a target="_blank" href="https://www.youtube.com/watch?v=${item.id.videoId}">
+                     // ${item.snippet.title}</td>
+                     // <td>
+                      //<img width="200" height="200" src="${item.snippet.thumbnails.high.url}"/>
+                      //</td>
+                     // <td>
+                     // <a target="_blank" href="https://www.youtube.com/channel/${item.snippet.channelId}">${item.snippet.channelTitle}</a>
+                     // </td>
+                     // </tr>
    
-                      `;
+                      //`;
    
-        $("#results").append(videoData);
-      });
+        //$("#results").append(videoData);
+     // });
     }
   });
 
@@ -167,3 +168,4 @@ $(document).ready(function () {
   $('a.pause-video').click(function(){
     $('.youtube-video')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
   });
+
