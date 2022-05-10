@@ -117,7 +117,6 @@ $(document).ready(function () {
 
       var randno = Math.floor(Math.random()*10)
       randno = 0;
-      console.log(player.getDuration(data.items[randno]))
       let startime = 30;
       let endtime = 50;
       let newurl = "https://www.youtube.com/embed/" + data.items[randno].id.videoId
