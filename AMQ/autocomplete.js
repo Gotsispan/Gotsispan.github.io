@@ -139,12 +139,12 @@ function checkanswer(text){
     if (search != "") {
         if (text.toLowerCase() == search.toLowerCase()) {
             correct += 1;
-            alert('You are correct, the correct answer was ' + search)
+            document.getElementById("correction").innerHTML = 'You are correct!'
             document.getElementById("autoC").value = ""
         }
         else {
             wrong += 1;
-            alert('You are wrong!')
+            document.getElementById("correction").innerHTML = 'You are wrong!'
             document.getElementById("autoC").value = ""
         }
     }

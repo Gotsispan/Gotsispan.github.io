@@ -135,6 +135,8 @@ $(document).ready(function () {
    
     function displayVideos(data) {
 
+      document.getElementById("correction").innerHTML = ''
+
       var randno = Math.floor(Math.random()*maxResults)
       randno = 0;
       let startime = Math.floor(Math.random()*60);
