@@ -136,6 +136,8 @@ $(document).ready(function () {
     function displayVideos(data) {
 
       document.getElementById("correction").innerHTML = ''
+      document.getElementById('otherbutton').innerHTML = 'Show the correct answer'
+      document.getElementById('showanswer').innerHTML = ''
 
       var randno = Math.floor(Math.random()*maxResults)
       randno = 0;
