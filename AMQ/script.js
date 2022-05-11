@@ -11,12 +11,12 @@ $(document).ready(function () {
       nextPageToken = "",
       totalPages = 0;
     var API_KEY = "";
-    var search = "";
+    search = "";
     var duration = "any";
     var order = "relevance";
     var beforedate = new Date().toISOString();
     var afterdate = new Date().toISOString();
-    var maxResults=10
+    var maxResults = 20;
    
     $("#beforedate").val(beforedate)
     $("#afterdate").val(afterdate)
@@ -35,27 +35,42 @@ $(document).ready(function () {
       $("#beforedate").val(beforedate)
   })
    
-    $("#duration").change(function () {
-      duration = $(this).children("option:selected").val();
-    });
+    //$("#duration").change(function () {
+    //  duration = $(this).children("option:selected").val();
+    //});
+    
     $("#order").change(function () {
       order = $(this).children("option:selected").val();
-  
     });
+
+
+
    
     $("#myForm").submit(function (e) {
       e.preventDefault();
    
-      search = $("#search").val();
    
       //beforedate = new Date($("#beforedate").val()).toISOString();
    
       //afterdate = new Date($("#beforedate").val()).toISOString();
    
-      console.log(beforedate);
    
       API_KEY = "AIzaSyAE83aypAWuPtbJerRjerm3Mf-TpQQYwLc";
-   
+
+      duration = 'short';
+      const d = new Date();
+      console.log(d)
+      beforedate = '2022-05-11T07:31:06.948Z';
+      afterdate = '1950-05-11T07:31:06.948Z';
+      order = 'relevance'; 
+      console.log(availablesingers.length)
+      searchno = Math.floor(Math.random()*availablesingers.length)
+      search = availablesingers[searchno]
+      console.log(search)
+      // relevance/viewCount/videoCount/title/rating/date
+      maxResults = 20;
+      
+      
       var url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}
           &part=snippet&q=${search}&maxResults=${maxResults}&publishedAfter=${afterdate}&publishedBefore=${beforedate}&order=${order}&videoDuration=${duration}&type=video`;
       
@@ -63,17 +78,18 @@ $(document).ready(function () {
         method: "GET",
         url: url,
         beforeSend: function () {
-          $("#btn").attr("disabled", true);
+          $("#botan").attr("disabled", true);
           $("#results").empty();
         },
         success: function (data) {
           console.log(data);
-          $("#btn").attr("disabled", false);
+          $("#botan").attr("disabled", false);
           displayVideos(data);
         },
       });
     });
    
+    /*
     function apply_pagination() {
       $pagination.twbsPagination({
         totalPages: totalPages,
@@ -93,11 +109,14 @@ $(document).ready(function () {
     $("#search").change(function () {
       search = $("#search").val();
     });
-   
+    
+
     function generateRecords(recPerPage, nextPageToken) {
+
+
       var url2 = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}
       &part=snippet&q=${search}&maxResults=${maxResults}&pageToken=${nextPageToken}&publishedBefore=${beforedate}&publishedAfter=${afterdate}&order=${order}&videoDuration=${duration}&type=video`;
-   
+      
       $.ajax({
         method: "GET",
         url: url2,
@@ -106,53 +125,59 @@ $(document).ready(function () {
           $("#results").empty();
         },
         success: function (data) {
-          console.log(data);
           $("#btn").attr("disabled", false);
           displayVideos(data);
         },
       });
     }
+
+    */
    
     function displayVideos(data) {
 
-      var randno = Math.floor(Math.random()*10)
+      var randno = Math.floor(Math.random()*maxResults)
       randno = 0;
-      let startime = 30;
-      let endtime = 50;
+      let startime = Math.floor(Math.random()*60);
+      let endtime = startime + 20;
       let newurl = "https://www.youtube.com/embed/" + data.items[randno].id.videoId
       newurl +=  "?enablejsapi=1&version=3&playerapiid=ytplayer" + "&start=" + startime + "&end=" + endtime
       document.getElementById("videoplayed").src = newurl;
 
-      //recPerPage = data.pageInfo.resultsPerPage;
-      //nextPageToken = data.nextPageToken;
-      //totalRecords = data.pageInfo.totalResults;
-      //totalPages = Math.ceil(totalRecords / recPerPage);
-      //apply_pagination();
-      //$("#search").val("");
+      recPerPage = data.pageInfo.resultsPerPage;
+      nextPageToken = data.nextPageToken;
+      totalRecords = data.pageInfo.totalResults;
+      totalPages = Math.ceil(totalRecords / recPerPage);
+
+      /*
+      apply_pagination();
+      $("#search").val("");
    
-      //var videoData = "";
+      var videoData = "";
    
-      //$("#table").show();
+      $("#table").show();
+
    
-      //data.items.forEach((item) => {
-        //videoData = `
+      data.items.forEach((item) => {
+        videoData = `
                       
-                      //<tr>
-                      //<td>
-                     //<a target="_blank" href="https://www.youtube.com/watch?v=${item.id.videoId}">
-                     // ${item.snippet.title}</td>
-                     // <td>
-                      //<img width="200" height="200" src="${item.snippet.thumbnails.high.url}"/>
-                      //</td>
-                     // <td>
-                     // <a target="_blank" href="https://www.youtube.com/channel/${item.snippet.channelId}">${item.snippet.channelTitle}</a>
-                     // </td>
-                     // </tr>
+                      <tr>
+                      <td>
+                     <a target="_blank" href="https://www.youtube.com/watch?v=${item.id.videoId}">
+                      ${item.snippet.title}</td>
+                     <td>
+                      <img width="200" height="200" src="${item.snippet.thumbnails.high.url}"/>
+                      </td>
+                      <td>
+                      <a target="_blank" href="https://www.youtube.com/channel/${item.snippet.channelId}">${item.snippet.channelTitle}</a>
+                      </td>
+                    </tr>
    
-                      //`;
+                      `;
    
-        //$("#results").append(videoData);
-     // });
+        $("#results").append(videoData);
+     });
+    
+    */
     }
   });
 

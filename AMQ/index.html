@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Youtube Video Advanced Search App in Javascript</title>
+    
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -11,54 +11,31 @@
   <body>
   <div class="container">
     <iframe class="youtube-video" id = "videoplayed" width="100" height="0" src="https://www.youtube.com/embed/LrJbrydDf2s?enablejsapi=1&version=3&playerapiid=ytplayer" modestbranding="0"  controls="0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <a href="#" class="play-video">PLAY</a>
-    <a href="#" class="pause-video">PAUSE</a>
-    <a href="#" class="stop-video">STOP</a>
+
     
     </div>
     <br>
       <h1 class="text-center">
-          Youtube Advanced Search App
+        GUESS THE ARTIST
       </h1>
       <br>
       <form id="myForm" autocomplete="off">
+          
+          <a href="#" class="play-video">PLAY</a>
+          <a href="#" class="pause-video">PAUSE</a>
           <div class="form-group">
-            <input class="form-control" type="text" id="search" placeholder="Topic" required>
-          </div>
-          <div class="form-group">
-            <label for="duration">Select Duration:</label>
-            <select class="form-control" id="duration">
-              <option>any</option>
-              <option>short</option>
-              <option>medium</option>
-              <option>long</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="order">Order:</label>
-            <select class="form-control" id="order">
-              <option>relevance</option>
-              <option>viewCount</option>
-              <option>videoCount</option>
-              <option>title</option>
-              <option>rating</option>
-              <option>date</option>
-            </select>
-          </div>
-          <div class="form-group">
-              <label for="fromdate">Before:</label>
-              <input type="text" class="form-control" name="" id="beforedate">
-          </div>
-          <div class="form-group">
-            <label for="fromdate">After:</label>
-            <input type="text" class="form-control" name="" id="afterdate">
-        </div>
-          <div class="form-group">
-              <button id="btn" class="btn btn-danger btn-block">
-                  Search Videos
+              <p></p>
+              <p></p>
+              <button id="botan">
+                  Next song
               </button>
+              <button type = "button" onclick = revealanswer() id = "otherbutton">
+                Show the correct answer
+              </button>
+              <p id= "showanswer"></p>
           </div>
       </form>
+
       <table style="display: none;" id="table" class="table table-striped">
         <thead>
           <tr>
@@ -71,6 +48,10 @@
         </tbody>
       </table>
       <div id="pager">
+
+        <input type="text" name="autoC" id="autoC" value="" />
+        <a href="#" class="autoTrigger">Show list</a>
+
 <ul id="pagination" class="pagination-sm"></ul>
 </div>
   </div>
@@ -81,14 +62,9 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.min.js"></script>
-  <script>
-      $("#beforedate").datepicker({
- 
-      })
-      $("#afterdate").datepicker({
- 
-})
- 
-  </script>
+  <link data-require="jqueryui" data-semver="1.10.0" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/css/smoothness/jquery-ui-1.10.0.custom.min.css" />
+  <script data-require="jquery" data-semver="2.0.3" src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+  <script data-require="jqueryui" data-semver="1.10.0" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/jquery-ui.js"></script>
+  <script src="autocomplete.js"></script>
   <script src="script.js"></script>
 </html>
