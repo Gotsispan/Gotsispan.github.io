@@ -211,6 +211,7 @@ function Switcher(no,no2,PKMN22,field1,field2,who){
         timesout2[no2] ++
     }
     
+    console.log(timesout1,timesout2)
 
     PKMN1 = PKMNBOXX1[no];
     PKMN2 = PKMNBOXX2[no2];
@@ -265,7 +266,6 @@ function Switcher(no,no2,PKMN22,field1,field2,who){
         }
     }
 
-    console.log(afterdeath)
     if (turns != 0 && afterdeath != 1) {
         move1 = 'none';
         moveno = 0;
@@ -281,6 +281,7 @@ function Switcher(no,no2,PKMN22,field1,field2,who){
 
 function PickMoveAI(PKMN1,PKMN2,movebox2,no2) {
 
+    timesout2[no2] ++
     
     let maxdmg = 0;
     let chosen;
@@ -313,6 +314,8 @@ function PickMoveAI(PKMN1,PKMN2,movebox2,no2) {
 
 function Executebutton(PKMN1,PKMN2,MAXHP1,MAXHP2,field1,field2,move1,movebox2,AI,moveno,no,no2) {
 
+    timesout1[no] ++
+
     randmove2 = PickMoveAI(PKMN1,PKMN2,movebox2,no2)
     move2 = movebox2[randmove2]
     let PKMNN1;
@@ -338,13 +341,30 @@ function Executebutton(PKMN1,PKMN2,MAXHP1,MAXHP2,field1,field2,move1,movebox2,AI
     
     updateswitchstats(PKMNBOXX1)
 
-    console.log(PKMNN2)
+    if ( ![document.getElementById("switch1button").style.backgroundColor,document.getElementById("switch2button").style.backgroundColor,document.getElementById("switch3button").style.backgroundColor,
+          document.getElementById("switch4button").style.backgroundColor,document.getElementById("switch5button").style.backgroundColor,document.getElementById("switch6button").style.backgroundColor].includes('')
+          ) {
+            chatlog += "There are no more Pokemon available for " +  username + ", player2 has won the battle! <br>"
+            updatechat()
+          }
     
-    if (PKMNN2.hpperc == 0 && number2 < 6) {
-        number2 ++
-        afterdeath = 1;
-        PKMN2 = PKMNBOXX2[number2]
-        Switcher(no,number2,PKMN2,field1,field2,2)
+    console.log(PKMNN2.hpperc)
+    console.log(number2)
+    if (PKMNN2.hpperc == 0) {
+        if (number2 < 5) {
+            number2 ++
+            console.log(number2)
+            afterdeath = 1;
+            PKMN2 = PKMNBOXX2[number2]
+            Switcher(no,number2,PKMN2,field1,field2,2)
+        }
+        else {
+            if (number2 == 5) {
+                chatlog += "There are no more Pokemon available for player 2, " + username + " has won the battle! <br>"
+                updatechat()
+            }
+        } 
+
     }
 
 

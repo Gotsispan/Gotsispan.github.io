@@ -70,7 +70,6 @@ function preturn(PKMN1,PKMN2,field1,field2) {
 
 
     if (PKMN1.currstats[0] <= 0) {
-        chatlog += PKMN1.nickname + ' fainted <br>'
         PKMN1.currstats[0] = 0;
         PKMN1.hpperc = 0;
         play = 0;

@@ -286,6 +286,9 @@ function calculatestats(PKMN1cur,PKMN1base,firstturn,pkmnno,PKMN2cur,PKMN2base){
         document.getElementById(idd).innerHTML = statshow;
         document.getElementById("hpperc" + pkmnno).innerHTML = currentstats.hpperc + '%';
 
+        document.getElementById("nick" + pkmnno).innerHTML = currentstats.nickname + ' Lv' + currentstats.level
+        
+
         let array = [];
         array.push(currentstats,currentbase)
        return array;
@@ -548,6 +551,8 @@ function calculatedamage(PKMN1,PKMN2,basedef,basespdef,move1,field1,field2,MAXHP
                 move1.power = 40;
             }
         }
+
+
 
         if (move1.kind == 'Physical') {
             dmg1 = ( (2*PKMN1.level/5+2) * move1.power * PKMN1.currstats[1] / PKMN2.currstats[2])/50 + 2;

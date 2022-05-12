@@ -4,6 +4,7 @@ function round(value, precision) {
 }
 
 var bananarama = 5;
+var username = 'Godsen';
 
 var dict = {
     'Normal' : 0,

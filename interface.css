@@ -117,6 +117,7 @@ html {
 }
 
 .nick1 {
+    transform: scaleX(-1);
     height: 30px;
 }
 

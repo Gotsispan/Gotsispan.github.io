@@ -313,19 +313,7 @@ function randomizeteam(fullrand) {
             }
             basis.nature = natures[natureno];
 
-            if (j==0) {
-                if (basis.species.toLowerCase() in mistakesdict) {
-                    item = basis.species.toLowerCase();
-                    document.getElementById("switch" + (i+1) + "button").innerHTML = mistakesdict[item][0].toUpperCase() + mistakesdict[item].slice(1)
-                    document.getElementById("switch" + (i+1) + "image").src = "https://play.pokemonshowdown.com/sprites/gen5/" + mistakesdict[item] + ".png"
-                }
-                else {
-                    document.getElementById("switch" + (i+1) + "button").innerHTML = basis.species;
-                    document.getElementById("switch" + (i+1) + "image").src = "https://play.pokemonshowdown.com/sprites/gen5/" + basis.species.toLowerCase() + ".png"
-                }
-                statss = "HP%: 100% <br> Nature: " + basis.nature + " <br> Ability: " + basis.ability + " <br> Item: " + basis.item + " <br> Status: none <br>" 
-                document.getElementById("switch" + (i+1) + "stats").innerHTML = statss;
-            }
+            
 
             //level balance
 
@@ -336,6 +324,20 @@ function randomizeteam(fullrand) {
             }
 
             basis.level = balancelvl
+
+            if (j==0) {
+                if (basis.species.toLowerCase() in mistakesdict) {
+                    item = basis.species.toLowerCase();
+                    document.getElementById("switch" + (i+1) + "button").innerHTML = mistakesdict[item][0].toUpperCase() + mistakesdict[item].slice(1) + ' ' + basis.level
+                    document.getElementById("switch" + (i+1) + "image").src = "https://play.pokemonshowdown.com/sprites/gen5/" + mistakesdict[item] + ".png"
+                }
+                else {
+                    document.getElementById("switch" + (i+1) + "button").innerHTML = basis.species  + ' ' + basis.level;
+                    document.getElementById("switch" + (i+1) + "image").src = "https://play.pokemonshowdown.com/sprites/gen5/" + basis.species.toLowerCase() + ".png"
+                }
+                statss = "HP%: 100% <br> Nature: " + basis.nature + " <br> Ability: " + basis.ability + " <br> Item: " + basis.item + " <br> Status: none <br>" 
+                document.getElementById("switch" + (i+1) + "stats").innerHTML = statss;
+            }
 
 
             fullboxx[j][i] = Object.assign({}, basis);

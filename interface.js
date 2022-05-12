@@ -38,3 +38,4 @@ function chat() {
 function updatechat() {
     document.getElementById('chatlog').innerHTML = chatlog;
 }
+
