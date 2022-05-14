@@ -1,0 +1,80 @@
+
+
+.container {
+    position:absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: grid;
+    overflow:hidden;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 30% 40% 30%;
+}
+
+.left-side {
+    position: relative;
+}
+
+.right-side {
+    position: relative;
+}
+
+.targets-left {
+    position:absolute;
+    bottom: 50px;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    column-gap: 5%;
+    row-gap: 0px;
+}
+
+.targets-right {
+    position:absolute;
+    bottom: 50px;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    column-gap: 5%;
+    row-gap: 0%;
+}
+
+.targets-left img{
+    height: 100%;
+    width: 100%;
+    cursor: url(icon.png), auto;
+}
+
+.targets-right img{
+    height: 100%;
+    width: 100%;
+    cursor: url(icon.png), auto;
+}
+
+.gun {
+    border-style: none;
+}
+
+.gun img{
+    position: absolute;
+    top: 90%;
+    left: 34%;
+    width: 32%;
+    height: 15%;
+}
+
+.screen img {
+    position: absolute;
+    top: 5%;
+    height: 90%;
+    width: 40%;
+}
+
+.screeninfo {
+    position: absolute;
+    width: 26%;
+    height: 45%;
+    outline: 1px solid red;
+    top: 8%;
+    left: 37%;
+}
