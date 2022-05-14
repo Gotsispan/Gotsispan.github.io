@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="interface.css">
+</head>
+
+
+<body>
+
+<div class = "container">
+    <div class = "left-side" >
+
+        <div class = "targets-left" onmousemove="myFunction(event)" onmouseout="clearCoor()">
+            <div class = "trestar"> 
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,0)" id = "target-0" src = 'target.png'></img> 
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()"onclick = "showstats(event,1)" id = "target-1" src = 'target.png'></img>
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,2)" id = "target-2" src = 'target.png'></img>
+            </div>
+
+            <div class = "trestat" onmousemove="myFunction(event)" onmouseout="clearCoor()">
+                <div class = "tag">About me</div>
+                <div class = "tag">Education</div>
+                <div class = "tag">Empl. History</div>
+            </div>
+
+            <div class = "trestar" onmousemove="myFunction(event)" onmouseout="clearCoor()">
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,3)" id = "target-3" src = 'target.png'></img>
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()"  onclick = "showstats(event,4)" id = "target-4" src = 'target.png'></img>
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,5)" id = "target-5" src = 'target.png'></img>
+            </div>
+
+            <div class = "trestat" onmousemove="myFunction(event)" onmouseout="clearCoor()">
+                <div class = "tag">Software Skills</div>
+                <div class = "tag">Hardware Skills</div>
+                <div class = "tag">Web Dev. Skills</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class = "middle-side">
+
+        <div class = "screen">
+            <img id = "screen" class = "screenimage" src = 'screen.png'></img>
+            <div class = "screeninfo" id = "screeninfo">
+            </div>
+        </div>
+
+        <div class = "gun">
+            <span id="audio"></span>
+            <img id= "gun" src = 'gun.png'></img>
+        </div>
+
+    </div>
+
+    <div class = "right-side">
+
+        <div class = "targets-right">
+
+            <div class = "trestar" onmousemove="myFunction(event)" onmouseout="clearCoor()">
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,6)" id = "target-6" src = 'target.png'></img>
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,7)" id = "target-7" src = 'target.png'></img>
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,8)" id = "target-8" src = 'target.png'></img>
+            </div>
+
+            <div class = "trestat" onmousemove="myFunction(event)" onmouseout="clearCoor()">
+                <div class = "tag">Portfolio</div>
+                <div class = "tag">References</div>
+                <div class = "tag">Play a game!</div>
+            </div>
+
+            <div class = "trestar" onmousemove="myFunction(event)" onmouseout="clearCoor()">
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,9)" id = "target-9" src = 'target.png'></img>
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,10)" id = "target-10" src = 'target.png'></img>
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,11)" id = "target-11" src = 'target.png'></img>
+            </div>
+
+            <div class = "trestat" onmousemove="myFunction(event)" onmouseout="clearCoor()">
+                <div class = "tag">Languages</div>
+                <div class = "tag">My Hobbies</div>
+                <div class = "tag">Contact</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src = "script.js"></script>
+
+</body>
+
+
+
+
+</html>
