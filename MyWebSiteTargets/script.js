@@ -42,7 +42,10 @@ function myFunction(e) {
     }
     console.log(enable)
     if (enable == 1) {
-      document.getElementById('audio').innerHTML = '<audio autoplay><source src="shot.mp3"></audio>';
+      var gunshot = document.getElementById('audio')
+      gunshot.innerHTML = '<audio id = "audioo" autoplay><source src="shot.mp3"></audio>';
+      document.getElementById('audioo').volume = 0.1;
+
       document.getElementById('screeninfo').innerHTML = "";
       if (no == 0) {
 
