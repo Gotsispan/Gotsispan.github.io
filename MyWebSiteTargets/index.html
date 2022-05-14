@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="interface.css">
+</head>
+
+
+<body>
+
+<div class = "container">
+    <div class = "left-side" >
+
+        <div class = "targets-left">
+            <div class = "trestar"> 
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(0)" id = "target-0" src = 'target.png'></img> 
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()"onclick = "showstats(1)" id = "target-1" src = 'target.png'></img>
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(2)" id = "target-2" src = 'target.png'></img>
+            </div>
+
+            <div class = "trestat">
+                <p>PIZZA</p>
+                <p>POUTSA</p>
+                <p>LOUTSA</p>
+            </div>
+
+            <div class = "trestar">
+                <img  onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(3)" id = "target-3" src = 'target.png'></img>
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()"  onclick = "showstats(4)" id = "target-4" src = 'target.png'></img>
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(5)" id = "target-5" src = 'target.png'></img>
+            </div>
+
+            <div class = "trestat">
+                <p>PIZZA</p>
+                <p>POUTSA</p>
+                <p>LOUTSA</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class = "middle-side">
+
+        <div class = "screen">
+            <img id = "screen" src = 'screen.png'></img>
+            <div class = "screeninfo">
+            </div>
+        </div>
+
+        <div class = "gun">
+            <span id="audio"></span>
+            <img id= "gun" src = 'gun.png'></img>
+        </div>
+
+    </div>
+
+    <div class = "right-side">
+
+        <div class = "targets-right" onmousemove="myFunction(event)" onmouseout="clearCoor()">
+            <div class = "trestar">
+                <img onclick = "showstats(6)" id = "target-6" src = 'target.png'></img>
+                <img onclick = "showstats(7)" id = "target-7" src = 'target.png'></img>
+                <img onclick = "showstats(8)" id = "target-8" src = 'target.png'></img>
+            </div>
+
+            <div class = "trestat">
+                <p>PIZZA</p>
+                <p>POUTSA</p>
+                <p>LOUTSA</p>
+            </div>
+
+            <div class = "trestar"></div>
+                <img onclick = "showstats(9)" id = "target-9" src = 'target.png'></img>
+                <img onclick = "showstats(10)" id = "target-10" src = 'target.png'></img>
+                <img onclick = "showstats(11)" id = "target-11" src = 'target.png'></img>
+            </div>
+
+            <div class = "trestat">
+                <p>PIZZA</p>
+                <p>POUTSA</p>
+                <p>LOUTSA</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src = "script.js"></script>
+
+</body>
+
+
+
+
+</html>
