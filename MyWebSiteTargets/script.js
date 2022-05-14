@@ -46,29 +46,38 @@ function myFunction(e) {
       document.getElementById('screeninfo').innerHTML = "";
       if (no == 0) {
 
+        const div = document.createElement("div");
+        div.setAttribute("id", "div1");
+        document.getElementById('screeninfo').appendChild(div);
+
         var img = document.createElement('img');
         img.src = 'myFace.jpg';
         img.width = (window.innerWidth*0.1).toString();
         img.height = (window.innerHeight*0.2).toString();
-        document.getElementById('screeninfo').appendChild(img);
+        document.getElementById('div1').appendChild(img);
 
         document.getElementById('screeninfo').style.gridTemplateColumns
         text = document.createElement('p')
         text.setAttribute("id", "text1");
         text.innerText = ''
         text.innerText +=  'Panagiotis Gotsis \r\n Date of Birth: 6/10/1995 \r\n Gender: Male \r\n Country of origin: Greece \r\n Email: ece8306@upnet.gr \r\n'
-        document.getElementById('screeninfo').appendChild(text);
+        document.getElementById('div1').appendChild(text);
 
-        document.getElementById('screeninfo').style.display = "grid"
-        document.getElementById('screeninfo').style.gridTemplateColumns = "45% 55%"
+        document.getElementById('div1').style.display = "grid"
+        document.getElementById('div1').style.gridTemplateColumns = "45% 55%"
 
-        document.getElementById('screeninfo').style.gridTemplateColumns
+        document.getElementById('div1').style.gridTemplateColumns
         text = document.createElement('p')
         text.setAttribute("id", "text2");
-        text.innerText =  'Welcome to my profile, I am a post-graduate in electrical engineer and information technology. I enjoy making projects like this one as a junior web developer'
+        text.innerText =  '• Welcome to my profile, I am a post-graduate in electrical engineer and information technology. \r\n' +
+        '• I enjoy making projects like this one as a junior web developer. \r\n' +
+        '• My field of expertise also extends to hardware designing, which is also the subject of my graduation thesis. \r\n' +
+        '• I am excited to expand my knowledge of the beautiful world of Information Technology and turn my passion into a career'
         document.getElementById('screeninfo').appendChild(text);
 
         document.getElementById('text1').style.fontSize = 'large';
+        document.getElementById('text1').style.fontWeight = 'bold';
+
         document.getElementById('text2').style.fontSize = 'large';
 
 
