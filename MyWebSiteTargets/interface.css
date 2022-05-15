@@ -1,0 +1,109 @@
+
+
+.container {
+    background-color: #2f2f2f;
+    position:absolute;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    display: grid;
+    overflow:hidden;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 30% 40% 30%;
+}
+
+.left-side {
+    position: relative;
+}
+
+.right-side {
+    position: relative;
+}
+
+.targets-left {
+    position:absolute;
+    bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    cursor: url(images/icon.png), auto;
+}
+
+.trestar {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    column-gap: 5%;
+    row-gap: 0%;
+}
+
+.trestat {
+    display: grid;
+    column-gap: 5%;
+    grid-template-columns: 30% 30% 30%;
+    width: 100%;
+}
+
+.tag {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: Helvetica;
+    background-color: white;
+}
+
+.langbuttons {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.langbuttons button{
+    height: 10%;
+    width: 10%;
+    background-color: #2f2f2f;
+    outline-style: none;
+}
+
+
+.targets-right {
+    position:absolute;
+    bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    cursor: url(images/icon.png), auto;
+}
+
+.trestar img{
+    height: 100%;
+    width: 100%;
+    cursor: url(images/icon.png), auto;
+}
+
+.gun {
+    border-style: none;
+}
+
+.gun img{
+    position: absolute;
+    top: 90%;
+    left: 35%;
+    width: 30%;
+    height: 20%;
+}
+
+.screenimage {
+    position: absolute;
+    top: 5%;
+    height: 90%;
+    width: 40%;
+}
+
+.screeninfo {
+    position: absolute;
+    width: 26%;
+    height: 45%;
+    outline: 1px solid red;
+    top: 8%;
+    left: 37%;
+}

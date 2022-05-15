@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="interface.css">
+</head>
+
+
+<body>
+
+<div class = "container">
+    <div class = "left-side" >
+
+        <div class = "langbuttons">
+            <button id = "engbut" onclick = "updateLang('English')"></button>
+            <button id = "grebut" onclick = "updateLang('Greek')"></button>
+        </div>
+
+        <div class = "targets-left" onmousemove="myFunction(event)" onmouseout="clearCoor()">
+            <div class = "trestar"> 
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,0,1)" id = "target-0" src = 'images\target.png'></img> 
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()"onclick = "showstats(event,1,1)" id = "target-1" src = 'images\target.png'></img>
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,2,1)" id = "target-2" src = 'images\target.png'></img>
+            </div>
+
+            <div class = "trestat" onmousemove="myFunction(event)" onmouseout="clearCoor()">
+                <div class = "tag" id = "tag0">About me</div>
+                <div class = "tag" id = "tag1">Education</div>
+                <div class = "tag" id = "tag2">Empl. History</div>
+            </div>
+
+            <div class = "trestar" onmousemove="myFunction(event)" onmouseout="clearCoor()">
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,3,1)" id = "target-3" src = 'images\target.png'></img>
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()"  onclick = "showstats(event,4,1)" id = "target-4" src = 'images\target.png'></img>
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,5,1)" id = "target-5" src = 'images\target.png'></img>
+            </div>
+
+            <div class = "trestat" onmousemove="myFunction(event)" onmouseout="clearCoor()">
+                <div class = "tag" id = "tag3">Software Skills</div>
+                <div class = "tag" id = "tag4">Hardware Skills</div>
+                <div class = "tag" id = "tag5">Web Dev. Skills</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class = "middle-side">
+
+        <div class = "screen">
+            <img id = "screen" class = "screenimage" src = 'images/screen.png'></img>
+            <div class = "screeninfo" id = "screeninfo">
+            </div>
+        </div>
+
+        <div class = "gun">
+            <span id="audio"></span>
+            <img id= "gun" src = 'images/gun.png'></img>
+        </div>
+
+    </div>
+
+    <div class = "right-side">
+
+        <div class = "targets-right">
+
+            <div class = "trestar" onmousemove="myFunction(event)" onmouseout="clearCoor()">
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,6,1)" id = "target-6" src = 'images\target.png'></img>
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,7,1)" id = "target-7" src = 'images\target.png'></img>
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,8,1)" id = "target-8" src = 'images\target.png'></img>
+            </div>
+
+            <div class = "trestat" onmousemove="myFunction(event)" onmouseout="clearCoor()">
+                <div class = "tag" id = "tag6">Other Projects</div>
+                <div class = "tag" id = "tag7">References</div>
+                <div class = "tag" id = "tag8">Play a game!</div>
+            </div>
+
+            <div class = "trestar" onmousemove="myFunction(event)" onmouseout="clearCoor()">
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,9,1)" id = "target-9" src = 'images\target.png'></img>
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,10,1)" id = "target-10" src = 'images\target.png'></img>
+                <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,11,1)" id = "target-11" src = 'images\target.png'></img>
+            </div>
+
+            <div class = "trestat" onmousemove="myFunction(event)" onmouseout="clearCoor()">
+                <div class = "tag" id = "tag9">Languages</div>
+                <div class = "tag" id = "tag10">My Hobbies</div>
+                <div class = "tag" id = "tag11">Contact</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src = "otherscript.js"></script>
+<script src = "targetchoices.js"></script>
+
+</body>
+
+
+
+
+</html>
