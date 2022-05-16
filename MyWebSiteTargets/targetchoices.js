@@ -115,20 +115,184 @@ function showstats(e,no,sound){
             link.href = linkarr[i];
             document.getElementById('div1').appendChild(link);
         }
+        
 
       }
-
-      if (no == 3) {
-
-
-
-      }
-
 
       //Empl. History
-      //Software Skills
+      if (no == 2) {
+
+
+
+      }
+
       //Hardware Skills
-      //Web Dev. Skills
+      if (no == 3 || no == 4 || no == 5) {
+        if (no == 3) {
+          iconarr = ['VHDL.png','vivado.png','Microwind.png']
+          langarr = ['VHDL','Xilinx Vivado','Microwind']
+          skillarr = [3,1,1]
+        }
+        if (no == 4){
+          iconarr = ['html.png','css.png','javascript.png']
+          langarr = ['HTML','CSS','Javascript']
+          skillarr = [2,2,3]
+        
+        }
+        if (no == 5){
+          iconarr = ['Python.png','Excel.png','Mtlb.jpg','MySQL.png']
+          langarr = ['Python','Excel','Matlab','My SQL']
+          skillarr = [3,2,3,1]
+        }
+
+        var div = document.createElement("div");
+        div.setAttribute("id", "div1");
+        document.getElementById('screeninfo').appendChild(div);
+
+        for (let i=0; i<iconarr.length; i++) {
+
+          var img = document.createElement('img');
+          img.src = 'images/'+iconarr[i];
+          img.width = (window.innerWidth*0.03).toString();
+          img.height = (window.innerHeight*0.05).toString();
+          document.getElementById("div1").appendChild(img);
+
+          text = document.createElement('p')
+          text.setAttribute("id", "text"+i);
+          text.innerText = langarr[i];
+          document.getElementById("div1").appendChild(text);
+          document.getElementById("text"+i).style.fontSize = 'large';
+          document.getElementById("text"+i).style.fontWeight = 'bold';
+  
+
+          var img2 = document.createElement('img');
+          img2.src = 'images/stars'+skillarr[i]+'.png';
+          img2.height = (window.innerHeight*0.05).toString();
+          document.getElementById("div1").appendChild(img2);
+
+        }
+
+        document.getElementById("div1").style.display = "grid"
+        document.getElementById("div1").style.gridTemplateColumns = "20% 30% 50%"
+        document.getElementById('div1').style.columnGap = '0'
+        document.getElementById('div1').style.justifyItems = 'center';
+
+      }
+
+
+      if (no == 9) {
+        var div = document.createElement("div");
+        div.setAttribute("id", "div1");
+        document.getElementById('screeninfo').appendChild(div);
+
+        iconarr = ['Greece.png','England.png','Germany.png']
+        certarr = ['none','Ptyxia/C2_English.pdf#zoom=33%','Ptyxia/B2_German.pdf#zoom=33%']
+        if (lang == 'English') {
+          langarr = ['Greek','English','German']
+          levelarr = ['Fluent','C2','B2']
+          certwordarr = ['Mother Tongue','certifcation','certification']
+        }
+        if (lang == 'Greek'){
+          langarr = ['Ελληνικά','Αγγλικά','Γερμανικά']
+          levelarr = ['Άπταιστα','C2','B2']
+          certwordarr = ['Μητρική Γλώσσα','Πιστοποίηση','Πιστοποίηση']
+        }
+        
+
+        for (let i=0; i<langarr.length; i++) {
+
+          var img = document.createElement('img');
+          img.src = 'images/'+iconarr[i];
+          img.width = (window.innerWidth*0.04).toString();
+          img.height = (window.innerHeight*0.06).toString();
+          document.getElementById("div1").appendChild(img);
+
+          text = document.createElement('p')
+          text.setAttribute("id", "text1"+i);
+          text.innerText = langarr[i];
+          document.getElementById("div1").appendChild(text);
+          document.getElementById("text1"+i).style.fontSize = 'large';
+          document.getElementById("text1"+i).style.fontWeight = 'bold';
+
+          text2 = document.createElement('p')
+          text2.setAttribute("id", "text2"+i);
+          text2.innerText = levelarr[i];
+          document.getElementById("div1").appendChild(text2);
+          document.getElementById("text2"+i).style.fontSize = 'large';
+          document.getElementById("text2"+i).style.fontWeight = 'bold';
+          console.log(window.innerHeight)
+          
+          if (i !=0 ) {
+            link = document.createElement('a');
+            link.innerText = certwordarr[i];
+            link.setAttribute("id","link"+i)
+            link.href = certarr[i];
+            document.getElementById('div1').appendChild(link);
+            document.getElementById("link"+i).style.textAlign =  'center';
+            document.getElementById("link"+i).style.display = 'inline-block';
+            console.log(Math.floor(0.026*window.innerHeight))
+            document.getElementById("link"+i).style.padding = Math.floor(0.017*window.innerHeight).toString() + "px 0px";
+            console.log(document.getElementById("link"+i))
+          }
+          else {
+            text3 = document.createElement('p')
+            text3.setAttribute("id", "text3"+i);
+            text3.innerText = certwordarr[i];
+            document.getElementById("div1").appendChild(text3);
+            document.getElementById("text3"+i).style.maxHeight = 0.022*window.innerHeight.toString() + 'px';
+            console.log(document.getElementById("text3"+i))
+          }
+
+        }
+
+        document.getElementById("div1").style.display = "grid"
+        document.getElementById("div1").style.gridTemplateColumns = "25% 25% 20% 30%"
+        document.getElementById('div1').style.columnGap = '0';
+        document.getElementById('div1').style.rowGap = toString(0.05*window.innerHeight);
+        document.getElementById('div1').style.justifyItems = 'center';
+
+
+      }
+
+      if (no == 11) {
+
+        var div = document.createElement("div");
+        div.setAttribute("id", "div1");
+        document.getElementById('screeninfo').appendChild(div);
+
+        form = document.createElement('form')
+        form.setAttribute("id","form")
+        form.action = "https://formsubmit.co/ece8306@upnet.gr"
+        form.method = "POST"
+        document.getElementById('div1').appendChild(form);
+        
+        input1 = document.createElement('input')
+        input1.type = "text"
+        input1.name = "name"
+        input1.setAttribute('required', '');
+        document.getElementById('form').appendChild(input1);
+
+        input2 = document.createElement('input')
+        input2.type = "text"
+        input2.name = "email"
+        input2.setAttribute('required', '');
+        document.getElementById('form').appendChild(input2);
+
+        input3 = document.createElement('input')
+        input3.type = "text"
+        input3.name = "emailtext"
+        input3.setAttribute('required', '');
+        document.getElementById('form').appendChild(input3);
+
+        button = document.createElement('button')
+        button.type="submit"
+        button.innerHTML = 'Send'
+        document.getElementById('form').appendChild(button);
+  
+      }
+     
+
+
       //Other Projects
       //References
       //Play a Game!
@@ -136,5 +300,5 @@ function showstats(e,no,sound){
       //My Hobbies
       //Contact
 
-    }
   }
+}

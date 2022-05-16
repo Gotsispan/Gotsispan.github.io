@@ -21,9 +21,8 @@ function updateLang(langg) {
       showstats('yes',lastno,0)
     }
 
-    var engterms = ['About  me','Education','Empl. History','Software Skills','Hardware Skills','Web Dev. Skills','Other Projects','References','Play a Game!','Languages','My Hobbies','Contact']
-    var greterms = ['Πληοροφορίες','Εκπαίδευση','Επαγελ. Εμπειρία','Γνώσεις Software','Γνώσεις  Hardware','Γνώσεις Web Dev','Άλλα πρότζεκτ','Αναφορές','Παίξε ένα παιχνίδι','Γλώσσες','Ενδιαφέροντα','Επικοινωνία']
-
+    var engterms = ['About  me','Education','Empl. History','Hardware Des. Skills','Web Dev. Skills','Other Prog. Skills','Other Projects','References','Play a Game!','Languages','My Hobbies','Contact']
+    var greterms = ['Πληοροφορίες','Εκπαίδευση','Επαγελ. Εμπειρία','Γνώσεις  Hardware','Γνώσεις Web Dev','Άλλες γνώσεις Προγ.','Άλλα πρότζεκτ','Αναφορές','Παίξε ένα παιχνίδι','Γλώσσες','Ενδιαφέροντα','Επικοινωνία']
     for (i=0; i<12; i++) {
       if (langg == 'Greek') {
         document.getElementById('tag'+i).innerHTML = greterms[i];
