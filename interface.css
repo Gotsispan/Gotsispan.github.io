@@ -27,7 +27,7 @@
     bottom: 5%;
     display: flex;
     flex-direction: column;
-    cursor: url(icon.png), auto;
+    cursor: url(images/icon.png), auto;
 }
 
 .trestar {
@@ -46,24 +46,38 @@
 
 .tag {
     text-align: center;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: bold;
     font-style: Helvetica;
     background-color: white;
 }
+
+.langbuttons {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.langbuttons button{
+    height: 10%;
+    width: 10%;
+    background-color: #2f2f2f;
+    outline-style: none;
+}
+
 
 .targets-right {
     position:absolute;
     bottom: 5%;
     display: flex;
     flex-direction: column;
-    cursor: url(icon.png), auto;
+    cursor: url(images/icon.png), auto;
 }
 
 .trestar img{
     height: 100%;
     width: 100%;
-    cursor: url(icon.png), auto;
+    cursor: url(images/icon.png), auto;
 }
 
 .gun {
