@@ -679,10 +679,6 @@ function showstats(e,no,sound){
           }
         }
 
-        
-
-
-
          
       } 
 
