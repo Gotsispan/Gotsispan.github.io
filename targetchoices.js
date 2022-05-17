@@ -175,6 +175,7 @@ function showstats(e,no,sound){
             document.getElementById('div1').appendChild(text);
 
             link = document.createElement('a');
+            link.setAttribute("id","link"+i)
             link.innerText = linktrans
             link.href = linkarr[i];
             document.getElementById('div1').appendChild(link);
@@ -193,7 +194,7 @@ function showstats(e,no,sound){
       //Hardware Skills
       if (no == 3 || no == 4 || no == 5) {
         if (no == 3) {
-          iconarr = ['VHDL.png','vivado.png','Microwind.png']
+          iconarr = ['vhdl.png','vivado.png','Microwind.png']
           langarr = ['VHDL','Xilinx Vivado','Microwind']
           skillarr = [3,1,1]
         }
@@ -204,7 +205,7 @@ function showstats(e,no,sound){
         
         }
         if (no == 5){
-          iconarr = ['Python.png','Excel.png','Mtlb.jpg','MySQL.png']
+          iconarr = ['Python.png','Excel.png','Mtlb.webp','MySQL.png']
           langarr = ['Python','Excel','Matlab','My SQL']
           skillarr = [3,2,3,1]
         }
@@ -230,7 +231,12 @@ function showstats(e,no,sound){
   
 
           var img2 = document.createElement('img');
-          img2.src = 'images/stars'+skillarr[i]+'.png';
+          if (color == 'dark') {
+            img2.src = 'images/stars'+skillarr[i]+'.png';
+          }
+          if (color == 'light') {
+            img2.src = 'images/stars'+skillarr[i]+'dark.png';
+          }
           img2.height = (window.innerHeight*0.05).toString();
           document.getElementById("div1").appendChild(img2);
 
@@ -323,10 +329,10 @@ function showstats(e,no,sound){
         text = document.createElement('text')
         text.setAttribute("id", "text");
         if (lang == 'English') {
-          text.innerText = 'Send us an e-mail!\r\n' 
+          text.innerText = 'Send me a message! It will be delivered to my email\r\n' 
         }
         if (lang == 'Greek') {
-          text.innerText = 'Στείλε μας ένα e-mail!\r\n'
+          text.innerText = 'Στείλτε μου ένα μήνυμα! Θα μεταφερθεί στο λογαριασμό email μου\r\n'
         }
         document.getElementById('div1').appendChild(text);
 
@@ -679,8 +685,29 @@ function showstats(e,no,sound){
           }
         }
 
-         
       } 
+
+      
+      if (color == 'light') {
+        hex = '#119BFA'
+        var links = document.getElementsByTagName('a')
+        for(var i=0;i<links.length;i++) {
+            console.log(links[i])
+            links[i].style.color = hex; 
+            console.log(links[i]) 
+        }  
+      }
+
+      if (color == 'dark') {
+        hex = '#010B9C'
+        var links = document.getElementsByTagName('a')
+        for(var i=0;i<links.length;i++) {
+            console.log(links[i])
+            links[i].style.color = hex; 
+            console.log(links[i]) 
+        }  
+      }
+
 
 
       //Other Projects
