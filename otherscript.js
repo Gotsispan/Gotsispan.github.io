@@ -5,6 +5,7 @@
 //Language change
 
 var lang = 'English';
+var color = 'dark';
 var lastno = -1;
 
 document.getElementById("engbut").innerHTML = '<img id = "engflag" src="images/ENG.ico" />';
@@ -14,6 +15,17 @@ document.getElementById("engflag").style.width = '100%';
 document.getElementById("greflag").style.height = '100%';
 document.getElementById("greflag").style.width = '100%';
 
+document.getElementById("darkbut").innerHTML = '<img id = "darkicon" src="images/darkmode.png" />';
+document.getElementById("lightbut").innerHTML = '<img id = "lighticon" src="images/lightmode.png" />';
+document.getElementById("darkicon").style.height = '100%';
+document.getElementById("darkicon").style.width = '100%';
+document.getElementById("lighticon").style.height = '100%';
+document.getElementById("lighticon").style.width = '100%';
+
+document.getElementById("darkbut").style.color = '#e4e5f1'
+document.getElementById("darkbut").style.backgroundColor = '#2f2f2f'
+document.getElementById("lightbut").style.color = '#2f2f2f'
+document.getElementById("lightbut").style.backgroundColor = '#e4e5f1'
 
 function updateLang(langg) {
     lang = langg
@@ -31,6 +43,39 @@ function updateLang(langg) {
         document.getElementById('tag'+i).innerHTML = engterms[i];
       }
     }
+}
+
+function updateColor(colorr) {
+  color = colorr;
+  if (lastno != -1) {
+    showstats('yes',lastno,0)
+  }
+
+  if (colorr == 'dark') {
+    document.getElementById('screen').src = 'images/screen.png'
+    document.getElementById("container").style.color = '#2f2f2f'
+    for (i=0; i<12; i++) {
+      document.getElementById('tag'+i).style.color = '#2f2f2f'
+      document.getElementById('tag'+i).style.backgroundColor = '#e4e5f1'
+    }
+    console.log(document.getElementById("container").style)
+    document.getElementById("container").style.backgroundColor = '#2f2f2f'
+    document.getElementById("engbut").style.backgroundColor = '#2f2f2f'
+    document.getElementById("grebut").style.backgroundColor = '#2f2f2f'
+  }
+
+  if (colorr == 'light') {
+    document.getElementById('screen').src = 'images/screendark.png'
+    document.getElementById("container").style.color = '#e4e5f1'
+    for (i=0; i<12; i++) {
+      document.getElementById('tag'+i).style.color = '#e4e5f1'
+      document.getElementById('tag'+i).style.backgroundColor = '#2f2f2f'
+    }
+    console.log(document.getElementById("container").style)
+    document.getElementById("container").style.backgroundColor = '#e4e5f1'
+    document.getElementById("engbut").style.backgroundColor = '#e4e5f1'
+    document.getElementById("grebut").style.backgroundColor = '#e4e5f1'
+  }
 }
 
 
