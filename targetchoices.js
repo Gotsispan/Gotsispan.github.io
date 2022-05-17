@@ -122,7 +122,7 @@ function showstats(e,no,sound){
         text = document.createElement('p')
         text.setAttribute("id", "text2");
         if (lang == 'English') {
-          text.innerText =  '• Welcome to my profile, I am a post-graduate in electrical engineer and information technology. \r\n' +
+          text.innerText =  '• Welcome to my profile, I am a graduate in electrical engineer and information technology. \r\n' +
           '• I enjoy making projects like this one as a junior web developer. \r\n' +
           '• My field of expertise also extends to hardware designing, which is also the subject of my graduation thesis. \r\n' +
           '• I am excited to expand my knowledge of the beautiful world of Information Technology and turn my passion into a career'
@@ -438,7 +438,7 @@ function showstats(e,no,sound){
         if (lang == "English") {
           text.innerText = '• This game is called 2048. You can use your arrow keys (up,down,left and right) to move the tiles in that direction. \r\n' +
           "• If you are unfamiliar with the game and need a mini explanation of the game, please click the 'Help' button below. \r\n" +
-          "• The game will save your proggress until you refresh or leave the page but you can manually reset it with the 'Reset' button below."
+          "• The game will save your progress until you refresh or leave the page but you can manually reset it with the 'Reset' button below."
         }
         if (lang == 'Greek') {
           text.innerText = '• Αυτό το παιχνίδι ονομάζεται 2048. Μπορείτε να χρησιμοποιήσετε τα βελάκια (πάνω, κάτω, δεξιά, αριστερά για να κινήσετε τα ψηφία στηνα αντίστοιχη κατεύθυνση). \r\n' +
