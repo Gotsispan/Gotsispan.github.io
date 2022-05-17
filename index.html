@@ -12,13 +12,18 @@
 
 <body>
 
-<div class = "container">
+<div class = "container" id = "container">
     <div class = "left-side" >
 
-        <div class = "langbuttons">
-            <button id = "engbut" onclick = "updateLang('English')"></button>
-            <button id = "grebut" onclick = "updateLang('Greek')"></button>
-        </div>
+            <div class = "langbuttons">
+                <button id = "engbut" onclick = "updateLang('English')"></button>
+                <button id = "grebut" onclick = "updateLang('Greek')"></button>
+            </div>
+
+            <div class = "colorbuttons">
+                <button id = "darkbut" onclick = "updateColor('dark')">Dark background activated</button>
+                <button id = "lightbut" onclick = "updateColor('light')">Press here to switch the colors!</button>
+            </div>
 
         <div class = "targets-left" onmousemove="myFunction(event)" onmouseout="clearCoor()">
             <div class = "trestar"> 
