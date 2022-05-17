@@ -9,9 +9,13 @@ function reset2048() {
     for (let j=0; j<4; j++) {
       if ( array2048[i][j] == 0 ) {
         document.getElementById('place'+(i*4+j)).innerText = '';
+        document.getElementById('place'+(i*4+j)).style.backgroundColor = numbarray[0][1]
+        document.getElementById('place'+(i*4+j)).style.color = numbarray[0][0]
       }
       else {
-        document.getElementById('place'+(i*4+j)).innerText = array2048[i][j];
+        document.getElementById('place'+(i*4+j)).innerText = 2;
+        document.getElementById('place'+(i*4+j)).style.backgroundColor = numbarray[1][1]
+        document.getElementById('place'+(i*4+j)).style.color = numbarray[1][0]
       }     
     }
   }
