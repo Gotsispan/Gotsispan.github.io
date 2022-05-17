@@ -1,3 +1,68 @@
+var array2048 = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+var autoreset = 1;
+
+function reset2048() {
+  array2048 = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+  array2048[Math.floor(Math.random()*4)][Math.floor(Math.random()*4)] = 2;
+
+  for (let i=0; i<4; i++) {
+    for (let j=0; j<4; j++) {
+      if ( array2048[i][j] == 0 ) {
+        document.getElementById('place'+(i*4+j)).innerText = '';
+      }
+      else {
+        document.getElementById('place'+(i*4+j)).innerText = array2048[i][j];
+      }     
+    }
+  }
+
+}
+
+numbarray = [['#eee4da','#776e65'],['#eee4da','#776e65'],['#ede0c8','#776e65'],['#f9f6f2','#f2b179'],
+['#f9f6f2','#f59563'],['#f9f6f2','#f67c5f'],['#f9f6f2','#f65e3b'],
+['#f9f6f2','#edcf72'],['#f9f6f2','#edcc61'],['#f9f6f2','#edc850'],
+['#f9f6f2','#edc53f'],['#f9f6f2','#edc22e']]
+
+
+function showhelp2048() {
+  if (lang == 'English') {
+    if (document.getElementById('instr').innerText.includes("All the")) {
+      let text = 'This game is called 2048. You can use your arrow keys (up,down,left and right) to move the tiles in that direction. \r\n' +
+          "• If you are unfamiliar with the game and need a mini explanation of the game, please click the 'Help' button below. \r\n" +
+          "• The game will save your progress until you refresh or leave the page but you can manually reset it with the 'Reset' button below."
+      document.getElementById('instr').innerText = text
+      document.getElementById('helpbutton').innerText = 'Help'
+
+    }
+    else {
+      let text = 'All the tiles will attempt to move to the direction you specified. The tiles will always move to the empty spots when available.' +
+      'When two tiles with equal value collide, they combine to one with double the value. ' +
+      'Every new turn, one  tile of value (2) will randomly spawn in one of the empty spots in the grid. If there are no empty spots, you lose the game. ' +
+      'If you happen to lose the game, just click the Reset button to start again. You can also hide those instructions by clicking Hide Help'  
+      document.getElementById('instr').innerText = text 
+      document.getElementById('helpbutton').innerText = 'Hide Help'
+    }
+  }
+  if (lang == 'Greek') {
+    if (document.getElementById('instr').innerText.includes("Όλα τα")) {
+      let text = '• Αυτό το παιχνίδι ονομάζεται 2048. Μπορείτε να χρησιμοποιήσετε τα βελάκια (πάνω, κάτω, δεξιά, αριστερά για να κινήσετε τα ψηφία στηνα αντίστοιχη κατεύθυνση). \r\n' +
+      "• Αν δεν γνωρίζετε το παιχνίδι και θέλετε μια μικρή εξήγηση του πως λειτουργεί, πατήστε το κουμπί 'Βοήθεια' παρακάτω. \r\n" +
+      "• Το παιχνίδι αποθηκεύει την πρόοδο σας όσο βρίσκεσται στη σελίδα, αλλα μπορείτε να το αρχίσετε από την αρχή με το κουμπί 'Επανέναρξη'."
+      document.getElementById('instr').innerText = text
+      document.getElementById('helpbutton').innerText = 'Βοήθεια'
+    }
+    else {
+      let text = 'Όλα τα ψηφία θα προσπαθήσουν να κινηθούν στην κατεύθυνση που δώσατε και καταλαμβάνουν πάντα τις διαθέσιμες κενές θέσεις.' +
+      'Όταν 2 ισάξια πλακίδια συγκρούονται, τότε ενώνονται και το νέο πλακίδιο παίρνει την τιμή του αθροίσματος τους.' +
+      'Σε κάθε γύρο, ένα νέο πλακίδιο με την τιμή 2 θα εμφανίζεται σε μια από τις κενές θέσεις. Αν δεν υπάρχουν, χάνετε το παιχνίδι. ' +
+      "Αν χάσετε το παιχνίδι μπορείτε να αρχίσετε ξανά πατώντας το κουμπί 'Επανέναρξη'. Επίσης μπορείτε να κρύψετε τη βοήθεια με το κουμπί 'Κρύψε τη Βοήθεια'"  
+      document.getElementById('instr').innerText = text 
+      document.getElementById('helpbutton').innerText = 'Κρύψε τη βοήθεια'
+    }
+
+  }
+}
+
 function showstats(e,no,sound){
     lastno = no
     let x = e.clientX;
@@ -6,7 +71,6 @@ function showstats(e,no,sound){
     let xmat = [4,14.5,25,74.1,84.6,95.1]
     let ymat = [49.3,76]
     var enable = 0;
-    console.log(x,y)
     dance:
     for (i=0; i<6; i++) {
       for (j=0; j<2; j++){
@@ -220,8 +284,7 @@ function showstats(e,no,sound){
           document.getElementById("div1").appendChild(text2);
           document.getElementById("text2"+i).style.fontSize = 'large';
           document.getElementById("text2"+i).style.fontWeight = 'bold';
-          console.log(window.innerHeight)
-          
+
           if (i !=0 ) {
             link = document.createElement('a');
             link.innerText = certwordarr[i];
@@ -230,9 +293,7 @@ function showstats(e,no,sound){
             document.getElementById('div1').appendChild(link);
             document.getElementById("link"+i).style.textAlign =  'center';
             document.getElementById("link"+i).style.display = 'inline-block';
-            console.log(Math.floor(0.026*window.innerHeight))
             document.getElementById("link"+i).style.padding = Math.floor(0.017*window.innerHeight).toString() + "px 0px";
-            console.log(document.getElementById("link"+i))
           }
           else {
             text3 = document.createElement('p')
@@ -240,7 +301,6 @@ function showstats(e,no,sound){
             text3.innerText = certwordarr[i];
             document.getElementById("div1").appendChild(text3);
             document.getElementById("text3"+i).style.maxHeight = 0.022*window.innerHeight.toString() + 'px';
-            console.log(document.getElementById("text3"+i))
           }
 
         }
@@ -353,14 +413,278 @@ function showstats(e,no,sound){
         document.getElementById('form').appendChild(button);
 
         document.getElementById("form").style.display = "grid";
-        document.getElementById("form").style.height = '350px';
+        document.getElementById("form").style.height = Math.floor(0.39*window.innerHeight).toString() + 'px';
         document.getElementById("form").style.width = '100%';
         document.getElementById("form").style.gridTemplateRows = "6% 6% 6% 6% 6% 6% 6% 6% 40% 6% 6%"
         document.getElementById("form").style.rowGap = '0px';
         document.getElementById("form").style.float = 'left';
   
       }
-     
+      
+      if (no == 8) {
+
+        var div = document.createElement("div");
+        div.setAttribute("id", "div1");
+        document.getElementById('screeninfo').appendChild(div);
+
+        var text = document.createElement('text')
+        text.setAttribute("id", "instr");
+        if (lang == "English") {
+          text.innerText = '• This game is called 2048. You can use your arrow keys (up,down,left and right) to move the tiles in that direction. \r\n' +
+          "• If you are unfamiliar with the game and need a mini explanation of the game, please click the 'Help' button below. \r\n" +
+          "• The game will save your proggress until you refresh or leave the page but you can manually reset it with the 'Reset' button below."
+        }
+        if (lang == 'Greek') {
+          text.innerText = '• Αυτό το παιχνίδι ονομάζεται 2048. Μπορείτε να χρησιμοποιήσετε τα βελάκια (πάνω, κάτω, δεξιά, αριστερά για να κινήσετε τα ψηφία στηνα αντίστοιχη κατεύθυνση). \r\n' +
+          "• Αν δεν γνωρίζετε το παιχνίδι και θέλετε μια μικρή εξήγηση του πως λειτουργεί, πατήστε το κουμπί 'Βοήθεια' παρακάτω. \r\n" +
+          "• Το παιχνίδι αποθηκεύει την πρόοδο σας όσο βρίσκεσται στη σελίδα, αλλα μπορείτε να το αρχίσετε από την αρχή με το κουμπί 'Επανέναρξη'."
+        }
+        document.getElementById('div1').appendChild(text);
+        document.getElementById('instr').style.fontSize = '15px';
+
+        
+        var divbot = document.createElement("div");
+        divbot.setAttribute("id", "divbot");
+        document.getElementById('div1').appendChild(divbot);
+
+        var button1 = document.createElement("button")
+        button1.setAttribute("id","helpbutton")
+        if (lang == "English") {
+          button1.innerHTML = 'Help'
+        }
+        if (lang == "Greek") {
+          button1.innerHTML = 'Βοήθεια'
+        }
+        document.getElementById('divbot').appendChild(button1);
+        document.getElementById("helpbutton").onclick = function() {showhelp2048()}
+
+
+        var board = document.createElement("div");
+        board.setAttribute("id", "2048board");
+        document.getElementById('divbot').appendChild(board);
+
+        var button2 = document.createElement("button")
+        button2.setAttribute("id","resetbutton")
+  
+        if (lang == "English") {
+          button2.innerHTML = 'Reset'
+        }
+        if (lang == "Greek") {
+          button2.innerHTML = 'Επανέναρξη'
+        }
+        document.getElementById('divbot').appendChild(button2);
+        document.getElementById("resetbutton").onclick = function() {reset2048()}
+
+        document.getElementById("helpbutton").style.position = 'absolute';
+        document.getElementById("helpbutton").style.bottom = '5%';
+        document.getElementById("helpbutton").style.left = '2%';
+        document.getElementById("helpbutton").style.width = '15%';
+        document.getElementById("helpbutton").style.height = '15%';
+        document.getElementById("helpbutton").style.fontSize = '11px';
+
+        document.getElementById("resetbutton").style.position = 'absolute';
+        document.getElementById("resetbutton").style.bottom = '5%';
+        document.getElementById("resetbutton").style.right = '2%';
+        document.getElementById("resetbutton").style.width = '15%';
+        document.getElementById("resetbutton").style.height = '15%';
+        document.getElementById("resetbutton").style.fontSize = '11px';
+
+
+        for (i=0; i<16; i++) {
+          text = document.createElement('text')
+          text.setAttribute("id", "place"+i);
+          text.innerText = '';
+          document.getElementById('2048board').appendChild(text);
+          document.getElementById('place'+i).style.border = '1px solid'
+          document.getElementById('place'+i).style.fontSize = '25px'
+          document.getElementById('place'+i).style.backgroundColor = numbarray[0][1]
+          document.getElementById('place'+i).style.color = numbarray[0][0]
+          document.getElementById('place'+i).style.display = 'flex'
+          document.getElementById('place'+i).style.justifyContent = 'center'
+          document.getElementById('place'+i).style.alignItems = 'center'
+        }
+
+
+        
+        document.getElementById("2048board").style.position = 'absolute';
+        document.getElementById("2048board").style.bottom = Math.floor(0.01*window.innerHeight).toString() + 'px';;
+        document.getElementById("2048board").style.border = "1px solid"
+        document.getElementById("2048board").style.borderLeft = "1px solid"
+        document.getElementById("2048board").style.left = Math.floor(0.11*window.innerHeight).toString() + 'px';
+        document.getElementById("2048board").style.display = "grid";
+        document.getElementById("2048board").style.height = Math.floor(0.3*window.innerHeight).toString() + 'px';
+        document.getElementById("2048board").style.width = Math.floor(0.3*window.innerHeight).toString() + 'px';
+        document.getElementById("2048board").style.gridTemplateColumns = "25% 25% 25% 25%";
+        document.getElementById("2048board").style.gridTemplateRows = "25% 25% 25% 25%";
+        document.getElementById("2048board").style.rowGap = '0px';
+        document.getElementById("2048board").style.columnGap = '0px';
+        document.getElementById("2048board").style.textAlign = 'center';
+
+        
+
+        document.addEventListener('keydown', function(e) {
+          switch (e.keyCode) {
+              case 37:
+                  movedir('left');
+                  break
+              case 38:
+                  movedir('up');
+                  break
+              case 39:
+                  movedir('right');
+                  break
+              case 40:
+                  movedir('down');
+                  break
+          }
+        });
+
+        if (autoreset == 1) {
+          reset2048()
+          autoreset = 0;
+        }
+
+        for (let i=0; i<4; i++) {
+          for (let j=0; j<4; j++) {
+            if (array2048[i][j] != 0) {
+              document.getElementById('place'+(i*4+j)).style.backgroundColor = numbarray[Math.log2(array2048[i][j])][1]
+              document.getElementById('place'+(i*4+j)).style.color = numbarray[Math.log2(array2048[i][j])][0]
+            }
+            else {
+              document.getElementById('place'+(i*4+j)).style.backgroundColor = numbarray[0][1]
+              document.getElementById('place'+(i*4+j)).style.color = numbarray[0][0]
+            }
+          }
+        }
+
+        for (let i=0; i<4; i++) {
+          for (let j=0; j<4; j++) {
+            if ( array2048[i][j] == 0 ) {
+              document.getElementById('place'+(i*4+j)).innerText = '';
+            }
+            else {
+              document.getElementById('place'+(i*4+j)).innerText = array2048[i][j];
+            }     
+          }
+        }
+
+        function movedir(dir) {
+          
+          switch (dir) {
+            case 'left':
+              for (let i=0; i<4; i=i+1) {
+                for (let j=1; j<4; j=j+1) {
+                  for (let l=j; l>0; l=l-1) {
+                    if (array2048[i][l-1] == array2048[i][l]) {
+                      array2048[i][l-1] = 2 * array2048[i][l]
+                      array2048[i][l] = 0;
+                    }
+                    else if (array2048[i][l-1] == 0) {
+                      array2048[i][l-1] = array2048[i][l]
+                      array2048[i][l] = 0;
+                    }
+                  } 
+                }
+              }
+              break
+            case 'right':
+              for (let i=0; i<4; i=i+1) {
+                for (let j=2; j>-1; j=j-1) {
+                  for (let l=0; l<j+1; l=l+1) {
+                    if (array2048[i][l+1] == array2048[i][l]) {
+                      array2048[i][l+1] = 2 * array2048[i][l]
+                      array2048[i][l] = 0;
+                    }
+                    else if (array2048[i][l+1] == 0) {
+                      array2048[i][l+1] = array2048[i][l]
+                      array2048[i][l] = 0;
+                    }
+                  } 
+                }
+              }
+              break
+            case 'up':
+              for (let j=0; j<4; j=j+1) {
+                for (let i=1; i<4; i=i+1) {
+                  for (let l=i; l>0; l=l-1) {
+                    if (array2048[l-1][j] == array2048[l][j]) {
+                      array2048[l-1][j] = 2 * array2048[l][j]
+                      array2048[l][j] = 0;
+                    }
+                    else if (array2048[l-1][j] == 0) {
+                      array2048[l-1][j] = array2048[l][j]
+                      array2048[l][j] = 0;
+                    }
+                  } 
+                }
+              }
+              break
+            case 'down':
+              for (let j=0; j<4; j=j+1) {
+                for (let i=2; i>-1; i=i-1) {
+                  for (let l=0; l<i+1; l=l+1) {
+                    if (array2048[l+1][j] == array2048[l][j]) {
+                      array2048[l+1][j] = 2 * array2048[l][j]
+                      array2048[l][j] = 0;
+                    }
+                    else if (array2048[l+1][j] == 0) {
+                      array2048[l+1][j] = array2048[l][j]
+                      array2048[l][j] = 0;
+                    }
+                  } 
+                }
+              }
+              break
+          } 
+          
+          possarr = []
+          for (let i=0; i<4; i++) {
+            for (let j=0; j<4; j++) {
+              if (array2048[i][j] == 0) {
+                possarr.push([i,j])
+              }
+            }
+          }
+          
+          if (possarr.length != 0) {
+            randplace = possarr[Math.floor(Math.random()*possarr.length)]
+            array2048[randplace[0]][randplace[1]] = 2;  
+          }
+          else {
+            alert('You lost')
+          }
+
+
+          for (let i=0; i<4; i++) {
+            for (let j=0; j<4; j++) {
+              if ( array2048[i][j] == 0 ) {
+                document.getElementById('place'+(i*4+j)).innerText = '';
+              }
+              else {
+                document.getElementById('place'+(i*4+j)).innerText = array2048[i][j];
+              }
+              
+              
+              if (array2048[i][j] != 0) {
+                document.getElementById('place'+(i*4+j)).style.backgroundColor = numbarray[Math.log2(array2048[i][j])][1]
+                document.getElementById('place'+(i*4+j)).style.color = numbarray[Math.log2(array2048[i][j])][0]
+              }
+              else {
+                document.getElementById('place'+(i*4+j)).style.backgroundColor = numbarray[0][1]
+                document.getElementById('place'+(i*4+j)).style.color = numbarray[0][0]
+              }
+
+
+            }
+          }
+        }
+
+        
+
+
+
+         
+      } 
 
 
       //Other Projects
