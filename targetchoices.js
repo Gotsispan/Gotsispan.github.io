@@ -38,11 +38,11 @@ function showhelp2048() {
       document.getElementById("2048board").style.height = Math.floor(0.3*window.innerHeight).toString() + 'px';
     }
     else {
-      let text = 'INSTRUCTIONS: \r\n • All the tiles on the board will attempt to move to the direction you specified. \r\n' +
-      '• The tiles will always move to the empty spots when available, starting from the side opposite of the key you used.  \r\n' +
-      '• When two tiles with equal value collide, they combine to one with double the value. \r\n' +
+      let text = '• All the tiles on the board will attempt to move to the direction you specified. \r\n' +
+      '• The tiles will always move to the empty spots when available.  \r\n' +
+      '• When two tiles with equal value collide, they combine and double the value. \r\n' +
       '• Every new turn, one  tile of value (2) will randomly spawn in one of the empty spots in the grid. If there are no empty spots for it to spawn, you lose the game.  \r\n' +
-      "• If you happen to lose the game, you can click the 'Reset' button to start over again with a new board. \r\n" +
+      "• If you lose the game, you can click the 'Reset' button to start over again. \r\n" +
       '• The game will automatically save your progress until you refresh or leave the page, so you can continue browsing and come back if you want \r\n' +
       "• You can  hide those instructions and return to your game by clicking 'Hide Help'"  
       document.getElementById('instr').innerText = text 
@@ -59,13 +59,13 @@ function showhelp2048() {
       document.getElementById("2048board").style.height = Math.floor(0.3*window.innerHeight).toString() + 'px';
     }
     else {
-      let text =  'ΟΔΗΓΙΕΣ: \r\n • Όλα τα πλακίδια στον πίνακα θα προσπαθήσουν να μετακινηθούν προς την κατεύθυνση που καθορίσατε. \r\n' +
-      '• Τα πλακίδια θα μετακινούνται πάντα στις κενές θέσεις όταν αυτές είναι διαθέσιμες, ξεκινώντας από την πλευρά απέναντι από το βελάκι που χρησιμοποιήσατε. \r\n' +
-      '• Όταν δύο πλακίδια ίδης αξίας συγκρούονται, συνδυάζονται σε ένα με διπλάσια αξία. \r\n' +
+      let text =  '• Όλα τα πλακίδια στον πίνακα θα προσπαθήσουν να μετακινηθούν προς την κατεύθυνση που καθορίσατε. \r\n' +
+      '• Τα πλακίδια θα μετακινούνται πάντα στις κενές θέσεις όταν αυτές είναι διαθέσιμες. \r\n' +
+      '• Όταν δύο πλακίδια ίσης αξίας συγκρούονται, συνδυάζονται σε ένα με διπλή αξία. \r\n' +
       '• Κάθε γύρο, ένα πλακίδιο αξίας (2) θα εμφανίζεται τυχαία σε ένα από τα κενά σημεία του πίνακα. Εάν δεν υπάρχουν κενά σημεία στον πίνακα, χάνετε το παιχνίδι. \r\n' +
-      "• Εάν χάσετε το παιχνίδι, μπορείτε να κάνετε κλικ στο κουμπί 'Επαναφορά' για να ξεκινήσετε ξανά με έναν νέο πίνακα. \r\n" +
+      "• Άν χάσετε το παιχνίδι, μπορείτε να πατήσετετο κουμπί 'Επαναφορά' για να ξεκινήσετε ξανά. \r\n" +
       '• Το παιχνίδι αποθηκεύει αυτόματα την πρόοδό σας μέχρι να ανανεώσετε ή να αποχωρήσετε από τη σελίδα, ώστε να μπορείτε να συνεχίσετε την περιήγηση και να επιστρέψετε εάν θέλετε \r\n' +
-      "• Μπορείτε να αποκρύψετε αυτές τις οδηγίες και να επιστρέψετε στο παιχνίδι σας κάνοντας κλικ στην 'Απόκρυψη βοήθειας'" 
+      "• Μπορείτε να αποκρύψετε αυτές τις οδηγίες και να επιστρέψετε στο παιχνίδι σας πατώντας το κουμπί 'Απόκρυψη βοήθειας'" 
       document.getElementById('instr').innerText = text 
       document.getElementById('helpbutton').innerText = 'Απόκρυψη βοήθειας'
       document.getElementById("2048board").style.height = '0px';
@@ -470,7 +470,8 @@ function showstats(e,no,sound){
           "Μπορείτε να πατήσετε το κουμπί 'Βοήθεια' για να δείτε πως παίζεται το παιχνίδι ή 'Επαναφορά' για να αρχίσετε από την αρχή."
         }
         document.getElementById('div1').appendChild(text);
-        document.getElementById('instr').style.fontSize = '1.7vh';
+        document.getElementById('instr').style.fontSize = '1.5vh';
+        document.getElementById('instr').style.fontWeight = 'bold';
 
         
         var divbot = document.createElement("div");
