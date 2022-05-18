@@ -31,37 +31,44 @@ numbarray = [['#eee4da','#776e65'],['#eee4da','#776e65'],['#ede0c8','#776e65'],[
 function showhelp2048() {
   if (lang == 'English') {
     if (document.getElementById('instr').innerText.includes("All the")) {
-      let text = 'This game is called 2048. You can use your arrow keys (up,down,left and right) to move the tiles in that direction. \r\n' +
-          "• If you are unfamiliar with the game and need a mini explanation of the game, please click the 'Help' button below. \r\n" +
-          "• The game will save your progress until you refresh or leave the page but you can manually reset it with the 'Reset' button below."
+      let text = 'This game is called 2048. You move the tiles using your arrow keys (up,down,left and right). \r\n' +
+          "You can press 'Help' to learn how the game works or 'Reset' to start over."
       document.getElementById('instr').innerText = text
       document.getElementById('helpbutton').innerText = 'Help'
-
+      document.getElementById("2048board").style.height = Math.floor(0.3*window.innerHeight).toString() + 'px';
     }
     else {
-      let text = 'All the tiles will attempt to move to the direction you specified. The tiles will always move to the empty spots when available.' +
-      'When two tiles with equal value collide, they combine to one with double the value. ' +
-      'Every new turn, one  tile of value (2) will randomly spawn in one of the empty spots in the grid. If there are no empty spots, you lose the game. ' +
-      'If you happen to lose the game, just click the Reset button to start again. You can also hide those instructions by clicking Hide Help'  
+      let text = 'INSTRUCTIONS: \r\n • All the tiles on the board will attempt to move to the direction you specified. \r\n' +
+      '• The tiles will always move to the empty spots when available, starting from the side opposite of the key you used.  \r\n' +
+      '• When two tiles with equal value collide, they combine to one with double the value. \r\n' +
+      '• Every new turn, one  tile of value (2) will randomly spawn in one of the empty spots in the grid. If there are no empty spots for it to spawn, you lose the game.  \r\n' +
+      "• If you happen to lose the game, you can click the 'Reset' button to start over again with a new board. \r\n" +
+      '• The game will automatically save your progress until you refresh or leave the page, so you can continue browsing and come back if you want \r\n' +
+      "• You can  hide those instructions and return to your game by clicking 'Hide Help'"  
       document.getElementById('instr').innerText = text 
       document.getElementById('helpbutton').innerText = 'Hide Help'
+      document.getElementById("2048board").style.height = '0px';
     }
   }
   if (lang == 'Greek') {
     if (document.getElementById('instr').innerText.includes("Όλα τα")) {
-      let text = '• Αυτό το παιχνίδι ονομάζεται 2048. Μπορείτε να χρησιμοποιήσετε τα βελάκια (πάνω, κάτω, δεξιά, αριστερά για να κινήσετε τα ψηφία στηνα αντίστοιχη κατεύθυνση). \r\n' +
-      "• Αν δεν γνωρίζετε το παιχνίδι και θέλετε μια μικρή εξήγηση του πως λειτουργεί, πατήστε το κουμπί 'Βοήθεια' παρακάτω. \r\n" +
-      "• Το παιχνίδι αποθηκεύει την πρόοδο σας όσο βρίσκεσται στη σελίδα, αλλα μπορείτε να το αρχίσετε από την αρχή με το κουμπί 'Επανέναρξη'."
+      let text = 'Αυτό το παιχνίδι ονομάζεται 2048. Μπορείτε να χρησιμοποιήσετε τα βελάκια (πάνω, κάτω, δεξιά, αριστερά). \r\n' +
+      "Μπορείτε να πατήσετε το κουμπί 'Βοήθεια' για να δείτε πως παίζεται το παιχνίδι ή 'Επαναφορά' για να αρχίσετε από την αρχή."
       document.getElementById('instr').innerText = text
       document.getElementById('helpbutton').innerText = 'Βοήθεια'
+      document.getElementById("2048board").style.height = Math.floor(0.3*window.innerHeight).toString() + 'px';
     }
     else {
-      let text = 'Όλα τα ψηφία θα προσπαθήσουν να κινηθούν στην κατεύθυνση που δώσατε και καταλαμβάνουν πάντα τις διαθέσιμες κενές θέσεις.' +
-      'Όταν 2 ισάξια πλακίδια συγκρούονται, τότε ενώνονται και το νέο πλακίδιο παίρνει την τιμή του αθροίσματος τους.' +
-      'Σε κάθε γύρο, ένα νέο πλακίδιο με την τιμή 2 θα εμφανίζεται σε μια από τις κενές θέσεις. Αν δεν υπάρχουν, χάνετε το παιχνίδι. ' +
-      "Αν χάσετε το παιχνίδι μπορείτε να αρχίσετε ξανά πατώντας το κουμπί 'Επανέναρξη'. Επίσης μπορείτε να κρύψετε τη βοήθεια με το κουμπί 'Κρύψε τη Βοήθεια'"  
+      let text =  'ΟΔΗΓΙΕΣ: \r\n • Όλα τα πλακίδια στον πίνακα θα προσπαθήσουν να μετακινηθούν προς την κατεύθυνση που καθορίσατε. \r\n' +
+      '• Τα πλακίδια θα μετακινούνται πάντα στις κενές θέσεις όταν αυτές είναι διαθέσιμες, ξεκινώντας από την πλευρά απέναντι από το βελάκι που χρησιμοποιήσατε. \r\n' +
+      '• Όταν δύο πλακίδια ίδης αξίας συγκρούονται, συνδυάζονται σε ένα με διπλάσια αξία. \r\n' +
+      '• Κάθε γύρο, ένα πλακίδιο αξίας (2) θα εμφανίζεται τυχαία σε ένα από τα κενά σημεία του πίνακα. Εάν δεν υπάρχουν κενά σημεία στον πίνακα, χάνετε το παιχνίδι. \r\n' +
+      "• Εάν χάσετε το παιχνίδι, μπορείτε να κάνετε κλικ στο κουμπί 'Επαναφορά' για να ξεκινήσετε ξανά με έναν νέο πίνακα. \r\n" +
+      '• Το παιχνίδι αποθηκεύει αυτόματα την πρόοδό σας μέχρι να ανανεώσετε ή να αποχωρήσετε από τη σελίδα, ώστε να μπορείτε να συνεχίσετε την περιήγηση και να επιστρέψετε εάν θέλετε \r\n' +
+      "• Μπορείτε να αποκρύψετε αυτές τις οδηγίες και να επιστρέψετε στο παιχνίδι σας κάνοντας κλικ στην 'Απόκρυψη βοήθειας'" 
       document.getElementById('instr').innerText = text 
-      document.getElementById('helpbutton').innerText = 'Κρύψε τη βοήθεια'
+      document.getElementById('helpbutton').innerText = 'Απόκρυψη βοήθειας'
+      document.getElementById("2048board").style.height = '0px';
     }
 
   }
@@ -126,7 +133,7 @@ function showstats(e,no,sound){
         text = document.createElement('p')
         text.setAttribute("id", "text2");
         if (lang == 'English') {
-          text.innerText =  '• Welcome to my profile, I am a graduate in electrical engineer and information technology. \r\n' +
+          text.innerText =  '• Welcome to my profile, I am a graduate in electrical engineering and information technology. \r\n' +
           '• I enjoy making projects like this one as a junior web developer. \r\n' +
           '• My field of expertise also extends to hardware designing, which is also the subject of my graduation thesis. \r\n' +
           '• I am excited to expand my knowledge of the beautiful world of Information Technology and turn my passion into a career'
@@ -140,10 +147,10 @@ function showstats(e,no,sound){
         }
         document.getElementById('screeninfo').appendChild(text);
 
-        document.getElementById('text1').style.fontSize = 'large';
+        document.getElementById('text1').style.fontSize = '2.2vh';
         document.getElementById('text1').style.fontWeight = 'bold';
 
-        document.getElementById('text2').style.fontSize = 'large';
+        document.getElementById('text2').style.fontSize = '1.8vh';
 
       }
 
@@ -173,7 +180,7 @@ function showstats(e,no,sound){
         for (let i=0; i<textarr.length; i++) {
 
             text = document.createElement('p')
-            text.setAttribute("id", "text1");
+            text.setAttribute("id", "text" + i);
             text.innerText = ''
             text.innerText +=  textarr[i]
             document.getElementById('div1').appendChild(text);
@@ -183,7 +190,11 @@ function showstats(e,no,sound){
             link.innerText = linktrans
             link.href = linkarr[i];
             document.getElementById('div1').appendChild(link);
+
+            document.getElementById('text' + i).style.fontSize = '1.8vh';
         }
+
+        
         
 
       }
@@ -230,7 +241,7 @@ function showstats(e,no,sound){
           text.setAttribute("id", "text"+i);
           text.innerText = langarr[i];
           document.getElementById("div1").appendChild(text);
-          document.getElementById("text"+i).style.fontSize = 'large';
+          document.getElementById("text"+i).style.fontSize = '1.7vh';
           document.getElementById("text"+i).style.fontWeight = 'bold';
   
 
@@ -285,14 +296,14 @@ function showstats(e,no,sound){
           text.setAttribute("id", "text1"+i);
           text.innerText = langarr[i];
           document.getElementById("div1").appendChild(text);
-          document.getElementById("text1"+i).style.fontSize = 'large';
+          document.getElementById("text1"+i).style.fontSize = '2vh';
           document.getElementById("text1"+i).style.fontWeight = 'bold';
 
           text2 = document.createElement('p')
           text2.setAttribute("id", "text2"+i);
           text2.innerText = levelarr[i];
           document.getElementById("div1").appendChild(text2);
-          document.getElementById("text2"+i).style.fontSize = 'large';
+          document.getElementById("text2"+i).style.fontSize = '2vh';
           document.getElementById("text2"+i).style.fontWeight = 'bold';
 
           if (i !=0 ) {
@@ -311,6 +322,8 @@ function showstats(e,no,sound){
             text3.innerText = certwordarr[i];
             document.getElementById("div1").appendChild(text3);
             document.getElementById("text3"+i).style.maxHeight = 0.022*window.innerHeight.toString() + 'px';
+            document.getElementById("text3"+i).style.fontSize = '2vh';
+            document.getElementById("text3"+i).style.fontWeight = 'bold';
           }
 
         }
@@ -326,6 +339,7 @@ function showstats(e,no,sound){
 
       if (no == 11) {
 
+ 
         var div = document.createElement("div");
         div.setAttribute("id", "div1");
         document.getElementById('screeninfo').appendChild(div);
@@ -362,6 +376,7 @@ function showstats(e,no,sound){
 
         
         input1 = document.createElement('input')
+        input1.setAttribute('id', 'input1');
         input1.type = "text"
         input1.name = "Name"
         input1.setAttribute('required', '');
@@ -375,13 +390,14 @@ function showstats(e,no,sound){
         label2.setAttribute('id', 'label2');
         document.getElementById('form').appendChild(label2);
         if (lang == 'English') {
-          document.getElementById('label2').innerHTML = 'Enter your email adress here, so we can get back to you:'
+          document.getElementById('label2').innerHTML = 'Enter your email adress here, so we can get back to you: (optional)   '
         }
         if (lang == 'Greek') {
-          document.getElementById('label2').innerHTML = 'Εισάγετε την διεύθ. ηλ. ταχυδρομίου σας εδώ, για να σας απαντήσουμε:'
+          document.getElementById('label2').innerHTML = 'Εισάγετε τo email σας εδώ, για να σας απαντήσουμε: (προεραιτικό)'
         }
 
         input2 = document.createElement('input')
+        input2.setAttribute('id', 'input2');
         input2.type = "text"
         input2.name = "Email"
         input2.setAttribute('required', '');
@@ -428,7 +444,13 @@ function showstats(e,no,sound){
         document.getElementById("form").style.gridTemplateRows = "6% 6% 6% 6% 6% 6% 6% 6% 40% 6% 6%"
         document.getElementById("form").style.rowGap = '0px';
         document.getElementById("form").style.float = 'left';
-  
+
+        document.getElementById('input1').style.fontSize = '1.8vh'
+        document.getElementById('input2').style.fontSize = '1.8vh'
+        document.getElementById('text').style.fontSize = '1.8vh'
+        document.getElementById('label1').style.fontSize = '1.8vh'
+        document.getElementById('label2').style.fontSize = '1.8vh'
+        document.getElementById('label3').style.fontSize = '1.8vh'
       }
       
       if (no == 8) {
@@ -440,17 +462,15 @@ function showstats(e,no,sound){
         var text = document.createElement('text')
         text.setAttribute("id", "instr");
         if (lang == "English") {
-          text.innerText = '• This game is called 2048. You can use your arrow keys (up,down,left and right) to move the tiles in that direction. \r\n' +
-          "• If you are unfamiliar with the game and need a mini explanation of the game, please click the 'Help' button below. \r\n" +
-          "• The game will save your progress until you refresh or leave the page but you can manually reset it with the 'Reset' button below."
+          text.innerText = 'This game is called 2048. You move the tiles using your arrow keys (up,down,left and right). \r\n' +
+          "You can press 'Help' to learn how the game works or 'Reset' to start over."
         }
         if (lang == 'Greek') {
-          text.innerText = '• Αυτό το παιχνίδι ονομάζεται 2048. Μπορείτε να χρησιμοποιήσετε τα βελάκια (πάνω, κάτω, δεξιά, αριστερά για να κινήσετε τα ψηφία στηνα αντίστοιχη κατεύθυνση). \r\n' +
-          "• Αν δεν γνωρίζετε το παιχνίδι και θέλετε μια μικρή εξήγηση του πως λειτουργεί, πατήστε το κουμπί 'Βοήθεια' παρακάτω. \r\n" +
-          "• Το παιχνίδι αποθηκεύει την πρόοδο σας όσο βρίσκεσται στη σελίδα, αλλα μπορείτε να το αρχίσετε από την αρχή με το κουμπί 'Επανέναρξη'."
+          text.innerText = 'Αυτό το παιχνίδι ονομάζεται 2048. Μπορείτε να χρησιμοποιήσετε τα βελάκια (πάνω, κάτω, δεξιά, αριστερά). \r\n' +
+          "Μπορείτε να πατήσετε το κουμπί 'Βοήθεια' για να δείτε πως παίζεται το παιχνίδι ή 'Επαναφορά' για να αρχίσετε από την αρχή."
         }
         document.getElementById('div1').appendChild(text);
-        document.getElementById('instr').style.fontSize = '15px';
+        document.getElementById('instr').style.fontSize = '1.7vh';
 
         
         var divbot = document.createElement("div");
@@ -490,14 +510,14 @@ function showstats(e,no,sound){
         document.getElementById("helpbutton").style.left = '2%';
         document.getElementById("helpbutton").style.width = '15%';
         document.getElementById("helpbutton").style.height = '15%';
-        document.getElementById("helpbutton").style.fontSize = '11px';
+        document.getElementById("helpbutton").style.fontSize = '1.2vh';
 
         document.getElementById("resetbutton").style.position = 'absolute';
         document.getElementById("resetbutton").style.bottom = '5%';
         document.getElementById("resetbutton").style.right = '2%';
         document.getElementById("resetbutton").style.width = '15%';
         document.getElementById("resetbutton").style.height = '15%';
-        document.getElementById("resetbutton").style.fontSize = '11px';
+        document.getElementById("resetbutton").style.fontSize = '1.2vh';
 
 
         for (i=0; i<16; i++) {
