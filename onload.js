@@ -53,7 +53,7 @@ function loadstart(){
     document.getElementById('myface').style.width = '13vw';
     document.getElementById('myface').style.height = '25vh';
 
-    var taglinkarr = ['aboutme.jpg','education.jpg','hardware.webp','webdev.jpg','otherskills.jpg','languages.jpg','projects.jpg','game.jpg','hobbies.jpg','contact.jpg']
+    var taglinkarr = ['aboutme.jpg','education.jpg','hardware.jpg','webdev.jpg','otherskills.jpg','languages.jpg','projects.jpg','game.jpg','hobbies.jpg','contact.jpg']
     for (i=0; i<10; i++) {
         document.getElementById("tag"+i).style.background = 'url(images/' + taglinkarr[i]
         document.getElementById("tag"+i).style.backgroundSize = '100%'
