@@ -48,8 +48,8 @@ function showhelp2048() {
       '• When two tiles with equal value collide, they combine and double the value. \r\n' +
       '• Every new turn, one  tile of value (2) will randomly spawn in one of the empty spots in the grid. If there are no empty spots for it to spawn, you lose the game.  \r\n' +
       "• If you lose the game, you can click the 'Reset' button to start over again. \r\n" +
-      '• The game will automatically save your progress until you refresh or leave the page, so you can continue browsing and come back if you want \r\n' +
-      "• You can  hide those instructions and return to your game by clicking 'Hide Help'"  
+      '• The game will automatically save your progress until you refresh or leave the page, so you can continue browsing and come back if you want. \r\n' +
+      "• You can  hide those instructions and return to your game by clicking 'Hide Help'."  
       document.getElementById('instr').innerText = text 
       document.getElementById('helpbutton').innerText = 'Hide Help'
       document.getElementById("2048board").style.height = '0px';
@@ -96,54 +96,65 @@ function showstats(e,no,sound){
 
     //ABOUT ME
     if (no == 0) {
-
-        const div = document.createElement("div");
-        div.setAttribute("id", "div1");
-        document.getElementById('screeninfo').appendChild(div);
-    
-        var img = document.createElement('img');
-        img.setAttribute("id", "myface");
-        img.src = 'images/myFace.png';
-        document.getElementById('div1').appendChild(img);
-    
-        document.getElementById('screeninfo').style.gridTemplateColumns
-    
-        text = document.createElement('p')
-        text.setAttribute("id", "text1");
-        text.innerText = ''
-    
-        if (lang == 'English') {
-          text.innerText +=  'Panagiotis Gotsis \r\n Date of Birth: 6/10/1995 \r\n Gender: Male \r\n Country of origin: Greece \r\n Email: ece8306@upnet.gr \r\n'
-        }
-        if (lang == 'Greek') {
-          text.innerText +=  'Παναγιώτης Γκότσης \r\n Ημερομηνία Γέννησης: 6/10/1995 \r\n Φύλο: Άντρας \r\n Χώρα καταγωγής: Ελλάδα \r\n Email: ece8306@upnet.gr \r\n'
-        }
-    
-        document.getElementById('div1').appendChild(text);
-        document.getElementById('div1').style.display = "grid"
-        document.getElementById('div1').style.gridTemplateColumns = "30% 70%"
-    
-        text = document.createElement('p')
-        text.setAttribute("id", "text2");
-        if (lang == 'English') {
-          text.innerText =  'Welcome to my profile, I am a graduate in electrical engineering and information technology. \r\n' +
-          'I enjoy making projects like this one as a junior web developer. \r\n' +
-          'My field of expertise also extends to hardware designing, which is also the subject of my graduation thesis. \r\n' +
-          'I am excited to expand my knowledge of the beautiful world of Information Technology and turn my passion into a career'
-        }
-        if (lang == 'Greek') {
-          text.innerText =  'Καλως ήρθατε στο προφίλ μου. Είμαι απόφοιτος ηλεκτρολόγος μηχανικός και τεχνολογίας υπολογιστών. \r\n' +
-          'Μου αρέσει να εκτελώ πρότζεκτς σαν και αυτό ως junior web developer. \r\n' +
-          'Οι γνώσεις μου επεκτείνονται και στο σχεδιασμό ολοκληρωμένων κυκλωμάτων, το οποίο αποτελεί και το αντικείμενο της διπλωματικής εργασίας μου. \r\n' +
-          'Θα ήθελα να επεκτείνω τις γνώσεις μου επάνω στον τομέα της τεχνολογίας υπολογιστών (IT) και να μετατρέψω το ενδιαφέρον μου σε εργασία'
-        }
-        document.getElementById('screeninfo').appendChild(text);
-    
-        document.getElementById('text1').style.fontSize = '3vh';
-        document.getElementById('text1').style.fontWeight = 'bold';
-        document.getElementById('text2').style.fontSize = '2vh';
-        document.getElementById('myface').style.width = '13vw';
-        document.getElementById('myface').style.height = '25vh';
+      
+      const div = document.createElement("div");
+      div.setAttribute("id", "div1");
+      document.getElementById('screeninfo').appendChild(div);
+  
+      var img = document.createElement('img');
+      img.setAttribute("id", "myface");
+      img.src = 'images/myFace.png';
+      document.getElementById('div1').appendChild(img);
+  
+      document.getElementById('screeninfo').style.gridTemplateColumns
+  
+      text = document.createElement('p')
+      text.setAttribute("id", "text1");
+      text.innerText = ''
+  
+      if (lang == 'English') {
+        text.innerText +=  'Panagiotis Gotsis \r\n Date of Birth: 6/10/1995 \r\n Gender: Male \r\n Country of origin: Greece \r\n Email: ece8306@upnet.gr \r\n'
+      }
+      if (lang == 'Greek') {
+        text.innerText +=  'Παναγιώτης Γκότσης \r\n Ημερομηνία Γέννησης: 6/10/1995 \r\n Φύλο: Άντρας \r\n Χώρα καταγωγής: Ελλάδα \r\n Email: ece8306@upnet.gr \r\n'
+      }
+  
+      document.getElementById('div1').appendChild(text);
+      document.getElementById('div1').style.display = "grid"
+      document.getElementById('div1').style.gridTemplateColumns = "30% 70%"
+      document.getElementById('div1').style.gridTemplateColumns
+  
+      text = document.createElement('p')
+      text.setAttribute("id", "text2");
+      if (lang == 'English') {
+          text.innerText = '• Welcome to my hub. My name is Panagiotis and I am a graduate in electrical engineering and information technology. \r\n' +
+          '• I am a passionate self taught web designer, skilled in CSS, HTML and Javascript. \r\n' +
+          '• I enjoy creating interactive websites with advanced UI, as evidenced by this particular one which I created from scratch. \r\n' +
+          '• I am excited to expand my knowledge on the beautiful world of web developing and turn my passion into a career. \r\n' +
+          '• My field of expertise also extends to hardware design, which also happens to be the subject of my graduation thesis. \r\n' +
+          '• I am open to anything on that spectrum, as long as I get to be creative and achieve a sufficient amount of short term goals. \r\n' +
+          '• To navigate this page, shoot the arrows (by clicking your mouse) to the subsequent targets to see more stuff about me. \r\n' +
+          "• Feel free to message me using the contact form I set up, by clicking 'Contact' on the menu below."
+      }
+      if (lang == 'Greek') {
+        text.innerText =  'Καλως ήρθατε στο προφίλ μου. Είμαι απόφοιτος ηλεκτρολόγος μηχανικός και τεχνολογίας υπολογιστών. \r\n' +
+        'Μου αρέσει να εκτελώ πρότζεκτς σαν και αυτό ως junior web developer. \r\n' +
+        'Οι γνώσεις μου επεκτείνονται και στο σχεδιασμό ολοκληρωμένων κυκλωμάτων, το οποίο αποτελεί και το αντικείμενο της διπλωματικής εργασίας μου. \r\n' +
+        'Θα ήθελα να επεκτείνω τις γνώσεις μου επάνω στον τομέα της τεχνολογίας υπολογιστών (IT) και να μετατρέψω το ενδιαφέρον μου σε εργασία'
+      }
+      document.getElementById('screeninfo').appendChild(text);
+  
+      
+      document.getElementById('text1').style.fontSize = '3vh';
+      document.getElementById('text1').style.fontWeight = 'bold';
+      document.getElementById('text2').style.fontSize = '1.9vh';
+      document.getElementById('text2').style.textAlign = 'justify';
+      document.getElementById('text2').style.paddingLeft = '2%';
+      document.getElementById('text2').style.paddingRight = '2%';
+      document.getElementById('text2').style.lineHeight = '110%';
+      document.getElementById('text2').style.fontWeight = 'bold';
+      document.getElementById('myface').style.width = '13vw';
+      document.getElementById('myface').style.height = '25vh';
 
     }
 
