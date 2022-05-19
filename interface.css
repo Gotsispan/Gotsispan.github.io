@@ -1,8 +1,13 @@
 
 
 .container {
-    background-color: #2f2f2f;
+    background: url(images/night.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     position:absolute;
+    color: #e4e5f1;
     top: 0%;
     bottom: 0%;
     left: 0%;
@@ -65,7 +70,6 @@
     font-size: 2.3vh;
     font-weight: bold;
     font-style: Helvetica;
-    background-color: #2f2f2f;
     color: #e4e5f1;
     border: 1px solid;
     border-color: #e4e5f1;
@@ -86,7 +90,6 @@
 .langbuttons button{
     display: block;
     height: 7vh;
-    background-color: #2f2f2f;
     outline-style: none;
 }
 
