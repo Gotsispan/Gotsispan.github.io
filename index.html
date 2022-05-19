@@ -12,69 +12,65 @@
 
 <body>
 
-<div class = "container" id = "container">
+<div class = "container" id = "container" onmousemove="myFunction(event,-1)">
     <div class = "left-side" >
 
-            <div class = "langbuttons">
-                <button id = "engbut" onclick = "updateLang('English')"></button>
-                <button id = "grebut" onclick = "updateLang('Greek')"></button>
-            </div>
-
-            <div class = "colorbuttons">
-                <button id = "darkbut" onclick = "updateColor('dark')"></button>
-                <button id = "lightbut" onclick = "updateColor('light')"></button>
-            </div>
 
         <div class = "targets-left" id = "targg">
 
             <div class = "treelem">
                 <div class = "trestar"> 
-                    <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,0,1)" id = "target-0" src = 'images\targetlight.png'></img>               
+                    <img onmousemove="myFunction(event,0)" onmouseout="clearCoor(0)" onclick = "showstats(event,0,1)" id = "target-0" src = 'images\targetlight.png'></img>               
                 </div>
    
                 <div class = "trestat">
-                    <div class = "tag" id = "tag0">About me</div> 
+                    <div class = "tag" id = "tag0"></div> 
+                    <div class = "tagtxt" id = "tagtxt0"></div>
                 </div>
             </div>
 
             <div class = "treelem">
                 <div class = "trestar"> 
-                    <img onmousemove="myFunction(event)" onmouseout="clearCoor()"onclick = "showstats(event,1,1)" id = "target-1" src = 'images\targetlight.png'></img>
+                    <img onmousemove="myFunction(event,1)" onmouseout="clearCoor(1)"onclick = "showstats(event,1,1)" id = "target-1" src = 'images\targetlight.png'></img>
                 </div>
 
                 <div class = "trestat">
-                    <div class = "tag" id = "tag1">Education</div>
+                    <div class = "tag" id = "tag1"></div>
+                    <div class = "tagtxt" id = "tagtxt1"></div>
                 </div>
             </div>
 
             <div class = "treelem">
-                <div class = "trestar" onmousemove="myFunction(event)" onmouseout="clearCoor()">
-                    <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,2,1)" id = "target-2" src = 'images\targetlight.png'></img>
+                <div class = "trestar">
+                    <img onmousemove="myFunction(event,2)" onmouseout="clearCoor(2)" onclick = "showstats(event,2,1)" id = "target-2" src = 'images\targetlight.png'></img>
                 </div>
                 
                 <div class = "trestat">
-                    <div class = "tag" id = "tag2">Hardware Design</div>
+                    <div class = "tag" id = "tag2"></div>
+                    <div class = "tagtxt" id = "tagtxt2"></div>
                 </div>
             </div>
 
             <div class = "treelem">
 
-                <div class = "trestar" onmousemove="myFunction(event)" onmouseout="clearCoor()">
-                    <img onmousemove="myFunction(event)" onmouseout="clearCoor()"  onclick = "showstats(event,3,1)" id = "target-3" src = 'images\targetlight.png'></img>
+                <div class = "trestar">
+                    <img onmousemove="myFunction(event,3)" onmouseout="clearCoor(3)"  onclick = "showstats(event,3,1)" id = "target-3" src = 'images\targetlight.png'></img>
                 </div> 
 
                 <div class = "trestat">
-                    <div class = "tag" id = "tag3">Web Developing</div>
+                    <div class = "tag" id = "tag3"></div>
+                    <div class = "tagtxt" id = "tagtxt3"></div>
                 </div>
             </div>
 
             <div class = "treelem">    
-                <div class = "trestar" onmousemove="myFunction(event)" onmouseout="clearCoor()">
-                    <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,4,1)" id = "target-4" src = 'images\targetlight.png'></img>
+                <div class = "trestar">
+                    <img onmousemove="myFunction(event,4)" onmouseout="clearCoor(4)" onclick = "showstats(event,4,1)" id = "target-4" src = 'images\targetlight.png'></img>
                 </div>
   
                 <div class = "trestat">
-                    <div class = "tag" id = "tag4">Other Skills</div>
+                    <div class = "tag" id = "tag4"></div>
+                    <div class = "tagtxt" id = "tagtxt4"></div>
                 </div>
             </div>    
         </div>
@@ -91,34 +87,46 @@
 
         <div class = "gun">
             <span id="audio"></span>
-            <img id= "gun" src = 'images/archer.png'></img>
+            <img id= "gun"></img>
         </div>
 
     </div>
 
     <div class = "right-side">
 
+        <div class = "langbuttons">
+            <button id = "engbut" onclick = "updateLang('English')"></button>
+            <button id = "grebut" onclick = "updateLang('Greek')"></button>
+        </div>
+
+        <div class = "colorbuttons">
+            <button id = "darkbut" onclick = "updateColor('dark')"></button>
+            <button id = "lightbut" onclick = "updateColor('light')"></button>
+        </div>
+
         <div class = "targets-right" id = "targg">
 
             <div class = "treelem2">
                 
                 <div class = "trestat">
-                    <div class = "tag" id = "tag5">Languages</div>
+                    <div class = "tag" id = "tag5"></div>
+                    <div class = "tagtxt" id = "tagtxt5"></div>
                 </div>
 
                 <div class = "trestar2"> 
-                    <img onmousemove="myFunction(event)" onmouseout="clearCoor()"onclick = "showstats(event,5,1)" id = "target-5" src = 'images\targetlight.png'></img>
+                    <img onmousemove="myFunction(event,5)" onmouseout="clearCoor(5)"onclick = "showstats(event,5,1)" id = "target-5" src = 'images\targetlight.png'></img>
                 </div>
             </div>
 
             <div class = "treelem2">
 
                 <div class = "trestat">
-                    <div class = "tag" id = "tag6">Other Projects</div>
+                    <div class = "tag" id = "tag6"></div>
+                    <div class = "tagtxt" id = "tagtxt6"></div>
                 </div>
 
-                <div class = "trestar2" onmousemove="myFunction(event)" onmouseout="clearCoor()">
-                    <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,6,1)" id = "target-6" src = 'images\targetlight.png'></img>
+                <div class = "trestar2">
+                    <img onmousemove="myFunction(event,6)" onmouseout="clearCoor(6)" onclick = "showstats(event,6,1)" id = "target-6" src = 'images\targetlight.png'></img>
                 </div>
                 
             </div>
@@ -126,11 +134,12 @@
             <div class = "treelem2">
 
                 <div class = "trestat">
-                    <div class = "tag" id = "tag7">Play a Game!</div>
+                    <div class = "tag" id = "tag7"></div>
+                    <div class = "tagtxt" id = "tagtxt7"></div>
                 </div>
 
-                <div class = "trestar2" onmousemove="myFunction(event)" onmouseout="clearCoor()">
-                    <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,7,1)" id = "target-7" src = 'images\targetlight.png'></img>
+                <div class = "trestar2">
+                    <img onmousemove="myFunction(event,7)" onmouseout="clearCoor(7)" onclick = "showstats(event,7,1)" id = "target-7" src = 'images\targetlight.png'></img>
                 </div>
                
             </div>
@@ -138,11 +147,12 @@
             <div class = "treelem2">
 
                 <div class = "trestat">
-                    <div class = "tag" id = "tag8">My Hobbies</div>
+                    <div class = "tag" id = "tag8"></div>
+                    <div class = "tagtxt" id = "tagtxt8"></div>
                 </div>
 
-                <div class = "trestar2" onmousemove="myFunction(event)" onmouseout="clearCoor()">
-                    <img onmousemove="myFunction(event)" onmouseout="clearCoor()"  onclick = "showstats(event,8,1)" id = "target-8" src = 'images\targetlight.png'></img>
+                <div class = "trestar2" >
+                    <img onmousemove="myFunction(event,8)" onmouseout="clearCoor(8)"  onclick = "showstats(event,8,1)" id = "target-8" src = 'images\targetlight.png'></img>
                 </div> 
 
             </div>
@@ -150,11 +160,12 @@
             <div class = "treelem2">    
 
                 <div class = "trestat">
-                    <div class = "tag" id = "tag9">Contact</div>
+                    <div class = "tag" id = "tag9"></div>
+                    <div class = "tagtxt" id = "tagtxt9"></div>
                 </div>
 
-                <div class = "trestar2" onmousemove="myFunction(event)" onmouseout="clearCoor()">
-                    <img onmousemove="myFunction(event)" onmouseout="clearCoor()" onclick = "showstats(event,9,1)" id = "target-9" src = 'images\targetlight.png'></img>
+                <div class = "trestar2" >
+                    <img onmousemove="myFunction(event,9)" onmouseout="clearCoor(9)" onclick = "showstats(event,9,1)" id = "target-9" src = 'images\targetlight.png'></img>
                 </div>
 
             </div>   
@@ -164,9 +175,11 @@
     </div>
 </div>
 
-
-<script src = "otherscript.js"></script>
+<script src = "onload.js"></script>
 <script src = "targetchoices.js"></script>
+<script src = "otherscript.js"></script>
+
+
 
 </body>
 
