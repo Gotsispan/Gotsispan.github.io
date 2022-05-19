@@ -4,10 +4,9 @@
 //TO-DO
 //Language change
 
-
-var lang = 'English';
-var color = 'dark';
 var lastno = -1;
+var engterms = ['About  me','Education','Hardware Design','Web Developing','Other Prog. Skills','Languages','Other Projects','Play a Game!','My Hobbies','Contact']
+var greterms = ['Πληροφορίες','Εκπαίδευση','Σχεδιαση Ολοκληρωμένων','Ανάπτυξη ιστοσελίδων','Άλλες γνώσεις','Γλώσσες','Άλλα πρότζεκτ','Παίξε ένα παιχνίδι','Ενδιαφέροντα','Επικοινωνία']
 
 document.getElementById("engbut").innerHTML = '<img id = "engflag" src="images/ENG.ico" />';
 document.getElementById("grebut").innerHTML = '<img id = "greflag" src="images/GRE.png" />';
@@ -39,17 +38,6 @@ function updateLang(langg) {
     if (lastno != -1) {
       showstats('yes',lastno,0)
     }
-
-    var engterms = ['About  me','Education','Hardware Design','Web Developing','Other Skills','Languages','Other Projects','Play a Game!','My Hobbies','Contact']
-    var greterms = ['Πληοροφορίες','Εκπαίδευση','Σχεδιαση Ολοκληρωμένων','Ανάπτυξη ιστοσελίδων','Άλλες γνώσεις','Γλώσσες','Άλλα πρότζεκτ','Παίξε ένα παιχνίδι','Ενδιαφέροντα','Επικοινωνία']
-    for (i=0; i<10; i++) {
-      if (langg == 'Greek') {
-        document.getElementById('tag'+i).innerHTML = greterms[i];
-      }
-      if (langg == 'English'){
-        document.getElementById('tag'+i).innerHTML = engterms[i];
-      }
-    }
 }
 
 function updateColor(colorr) {
@@ -72,6 +60,7 @@ function updateColor(colorr) {
     document.getElementById("container").style.backgroundPosition = 'center'
     document.getElementById("container").style.backgroundRepeat = 'no-repeat'
     document.getElementById("container").style.backgroundSize = 'cover'
+    document.getElementById("gun").src = 'images/archerlight.png'
 
   }
 
@@ -90,28 +79,51 @@ function updateColor(colorr) {
     document.getElementById("container").style.backgroundRepeat = 'no-repeat'
     document.getElementById("container").style.backgroundSize = 'cover'
 
+    for (i=0; i<10; i++) {
+      document.getElementById("tagtxt"+i).style.color = '#e4e5f1'
+    }
+      document.getElementById("gun").src = 'images/archerdark.png'
   }
+
 }
 
+function myFunction(e,no) {
 
-function myFunction(e) {
-    document.getElementById("gun").src = 'images/archer.png'
     var x = e.clientX;
     var y = window.innerHeight - e.clientY - 0.06*window.innerHeight;
     if (x < 0.5*window.innerWidth) {
+        document.getElementById("container").style.cursor = "url('images/icon2left.png'), auto"
         var deg = -180 + Math.atan(y/(0.5*window.innerWidth-x)) * 180/Math.PI;
     }
     else {
+        document.getElementById("container").style.cursor = "url('images/icon2right.png'), auto"
         var deg = -Math.atan(y/(x-0.5*window.innerWidth)) * 180/Math.PI;
     }
     document.getElementById("gun").style.transform = "rotate(" + deg +"deg)"
     if (x < 0.5*window.innerWidth) {
         document.getElementById("gun").style.transform += "scaleY(-1)";
     }
-
+    
+    if (no != -1) {
+      document.getElementById('tag'+no).style.filter = 'brightness(15%)'
+      if (lang == 'Greek') {
+        document.getElementById('tagtxt'+no).innerText = greterms[no];
+      }
+      if (lang == 'English'){
+        document.getElementById('tagtxt'+no).innerText = engterms[no];
+      }
+    }
   }
   
-  function clearCoor() {
-    document.getElementById("gun").src = 'images/blank.png'
+  function clearCoor(no) {
+    //document.getElementById("gun").src = 'images/blank.png'
+    document.getElementById('tag'+no).style.filter = 'brightness(100%)'
+    if (lang == 'Greek') {
+      document.getElementById('tagtxt'+no).innerText = '';
+    }
+    if (lang == 'English'){
+      document.getElementById('tagtxt'+no).innerText = '';
+    }
   }
 
+ 
