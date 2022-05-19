@@ -27,6 +27,7 @@
 .right-side {
     position: relative;
 }
+ 
 
 .treelem {
     display: grid;
@@ -122,6 +123,13 @@
     outline-style: none;
 }
 
+.right-side a{
+    position: absolute;
+    top: 17%;
+    right: 4%;
+    font-size: 2vh;
+    color: #119BFA
+}
 
 .targets-right {
     position:absolute;
