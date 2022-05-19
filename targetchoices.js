@@ -318,22 +318,22 @@ function showstats(e,no,sound){
 
         var img = document.createElement('img');
         img.src = 'images/'+iconarr[i];
-        img.width = (window.innerWidth*0.04).toString();
-        img.height = (window.innerHeight*0.06).toString();
+        img.width = (window.innerWidth*0.05).toString();
+        img.height = (window.innerHeight*0.07).toString();
         document.getElementById("div1").appendChild(img);
 
         text = document.createElement('p')
         text.setAttribute("id", "text1"+i);
         text.innerText = langarr[i];
         document.getElementById("div1").appendChild(text);
-        document.getElementById("text1"+i).style.fontSize = '2vh';
+        document.getElementById("text1"+i).style.fontSize = '2.5vh';
         document.getElementById("text1"+i).style.fontWeight = 'bold';
 
         text2 = document.createElement('p')
         text2.setAttribute("id", "text2"+i);
         text2.innerText = levelarr[i];
         document.getElementById("div1").appendChild(text2);
-        document.getElementById("text2"+i).style.fontSize = '2vh';
+        document.getElementById("text2"+i).style.fontSize = '2.5vh';
         document.getElementById("text2"+i).style.fontWeight = 'bold';
 
         if (i !=0 ) {
@@ -344,7 +344,8 @@ function showstats(e,no,sound){
           document.getElementById('div1').appendChild(link);
           document.getElementById("link"+i).style.textAlign =  'center';
           document.getElementById("link"+i).style.display = 'inline-block';
-          document.getElementById("link"+i).style.padding = Math.floor(0.017*window.innerHeight).toString() + "px 0px";
+          document.getElementById("link"+i).style.padding = Math.floor(0.023*window.innerHeight).toString() + "px 0px";
+          document.getElementById("link"+i).style.fontSize = '2.5vh'
         }
         else {
           text3 = document.createElement('p')
@@ -352,7 +353,7 @@ function showstats(e,no,sound){
           text3.innerText = certwordarr[i];
           document.getElementById("div1").appendChild(text3);
           document.getElementById("text3"+i).style.maxHeight = 0.022*window.innerHeight.toString() + 'px';
-          document.getElementById("text3"+i).style.fontSize = '2vh';
+          document.getElementById("text3"+i).style.fontSize = '2.5vh';
           document.getElementById("text3"+i).style.fontWeight = 'bold';
         }
 
