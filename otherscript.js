@@ -64,6 +64,7 @@ function updateColor(colorr) {
     document.getElementById("container").style.backgroundRepeat = 'no-repeat'
     document.getElementById("container").style.backgroundSize = 'cover'
     document.getElementById("gun").src = 'images/archerlight.png'
+    document.getElementById("logoo").src = 'images/mylogolight.png'
 
   }
 
@@ -86,6 +87,7 @@ function updateColor(colorr) {
       document.getElementById("tagtxt"+i).style.color = '#e4e5f1'
     }
       document.getElementById("gun").src = 'images/archerdark.png'
+      document.getElementById("logoo").src = 'images/mylogodark.png'
   }
 
 }
