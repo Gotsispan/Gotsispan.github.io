@@ -239,10 +239,10 @@ function showstats(e,no,sound){
         var img2 = document.createElement('img');
         img2.setAttribute("id","img2" + i)
         if (color == 'dark') {
-          img2.src = 'images/stars'+skillarr[i]+'.png';
+          img2.src = 'images/stars'+skillarr[i]+'dark.png';
         }
         if (color == 'light') {
-          img2.src = 'images/stars'+skillarr[i]+'dark.png';
+          img2.src = 'images/stars'+skillarr[i]+'.png';
         }
         img2.height = (window.innerHeight*0.05).toString();
         document.getElementById("div1").appendChild(img2);
@@ -260,7 +260,6 @@ function showstats(e,no,sound){
 
     }
 
-    //<a href="http://www.freepik.com">Designed by Freepik</a>
     if (no == 5) {
       var div = document.createElement("div");
       div.setAttribute("id", "div1");
