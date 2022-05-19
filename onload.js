@@ -34,10 +34,14 @@ function loadstart(){
     text = document.createElement('p')
     text.setAttribute("id", "text2");
     if (lang == 'English') {
-      text.innerText =  'Welcome to my profile, I am a graduate in electrical engineering and information technology. \r\n' +
-      'I enjoy making projects like this one as a junior web developer. \r\n' +
-      'My field of expertise also extends to hardware designing, which is also the subject of my graduation thesis. \r\n' +
-      'I am excited to expand my knowledge of the beautiful world of Information Technology and turn my passion into a career'
+        text.innerText = '• Welcome to my hub. My name is Panagiotis and I am a graduate in electrical engineering and information technology. \r\n' +
+        '• I am a passionate self taught web designer, skilled in CSS, HTML and Javascript. \r\n' +
+        '• I enjoy creating interactive websites with advanced UI, as evidenced by this particular one which I created from scratch. \r\n' +
+        '• I am excited to expand my knowledge on the beautiful world of web developing and turn my passion into a career. \r\n' +
+        '• My field of expertise also extends to hardware design, which also happens to be the subject of my graduation thesis. \r\n' +
+        '• I am open to anything on that spectrum, as long as I get to be creative and achieve a sufficient amount of short term goals. \r\n' +
+        '• To navigate this page, shoot the arrows (by clicking your mouse) to the subsequent targets to see more stuff about me. \r\n' +
+        "• Feel free to message me using the contact form I set up, by clicking 'Contact' on the menu below."
     }
     if (lang == 'Greek') {
       text.innerText =  'Καλως ήρθατε στο προφίλ μου. Είμαι απόφοιτος ηλεκτρολόγος μηχανικός και τεχνολογίας υπολογιστών. \r\n' +
@@ -47,9 +51,15 @@ function loadstart(){
     }
     document.getElementById('screeninfo').appendChild(text);
 
+    
     document.getElementById('text1').style.fontSize = '3vh';
     document.getElementById('text1').style.fontWeight = 'bold';
-    document.getElementById('text2').style.fontSize = '2vh';
+    document.getElementById('text2').style.fontSize = '1.9vh';
+    document.getElementById('text2').style.textAlign = 'justify';
+    document.getElementById('text2').style.paddingLeft = '2%';
+    document.getElementById('text2').style.paddingRight = '2%';
+    document.getElementById('text2').style.lineHeight = '110%';
+    document.getElementById('text2').style.fontWeight = 'bold';
     document.getElementById('myface').style.width = '13vw';
     document.getElementById('myface').style.height = '25vh';
 
