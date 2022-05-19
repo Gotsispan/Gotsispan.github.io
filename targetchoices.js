@@ -1,5 +1,6 @@
 var array2048 = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
 var autoreset = 1;
+var blockmove = 0;
 
 window.onload = function(){
     const div = document.createElement("div");
@@ -88,6 +89,7 @@ function showhelp2048() {
       document.getElementById('instr').innerText = text
       document.getElementById('helpbutton').innerText = 'Help'
       document.getElementById("2048board").style.height = Math.floor(0.3*window.innerHeight).toString() + 'px';
+      blockmove = 0;
     }
     else {
       let text = '• All the tiles on the board will attempt to move to the direction you specified. \r\n' +
@@ -100,6 +102,7 @@ function showhelp2048() {
       document.getElementById('instr').innerText = text 
       document.getElementById('helpbutton').innerText = 'Hide Help'
       document.getElementById("2048board").style.height = '0px';
+      blockmove = 1;
     }
   }
   if (lang == 'Greek') {
@@ -109,6 +112,7 @@ function showhelp2048() {
       document.getElementById('instr').innerText = text
       document.getElementById('helpbutton').innerText = 'Βοήθεια'
       document.getElementById("2048board").style.height = Math.floor(0.3*window.innerHeight).toString() + 'px';
+      blockmove = 0;
     }
     else {
       let text =  '• Όλα τα πλακίδια στον πίνακα θα προσπαθήσουν να μετακινηθούν προς την κατεύθυνση που καθορίσατε. \r\n' +
@@ -121,6 +125,7 @@ function showhelp2048() {
       document.getElementById('instr').innerText = text 
       document.getElementById('helpbutton').innerText = 'Απόκρυψη βοήθειας'
       document.getElementById("2048board").style.height = '0px';
+      blockmove = 1;
     }
 
   }
@@ -141,53 +146,54 @@ function showstats(e,no,sound){
     //ABOUT ME
     if (no == 0) {
 
-      const div = document.createElement("div");
-      div.setAttribute("id", "div1");
-      document.getElementById('screeninfo').appendChild(div);
-
-      var img = document.createElement('img');
-      img.src = 'images/myFace.jpg';
-      img.width = (window.innerWidth*0.1).toString();
-      img.height = (window.innerHeight*0.2).toString();
-      document.getElementById('div1').appendChild(img);
-
-      document.getElementById('screeninfo').style.gridTemplateColumns
-      text = document.createElement('p')
-      text.setAttribute("id", "text1");
-      text.innerText = ''
-      if (lang == 'English') {
-        text.innerText +=  'Panagiotis Gotsis \r\n Date of Birth: 6/10/1995 \r\n Gender: Male \r\n Country of origin: Greece \r\n Email: ece8306@upnet.gr \r\n'
-      }
-      if (lang == 'Greek') {
-        text.innerText +=  'Παναγιώτης Γκότσης \r\n Ημερομηνία Γέννησης: 6/10/1995 \r\n Φύλο: Άντρας \r\n Χώρα καταγωγής: Ελλάδα \r\n Email: ece8306@upnet.gr \r\n'
-      }
-      document.getElementById('div1').appendChild(text);
-
-      document.getElementById('div1').style.display = "grid"
-      document.getElementById('div1').style.gridTemplateColumns = "45% 55%"
-
-      document.getElementById('div1').style.gridTemplateColumns
-      text = document.createElement('p')
-      text.setAttribute("id", "text2");
-      if (lang == 'English') {
-        text.innerText =  '• Welcome to my profile, I am a graduate in electrical engineering and information technology. \r\n' +
-        '• I enjoy making projects like this one as a junior web developer. \r\n' +
-        '• My field of expertise also extends to hardware designing, which is also the subject of my graduation thesis. \r\n' +
-        '• I am excited to expand my knowledge of the beautiful world of Information Technology and turn my passion into a career'
-      }
-
-      if (lang == 'Greek') {
-        text.innerText =  '• Καλως ήρθατε στο προφίλ μου. Είμαι απόφοιτος ηλεκτρολόγος μηχανικός και τεχνολογίας υπολογιστών. \r\n' +
-        '• Μου αρέσει να εκτελώ πρότζεκτς σαν και αυτό ως junior web developer. \r\n' +
-        '• Οι γνώσεις μου επεκτείνονται και στο σχεδιασμό ολοκληρωμένων κυκλωμάτων, το οποίο αποτελεί και το αντικείμενο της διπλωματικής εργασίας μου. \r\n' +
-        '• Θα ήθελα να επεκτείνω τις γνώσεις μου επάνω στον τομέα της τεχνολογίας υπολογιστών (IT) και να μετατρέψω το ενδιαφέρον μου σε εργασία'
-      }
-      document.getElementById('screeninfo').appendChild(text);
-
-      document.getElementById('text1').style.fontSize = '2.2vh';
-      document.getElementById('text1').style.fontWeight = 'bold';
-
-      document.getElementById('text2').style.fontSize = '1.8vh';
+        const div = document.createElement("div");
+        div.setAttribute("id", "div1");
+        document.getElementById('screeninfo').appendChild(div);
+    
+        var img = document.createElement('img');
+        img.setAttribute("id", "myface");
+        img.src = 'images/myFace.jpg';
+        document.getElementById('div1').appendChild(img);
+    
+        document.getElementById('screeninfo').style.gridTemplateColumns
+    
+        text = document.createElement('p')
+        text.setAttribute("id", "text1");
+        text.innerText = ''
+    
+        if (lang == 'English') {
+          text.innerText +=  'Panagiotis Gotsis \r\n Date of Birth: 6/10/1995 \r\n Gender: Male \r\n Country of origin: Greece \r\n Email: ece8306@upnet.gr \r\n'
+        }
+        if (lang == 'Greek') {
+          text.innerText +=  'Παναγιώτης Γκότσης \r\n Ημερομηνία Γέννησης: 6/10/1995 \r\n Φύλο: Άντρας \r\n Χώρα καταγωγής: Ελλάδα \r\n Email: ece8306@upnet.gr \r\n'
+        }
+    
+        document.getElementById('div1').appendChild(text);
+        document.getElementById('div1').style.display = "grid"
+        document.getElementById('div1').style.gridTemplateColumns = "30% 70%"
+        document.getElementById('div1').style.gridTemplateColumns
+    
+        text = document.createElement('p')
+        text.setAttribute("id", "text2");
+        if (lang == 'English') {
+          text.innerText =  'Welcome to my profile, I am a graduate in electrical engineering and information technology. \r\n' +
+          'I enjoy making projects like this one as a junior web developer. \r\n' +
+          'My field of expertise also extends to hardware designing, which is also the subject of my graduation thesis. \r\n' +
+          'I am excited to expand my knowledge of the beautiful world of Information Technology and turn my passion into a career'
+        }
+        if (lang == 'Greek') {
+          text.innerText =  'Καλως ήρθατε στο προφίλ μου. Είμαι απόφοιτος ηλεκτρολόγος μηχανικός και τεχνολογίας υπολογιστών. \r\n' +
+          'Μου αρέσει να εκτελώ πρότζεκτς σαν και αυτό ως junior web developer. \r\n' +
+          'Οι γνώσεις μου επεκτείνονται και στο σχεδιασμό ολοκληρωμένων κυκλωμάτων, το οποίο αποτελεί και το αντικείμενο της διπλωματικής εργασίας μου. \r\n' +
+          'Θα ήθελα να επεκτείνω τις γνώσεις μου επάνω στον τομέα της τεχνολογίας υπολογιστών (IT) και να μετατρέψω το ενδιαφέρον μου σε εργασία'
+        }
+        document.getElementById('screeninfo').appendChild(text);
+    
+        document.getElementById('text1').style.fontSize = '3vh';
+        document.getElementById('text1').style.fontWeight = 'bold';
+        document.getElementById('text2').style.fontSize = '2vh';
+        document.getElementById('myface').style.width = '13vw';
+        document.getElementById('myface').style.height = '25vh';
 
     }
 
@@ -229,6 +235,7 @@ function showstats(e,no,sound){
           document.getElementById('div1').appendChild(link);
 
           document.getElementById('text' + i).style.fontSize = '2vh';
+          document.getElementById('text' + i).style.fontWeight = 'bold';
       }
 
       
@@ -262,20 +269,25 @@ function showstats(e,no,sound){
       for (let i=0; i<iconarr.length; i++) {
 
         var img = document.createElement('img');
+        img.setAttribute("id","img" + i)
         img.src = 'images/'+iconarr[i];
-        img.width = (window.innerWidth*0.03).toString();
-        img.height = (window.innerHeight*0.05).toString();
         document.getElementById("div1").appendChild(img);
+        document.getElementById("img" + i).style.width = '7vh';
+        document.getElementById("img" + i).style.height = '7.1vh';
+        document.getElementById('img' +i).style.display = 'flex'
+        document.getElementById('img' +i).style.justifyContent = 'center'
+        document.getElementById('img' +i).style.alignItems = 'center'
 
         text = document.createElement('p')
         text.setAttribute("id", "text"+i);
         text.innerText = langarr[i];
         document.getElementById("div1").appendChild(text);
-        document.getElementById("text"+i).style.fontSize = '1.7vh';
+        document.getElementById("text"+i).style.fontSize = '2.5vh';
         document.getElementById("text"+i).style.fontWeight = 'bold';
 
 
         var img2 = document.createElement('img');
+        img2.setAttribute("id","img2" + i)
         if (color == 'dark') {
           img2.src = 'images/stars'+skillarr[i]+'.png';
         }
@@ -284,6 +296,10 @@ function showstats(e,no,sound){
         }
         img2.height = (window.innerHeight*0.05).toString();
         document.getElementById("div1").appendChild(img2);
+        document.getElementById("img2" + i).style.height = '7.1vh';
+        document.getElementById('img2'+i).style.display = 'flex'
+        document.getElementById('img2'+i).style.justifyContent = 'center'
+        document.getElementById('img2'+i).style.alignItems = 'center'
 
       }
 
@@ -501,7 +517,7 @@ function showstats(e,no,sound){
         "Μπορείτε να πατήσετε το κουμπί 'Βοήθεια' για να δείτε πως παίζεται το παιχνίδι ή 'Επαναφορά' για να αρχίσετε από την αρχή."
       }
       document.getElementById('div1').appendChild(text);
-      document.getElementById('instr').style.fontSize = '1.5vh';
+      document.getElementById('instr').style.fontSize = '2.5vh';
       document.getElementById('instr').style.fontWeight = 'bold';
 
       
@@ -542,14 +558,14 @@ function showstats(e,no,sound){
       document.getElementById("helpbutton").style.left = '2%';
       document.getElementById("helpbutton").style.width = '15%';
       document.getElementById("helpbutton").style.height = '15%';
-      document.getElementById("helpbutton").style.fontSize = '1.2vh';
+      document.getElementById("helpbutton").style.fontSize = '2vh';
 
       document.getElementById("resetbutton").style.position = 'absolute';
       document.getElementById("resetbutton").style.bottom = '5%';
       document.getElementById("resetbutton").style.right = '2%';
       document.getElementById("resetbutton").style.width = '15%';
       document.getElementById("resetbutton").style.height = '15%';
-      document.getElementById("resetbutton").style.fontSize = '1.2vh';
+      document.getElementById("resetbutton").style.fontSize = '2vh';
 
 
       for (i=0; i<16; i++) {
@@ -558,7 +574,7 @@ function showstats(e,no,sound){
         text.innerText = '';
         document.getElementById('2048board').appendChild(text);
         document.getElementById('place'+i).style.border = '1px solid'
-        document.getElementById('place'+i).style.fontSize = '25px'
+        document.getElementById('place'+i).style.fontSize = '3.5vh'
         document.getElementById('place'+i).style.backgroundColor = numbarray[0][1]
         document.getElementById('place'+i).style.color = numbarray[0][0]
         document.getElementById('place'+i).style.display = 'flex'
@@ -572,7 +588,7 @@ function showstats(e,no,sound){
       document.getElementById("2048board").style.bottom = Math.floor(0.01*window.innerHeight).toString() + 'px';;
       document.getElementById("2048board").style.border = "1px solid"
       document.getElementById("2048board").style.borderLeft = "1px solid"
-      document.getElementById("2048board").style.left = Math.floor(0.11*window.innerHeight).toString() + 'px';
+      document.getElementById("2048board").style.left = Math.floor(0.33*window.innerHeight).toString() + 'px';
       document.getElementById("2048board").style.display = "grid";
       document.getElementById("2048board").style.height = Math.floor(0.3*window.innerHeight).toString() + 'px';
       document.getElementById("2048board").style.width = Math.floor(0.3*window.innerHeight).toString() + 'px';
@@ -632,111 +648,111 @@ function showstats(e,no,sound){
 
       function movedir(dir) {
         
-        switch (dir) {
-          case 'left':
-            for (let i=0; i<4; i=i+1) {
-              for (let j=1; j<4; j=j+1) {
-                for (let l=j; l>0; l=l-1) {
-                  if (array2048[i][l-1] == array2048[i][l]) {
-                    array2048[i][l-1] = 2 * array2048[i][l]
-                    array2048[i][l] = 0;
-                  }
-                  else if (array2048[i][l-1] == 0) {
-                    array2048[i][l-1] = array2048[i][l]
-                    array2048[i][l] = 0;
-                  }
-                } 
+        if (blockmove != 1){
+          switch (dir) {
+            case 'left':
+              for (let i=0; i<4; i=i+1) {
+                for (let j=1; j<4; j=j+1) {
+                  for (let l=j; l>0; l=l-1) {
+                    if (array2048[i][l-1] == array2048[i][l]) {
+                      array2048[i][l-1] = 2 * array2048[i][l]
+                      array2048[i][l] = 0;
+                    }
+                    else if (array2048[i][l-1] == 0) {
+                      array2048[i][l-1] = array2048[i][l]
+                      array2048[i][l] = 0;
+                    }
+                  } 
+                }
               }
-            }
-            break
-          case 'right':
-            for (let i=0; i<4; i=i+1) {
-              for (let j=2; j>-1; j=j-1) {
-                for (let l=0; l<j+1; l=l+1) {
-                  if (array2048[i][l+1] == array2048[i][l]) {
-                    array2048[i][l+1] = 2 * array2048[i][l]
-                    array2048[i][l] = 0;
-                  }
-                  else if (array2048[i][l+1] == 0) {
-                    array2048[i][l+1] = array2048[i][l]
-                    array2048[i][l] = 0;
-                  }
-                } 
+              break
+            case 'right':
+              for (let i=0; i<4; i=i+1) {
+                for (let j=2; j>-1; j=j-1) {
+                  for (let l=0; l<j+1; l=l+1) {
+                    if (array2048[i][l+1] == array2048[i][l]) {
+                      array2048[i][l+1] = 2 * array2048[i][l]
+                      array2048[i][l] = 0;
+                    }
+                    else if (array2048[i][l+1] == 0) {
+                      array2048[i][l+1] = array2048[i][l]
+                      array2048[i][l] = 0;
+                    }
+                  } 
+                }
               }
-            }
-            break
-          case 'up':
-            for (let j=0; j<4; j=j+1) {
-              for (let i=1; i<4; i=i+1) {
-                for (let l=i; l>0; l=l-1) {
-                  if (array2048[l-1][j] == array2048[l][j]) {
-                    array2048[l-1][j] = 2 * array2048[l][j]
-                    array2048[l][j] = 0;
-                  }
-                  else if (array2048[l-1][j] == 0) {
-                    array2048[l-1][j] = array2048[l][j]
-                    array2048[l][j] = 0;
-                  }
-                } 
+              break
+            case 'up':
+              for (let j=0; j<4; j=j+1) {
+                for (let i=1; i<4; i=i+1) {
+                  for (let l=i; l>0; l=l-1) {
+                    if (array2048[l-1][j] == array2048[l][j]) {
+                      array2048[l-1][j] = 2 * array2048[l][j]
+                      array2048[l][j] = 0;
+                    }
+                    else if (array2048[l-1][j] == 0) {
+                      array2048[l-1][j] = array2048[l][j]
+                      array2048[l][j] = 0;
+                    }
+                  } 
+                }
               }
-            }
-            break
-          case 'down':
-            for (let j=0; j<4; j=j+1) {
-              for (let i=2; i>-1; i=i-1) {
-                for (let l=0; l<i+1; l=l+1) {
-                  if (array2048[l+1][j] == array2048[l][j]) {
-                    array2048[l+1][j] = 2 * array2048[l][j]
-                    array2048[l][j] = 0;
-                  }
-                  else if (array2048[l+1][j] == 0) {
-                    array2048[l+1][j] = array2048[l][j]
-                    array2048[l][j] = 0;
-                  }
-                } 
+              break
+            case 'down':
+              for (let j=0; j<4; j=j+1) {
+                for (let i=2; i>-1; i=i-1) {
+                  for (let l=0; l<i+1; l=l+1) {
+                    if (array2048[l+1][j] == array2048[l][j]) {
+                      array2048[l+1][j] = 2 * array2048[l][j]
+                      array2048[l][j] = 0;
+                    }
+                    else if (array2048[l+1][j] == 0) {
+                      array2048[l+1][j] = array2048[l][j]
+                      array2048[l][j] = 0;
+                    }
+                  } 
+                }
               }
-            }
-            break
-        } 
-        
-        possarr = []
-        for (let i=0; i<4; i++) {
-          for (let j=0; j<4; j++) {
-            if (array2048[i][j] == 0) {
-              possarr.push([i,j])
+              break
+          } 
+          
+          possarr = []
+          for (let i=0; i<4; i++) {
+            for (let j=0; j<4; j++) {
+              if (array2048[i][j] == 0) {
+                possarr.push([i,j])
+              }
             }
           }
-        }
-        
-        if (possarr.length != 0) {
-          randplace = possarr[Math.floor(Math.random()*possarr.length)]
-          array2048[randplace[0]][randplace[1]] = 2;  
-        }
-        else {
-          alert('You lost')
-        }
+          
+          if (possarr.length != 0) {
+            randplace = possarr[Math.floor(Math.random()*possarr.length)]
+            array2048[randplace[0]][randplace[1]] = 2;  
+          }
+          else {
+            alert('You lost')
+          }
 
 
-        for (let i=0; i<4; i++) {
-          for (let j=0; j<4; j++) {
-            if ( array2048[i][j] == 0 ) {
-              document.getElementById('place'+(i*4+j)).innerText = '';
+          for (let i=0; i<4; i++) {
+            for (let j=0; j<4; j++) {
+              if ( array2048[i][j] == 0 ) {
+                document.getElementById('place'+(i*4+j)).innerText = '';
+              }
+              else {
+                document.getElementById('place'+(i*4+j)).innerText = array2048[i][j];
+              }
+              
+              
+              if (array2048[i][j] != 0) {
+                document.getElementById('place'+(i*4+j)).style.backgroundColor = numbarray[Math.log2(array2048[i][j])][1]
+                document.getElementById('place'+(i*4+j)).style.color = numbarray[Math.log2(array2048[i][j])][0]
+              }
+              else {
+                document.getElementById('place'+(i*4+j)).style.backgroundColor = numbarray[0][1]
+                document.getElementById('place'+(i*4+j)).style.color = numbarray[0][0]
+              }
             }
-            else {
-              document.getElementById('place'+(i*4+j)).innerText = array2048[i][j];
-            }
-            
-            
-            if (array2048[i][j] != 0) {
-              document.getElementById('place'+(i*4+j)).style.backgroundColor = numbarray[Math.log2(array2048[i][j])][1]
-              document.getElementById('place'+(i*4+j)).style.color = numbarray[Math.log2(array2048[i][j])][0]
-            }
-            else {
-              document.getElementById('place'+(i*4+j)).style.backgroundColor = numbarray[0][1]
-              document.getElementById('place'+(i*4+j)).style.color = numbarray[0][0]
-            }
-
-
           }
         }
       }
