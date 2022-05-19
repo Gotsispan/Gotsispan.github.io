@@ -260,7 +260,7 @@ function showstats(e,no,sound){
 
     }
 
-
+    //<a href="http://www.freepik.com">Designed by Freepik</a>
     if (no == 5) {
       var div = document.createElement("div");
       div.setAttribute("id", "div1");
