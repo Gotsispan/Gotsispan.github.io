@@ -11,7 +11,8 @@
     overflow:hidden;
     height: 100%;
     width: 100%;
-    grid-template-columns: 15% 70% 15%;
+    grid-template-columns: 23% 50% 23%;
+    grid-column-gap: 2%;
 }
 
 .left-side {
@@ -22,12 +23,26 @@
     position: relative;
 }
 
+.treelem {
+    display: grid;
+    grid-template-columns: 28% 68%;
+    grid-column-gap: 4%;
+}
+
+.treelem2 {
+    display: grid;
+    grid-template-columns: 68% 28%;
+    grid-column-gap: 4%;
+}
+
 .targets-left {
     position:absolute;
     bottom: 5%;
-    display: flex;
+    display: grid;
+    height: 60%;
+    width: 95%;
+    grid-row-gap: 1%;
     flex-direction: column;
-    cursor: url(images/icon2left.png), auto;
 }
 
 .trestar {
@@ -46,36 +61,47 @@
 
 .tag {
     text-align: center;
-    font-size: 1.7vh;
+    width: 15vw;
+    font-size: 2.5vh;
     font-weight: bold;
     font-style: Helvetica;
-    background-color: #e4e5f1;
+    background-color: #2f2f2f;
+    color: #e4e5f1;
+    border: 1px solid;
+    border-color: #e4e5f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .langbuttons {
     position: absolute;
     top: 1%;
     left: 2%;
+    display: grid;
+    grid-template-columns: 50% 50%;;
+    grid-column-gap: 1vh;
 }
 
 .langbuttons button{
-    height: 20%;
-    width: 20%;
+    display: block;
+    height: 7vh;
     background-color: #2f2f2f;
     outline-style: none;
 }
 
 .colorbuttons {
-    display: flex;
+    display: grid;
+    grid-template-columns: 50% 50%;;
+    grid-column-gap: 1vh;
     position: absolute;
-    top: 8%;
+    top: 9%;
     left: 2%;
 }
 
 .colorbuttons button {
     display: block;
-    height: 20%;
-    width: 20%;
+    height: 7vh;
     outline-style: none;
 }
 
@@ -83,14 +109,37 @@
 .targets-right {
     position:absolute;
     bottom: 5%;
-    display: flex;
+    display: grid;
+    grid-row-gap: 1%;
+    height: 60%;
+    width: 95%;
     flex-direction: column;
+}
+
+.trestar2 {
     cursor: url(images/icon2right.png), auto;
 }
 
-.trestar img{
+.screen {
     height: 100%;
-    width: 100%;
+}
+
+.trestar {
+    cursor: url(images/icon2left.png), auto;
+}
+
+.trestar img{
+    position: relative;
+    left: 2%;
+    right: 2%;
+    height: 100%;
+}
+
+.trestar2 img{
+    position: relative;
+    left: 2%;
+    right: 2%;
+    height: 100%;
 }
 
 .gun {
@@ -108,14 +157,15 @@
 .screenimage {
     position: absolute;
     top: 5%;
-    height: 90%;
-    width: 70%;
+    left: 25%;
+    height: 95%;
+    width: 50%;
 }
 
 .screeninfo {
     position: absolute;
     width: 47.5%;
-    height: 54%;
+    height: 58%;
     outline: 1px solid red;
     top: 8%;
     left: 26.2%;
