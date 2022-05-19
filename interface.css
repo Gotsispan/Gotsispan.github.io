@@ -27,7 +27,7 @@
     bottom: 5%;
     display: flex;
     flex-direction: column;
-    cursor: url(images/icon.png), auto;
+    cursor: url(images/icon2left.png), auto;
 }
 
 .trestar {
@@ -85,13 +85,12 @@
     bottom: 5%;
     display: flex;
     flex-direction: column;
-    cursor: url(images/icon.png), auto;
+    cursor: url(images/icon2right.png), auto;
 }
 
 .trestar img{
     height: 100%;
     width: 100%;
-    cursor: url(images/icon.png), auto;
 }
 
 .gun {
@@ -100,10 +99,10 @@
 
 .gun img{
     position: absolute;
-    top: 90%;
-    left: 35%;
-    width: 30%;
-    height: 20%;
+    top: 80%;
+    left: 40%;
+    width: 20%;
+    height: 30%;
 }
 
 .screenimage {
@@ -115,10 +114,10 @@
 
 .screeninfo {
     position: absolute;
-    width: 26%;
-    height: 45%;
+    width: 47.5%;
+    height: 54%;
     outline: 1px solid red;
     top: 8%;
-    left: 37%;
+    left: 26.2%;
 }
 
