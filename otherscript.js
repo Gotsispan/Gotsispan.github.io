@@ -24,6 +24,11 @@ document.getElementById("darkicon").style.width = '100%';
 document.getElementById("lighticon").style.height = '100%';
 document.getElementById("lighticon").style.width = '100%';
 
+document.getElementById("grebut").style.background = "none";
+document.getElementById("grebut").style.border = "none";
+document.getElementById("engbut").style.background = "none";
+document.getElementById("engbut").style.border = "none";
+
 document.getElementById("darkbut").style.color = '#e4e5f1'
 document.getElementById("darkbut").style.backgroundColor = '#2f2f2f'
 document.getElementById("lightbut").style.color = '#2f2f2f'
@@ -54,36 +59,37 @@ function updateColor(colorr) {
   }
 
   if (colorr == 'dark') {
-    document.getElementById('screen').src = 'images/screen.png'
-    document.getElementById("container").style.color = '#2f2f2f'
-    document.getElementById("targg").style.backgroundColor = '#2f2f2f'
+    document.getElementById('screen').src = 'images/screendark.png'
+    document.getElementById("container").style.color = '#e4e5f1'
     for (i=0; i<10; i++) {
-      document.getElementById('tag'+i).style.color = '#2f2f2f'
-      document.getElementById('tag'+i).style.backgroundColor = '#e4e5f1'
+      document.getElementById('tag'+i).style.color = '#e4e5f1'
+      document.getElementById('tag'+i).style.borderColor = '#e4e5f1'
       document.getElementById('target-'+i).src = 'images/targetlight.png'
-      document.getElementById('target-'+i).style.backgroundColor = '#2f2f2f'
     }
     console.log(document.getElementById("container").style)
-    document.getElementById("container").style.backgroundColor = '#2f2f2f'
-    document.getElementById("engbut").style.backgroundColor = '#2f2f2f'
-    document.getElementById("grebut").style.backgroundColor = '#2f2f2f'
+    document.getElementById("container").style.background = 'url(images/night.png) no-repeat center center fixed'
+    document.getElementById("container").style.height = '100%';
+    document.getElementById("container").style.backgroundPosition = 'center'
+    document.getElementById("container").style.backgroundRepeat = 'no-repeat'
+    document.getElementById("container").style.backgroundSize = 'cover'
 
   }
 
   if (colorr == 'light') {
-    document.getElementById('screen').src = 'images/screendark.png'
-    document.getElementById("container").style.color = '#e4e5f1'
-    document.getElementById("targg").style.backgroundColor = '#e4e5f1'
+    document.getElementById('screen').src = 'images/screen.png'
+    document.getElementById("container").style.color = '#2f2f2f'
     for (i=0; i<10; i++) {
-      document.getElementById('tag'+i).style.color = '#e4e5f1'
-      document.getElementById('tag'+i).style.backgroundColor = '#2f2f2f'
+      document.getElementById('tag'+i).style.color = '#2f2f2f'
+      document.getElementById('tag'+i).style.borderColor = '#2f2f2f'
       document.getElementById('target-'+i).src = 'images/targetdark.png'
-      document.getElementById('target-'+i).style.backgroundColor = '#e4e5f1'
     }
     console.log(document.getElementById("container").style)
-    document.getElementById("container").style.backgroundColor = '#e4e5f1'
-    document.getElementById("engbut").style.backgroundColor = '#e4e5f1'
-    document.getElementById("grebut").style.backgroundColor = '#e4e5f1'
+    document.getElementById("container").style.background = 'url(images/day.jpg) no-repeat center center fixed'
+    document.getElementById("container").style.height = '100%';
+    document.getElementById("container").style.backgroundPosition = 'center'
+    document.getElementById("container").style.backgroundRepeat = 'no-repeat'
+    document.getElementById("container").style.backgroundSize = 'cover'
+
   }
 }
 
