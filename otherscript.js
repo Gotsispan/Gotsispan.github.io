@@ -80,7 +80,7 @@ function updateColor(colorr) {
 
 
 function myFunction(e) {
-    document.getElementById("gun").src = 'images/gun.png'
+    document.getElementById("gun").src = 'images/archer.png'
     var x = e.clientX;
     var y = window.innerHeight - e.clientY - 0.06*window.innerHeight;
     if (x < 0.5*window.innerWidth) {
