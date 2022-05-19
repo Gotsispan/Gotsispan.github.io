@@ -1,60 +1,9 @@
 var array2048 = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
 var autoreset = 1;
 var blockmove = 0;
+var lastno = -1;
 
-window.onload = function(){
-    const div = document.createElement("div");
-    div.setAttribute("id", "div1");
-    document.getElementById('screeninfo').appendChild(div);
-
-    var img = document.createElement('img');
-    img.setAttribute("id", "myface");
-    img.src = 'images/myFace.jpg';
-    document.getElementById('div1').appendChild(img);
-
-    document.getElementById('screeninfo').style.gridTemplateColumns
-
-    text = document.createElement('p')
-    text.setAttribute("id", "text1");
-    text.innerText = ''
-
-    if (lang == 'English') {
-      text.innerText +=  'Panagiotis Gotsis \r\n Date of Birth: 6/10/1995 \r\n Gender: Male \r\n Country of origin: Greece \r\n Email: ece8306@upnet.gr \r\n'
-    }
-    if (lang == 'Greek') {
-      text.innerText +=  'Παναγιώτης Γκότσης \r\n Ημερομηνία Γέννησης: 6/10/1995 \r\n Φύλο: Άντρας \r\n Χώρα καταγωγής: Ελλάδα \r\n Email: ece8306@upnet.gr \r\n'
-    }
-
-    document.getElementById('div1').appendChild(text);
-    document.getElementById('div1').style.display = "grid"
-    document.getElementById('div1').style.gridTemplateColumns = "30% 70%"
-    document.getElementById('div1').style.gridTemplateColumns
-
-    text = document.createElement('p')
-    text.setAttribute("id", "text2");
-    if (lang == 'English') {
-      text.innerText =  'Welcome to my profile, I am a graduate in electrical engineering and information technology. \r\n' +
-      'I enjoy making projects like this one as a junior web developer. \r\n' +
-      'My field of expertise also extends to hardware designing, which is also the subject of my graduation thesis. \r\n' +
-      'I am excited to expand my knowledge of the beautiful world of Information Technology and turn my passion into a career'
-    }
-    if (lang == 'Greek') {
-      text.innerText =  'Καλως ήρθατε στο προφίλ μου. Είμαι απόφοιτος ηλεκτρολόγος μηχανικός και τεχνολογίας υπολογιστών. \r\n' +
-      'Μου αρέσει να εκτελώ πρότζεκτς σαν και αυτό ως junior web developer. \r\n' +
-      'Οι γνώσεις μου επεκτείνονται και στο σχεδιασμό ολοκληρωμένων κυκλωμάτων, το οποίο αποτελεί και το αντικείμενο της διπλωματικής εργασίας μου. \r\n' +
-      'Θα ήθελα να επεκτείνω τις γνώσεις μου επάνω στον τομέα της τεχνολογίας υπολογιστών (IT) και να μετατρέψω το ενδιαφέρον μου σε εργασία'
-    }
-    document.getElementById('screeninfo').appendChild(text);
-
-    document.getElementById('text1').style.color = '#e4e5f1';
-    document.getElementById('text2').style.color = '#e4e5f1';
-    document.getElementById('text1').style.fontSize = '3vh';
-    document.getElementById('text1').style.fontWeight = 'bold';
-    document.getElementById('text2').style.fontSize = '2vh';
-    document.getElementById('myface').style.width = '13vw';
-    document.getElementById('myface').style.height = '25vh';
-}
-
+loadstart()
 
 function reset2048() {
   array2048 = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
@@ -154,7 +103,7 @@ function showstats(e,no,sound){
     
         var img = document.createElement('img');
         img.setAttribute("id", "myface");
-        img.src = 'images/myFace.jpg';
+        img.src = 'images/myFace.png';
         document.getElementById('div1').appendChild(img);
     
         document.getElementById('screeninfo').style.gridTemplateColumns
@@ -173,7 +122,6 @@ function showstats(e,no,sound){
         document.getElementById('div1').appendChild(text);
         document.getElementById('div1').style.display = "grid"
         document.getElementById('div1').style.gridTemplateColumns = "30% 70%"
-        document.getElementById('div1').style.gridTemplateColumns
     
         text = document.createElement('p')
         text.setAttribute("id", "text2");
@@ -323,7 +271,7 @@ function showstats(e,no,sound){
       if (lang == 'English') {
         langarr = ['Greek','English','German']
         levelarr = ['Fluent','C2','B2']
-        certwordarr = ['Mother Tongue','certifcation','certification']
+        certwordarr = ['Mother Tongue','certification','certification']
       }
       if (lang == 'Greek'){
         langarr = ['Ελληνικά','Αγγλικά','Γερμανικά']
@@ -763,7 +711,7 @@ function showstats(e,no,sound){
 
     
     if (color == 'light') {
-      hex = '#119BFA'
+      hex ='#010B9C'
       var links = document.getElementsByTagName('a')
       for(var i=0;i<links.length;i++) {
           console.log(links[i])
@@ -773,7 +721,7 @@ function showstats(e,no,sound){
     }
 
     if (color == 'dark') {
-      hex = '#010B9C'
+      hex =  '#119BFA'
       var links = document.getElementsByTagName('a')
       for(var i=0;i<links.length;i++) {
           console.log(links[i])
