@@ -102,6 +102,12 @@
     grid-column-gap: 1vh;
 }
 
+.left-side img {
+    position: absolute;
+    left: 2%;
+    top: 2%;
+}
+
 .langbuttons button{
     display: block;
     height: 7vh;
