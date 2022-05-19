@@ -38,6 +38,9 @@ function updateLang(langg) {
     if (lastno != -1) {
       showstats('yes',lastno,0)
     }
+    else {
+      showstats('yes',0,0)
+    }
 }
 
 function updateColor(colorr) {
