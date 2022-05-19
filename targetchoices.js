@@ -46,6 +46,8 @@ window.onload = function(){
     }
     document.getElementById('screeninfo').appendChild(text);
 
+    document.getElementById('text1').style.color = '#e4e5f1';
+    document.getElementById('text2').style.color = '#e4e5f1';
     document.getElementById('text1').style.fontSize = '3vh';
     document.getElementById('text1').style.fontWeight = 'bold';
     document.getElementById('text2').style.fontSize = '2vh';
