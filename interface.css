@@ -8,6 +8,7 @@
     background-size: cover;
     position:absolute;
     color: #e4e5f1;
+    font: Georgia;
     top: 0%;
     bottom: 0%;
     left: 0%;
@@ -98,7 +99,7 @@
     top: 1%;
     right: 4%;
     display: grid;
-    grid-template-columns: 50% 50%;;
+    grid-template-columns: 50% 50%;
     grid-column-gap: 1vh;
 }
 
