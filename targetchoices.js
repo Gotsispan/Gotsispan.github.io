@@ -606,6 +606,7 @@ function showstats(e,no,sound){
               return;
           }
 
+          
           var xUp = evt.originalEvent.touches[0].clientX;                                    
           var yUp = evt.originalEvent.touches[0].clientY;
 
