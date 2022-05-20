@@ -589,44 +589,44 @@ function showstats(e,no,sound){
                     
 
       if (1.5*window.innerWidth < window.innerHeight) {
-        document.addEventListener('touchstart', handleTouchStart, false);        
-        document.addEventListener('touchmove', handleTouchMove, false);
-        
-        var xDown = null;                                                        
-        var yDown = null;                                                        
-        
-        function handleTouchStart(evt) {                                         
-            xDown = evt.originalEvent.touches[0].clientX;                                      
-            yDown = evt.originalEvent.touches[0].clientY;                                      
-        };   
+        let touchstartX = 0;
+        let touchstartY = 0;
+        let touchendX = 0;
+        let touchendY = 0;
 
-        function handleTouchMove(evt) {
-          if ( ! xDown || ! yDown ) {
-              return;
-          }
+        const gestureZone = document.getElementById('container');
 
-          var xUp = evt.originalEvent.touches[0].clientX;                                    
-          var yUp = evt.originalEvent.touches[0].clientY;
+        gestureZone.addEventListener('touchstart', function(event) {
+            touchstartX = event.changedTouches[0].screenX;
+            touchstartY = event.changedTouches[0].screenY;
+        }, false);
 
-          var xDiff = xDown - xUp;
-          var yDiff = yDown - yUp;
+        gestureZone.addEventListener('touchend', function(event) {
+            touchendX = event.changedTouches[0].screenX;
+            touchendY = event.changedTouches[0].screenY;
+            handleGesture();
+        }, false); 
 
-          if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
-              if ( xDiff > 0 ) {
+        console.log(gestureZone)
+
+        function handleGesture() {
+            if (Math.abs(touchendX - touchstartX) > Math.abs(touchendY - touchstartY) ) {
+              if (touchendX <= touchstartX) {
                 movedir('left');
-              } else {
+              }
+              if (touchendX >= touchstartX) {
                 movedir('right');
-              }                       
-          } else {
-              if ( yDiff > 0 ) {
-                movedir('up'); 
-              } else { 
+              }
+            }
+            else {
+              if (touchendY <= touchstartY) {
+                movedir('up');
+              }
+              
+              if (touchendY >= touchstartY) {
                 movedir('down');
-              }                                                                 
-          }
-          /* reset values */
-          xDown = null;
-          yDown = null;                                             
+              }
+            }
         }
       }
       else {
