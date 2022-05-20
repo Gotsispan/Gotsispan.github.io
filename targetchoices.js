@@ -601,12 +601,10 @@ function showstats(e,no,sound){
         };   
 
         function handleTouchMove(evt) {
-          alert('You swiped!')
           if ( ! xDown || ! yDown ) {
               return;
           }
 
-          
           var xUp = evt.originalEvent.touches[0].clientX;                                    
           var yUp = evt.originalEvent.touches[0].clientY;
 
