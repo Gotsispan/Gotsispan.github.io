@@ -145,16 +145,26 @@ function showstats(e,no,sound){
       document.getElementById('screeninfo').appendChild(text);
   
       
-      document.getElementById('text1').style.fontSize = '3vh';
+      document.getElementById('text1').style.fontSize = '3vmin';
       document.getElementById('text1').style.fontWeight = 'bold';
-      document.getElementById('text2').style.fontSize = '1.9vh';
+      document.getElementById('text2').style.fontSize = '1.9vmin';
       document.getElementById('text2').style.textAlign = 'justify';
       document.getElementById('text2').style.paddingLeft = '2%';
       document.getElementById('text2').style.paddingRight = '2%';
       document.getElementById('text2').style.lineHeight = '110%';
       document.getElementById('text2').style.fontWeight = 'bold';
       document.getElementById('myface').style.width = '13vw';
-      document.getElementById('myface').style.height = '25vh';
+      document.getElementById('myface').style.height = '25vmin';
+
+      if (1.5*window.innerWidth < window.innerHeight) {
+        document.getElementById('text1').style.fontSize = '3vmin';
+        document.getElementById('text2').style.fontSize = '2.5vmin';
+        document.getElementById('text2').style.fontWeight = 'bold';
+        document.getElementById('myface').style.width = '24vw';
+        document.getElementById('myface').style.height = '24vmin';
+        document.getElementById('logoo').style.width = '200%';
+        document.getElementById('myface').style.height = '24vmin';
+      }
 
     }
 
@@ -197,9 +207,15 @@ function showstats(e,no,sound){
 
           document.getElementById('text' + i).style.fontSize = '2vh';
           document.getElementById('text' + i).style.fontWeight = 'bold';
+          document.getElementById('text' + i).style.paddingLeft = '2%';
+          document.getElementById('text' + i).style.paddingRight = '2%';
+          document.getElementById('text' + i).style.textAlign = 'justify';
+          document.getElementById('link' + i).style.paddingLeft = '2%';
+          document.getElementById('link' + i).style.paddingRight = '2%';
+          document.getElementById('link' + i).style.fontSize = '2vh';
+          document.getElementById('link' + i).style.fontWeight = 'bold';
       }
 
-      
       
 
     }
@@ -209,18 +225,18 @@ function showstats(e,no,sound){
       if (no == 2) {
         iconarr = ['vhdl.png','vivado.png','Microwind.png']
         langarr = ['VHDL','Xilinx Vivado','Microwind']
-        skillarr = [3,1,1]
+        skillarr = [4,3,1]
       }
       if (no == 3){
         iconarr = ['html.png','css.png','javascript.png']
         langarr = ['HTML','CSS','Javascript']
-        skillarr = [2,2,3]
+        skillarr = [3,3,4]
       
       }
       if (no == 4){
         iconarr = ['Python.png','Excel.png','Mtlb.webp','MySQL.png']
         langarr = ['Python','Excel','Matlab','My SQL']
-        skillarr = [3,2,3,1]
+        skillarr = [3,3,4,2]
       }
 
       var div = document.createElement("div");
@@ -233,8 +249,8 @@ function showstats(e,no,sound){
         img.setAttribute("id","img" + i)
         img.src = 'images/'+iconarr[i];
         document.getElementById("div1").appendChild(img);
-        document.getElementById("img" + i).style.width = '7vh';
-        document.getElementById("img" + i).style.height = '7.1vh';
+        document.getElementById("img" + i).style.width = '5.5vh';
+        document.getElementById("img" + i).style.height = '5.5vh';
         document.getElementById('img' +i).style.display = 'flex'
         document.getElementById('img' +i).style.justifyContent = 'center'
         document.getElementById('img' +i).style.alignItems = 'center'
@@ -243,7 +259,7 @@ function showstats(e,no,sound){
         text.setAttribute("id", "text"+i);
         text.innerText = langarr[i];
         document.getElementById("div1").appendChild(text);
-        document.getElementById("text"+i).style.fontSize = '2.5vh';
+        document.getElementById("text"+i).style.fontSize = '2.1vh';
         document.getElementById("text"+i).style.fontWeight = 'bold';
 
 
@@ -257,7 +273,7 @@ function showstats(e,no,sound){
         }
         img2.height = (window.innerHeight*0.05).toString();
         document.getElementById("div1").appendChild(img2);
-        document.getElementById("img2" + i).style.height = '7.1vh';
+        document.getElementById("img2" + i).style.height = '5.5vh';
         document.getElementById('img2'+i).style.display = 'flex'
         document.getElementById('img2'+i).style.justifyContent = 'center'
         document.getElementById('img2'+i).style.alignItems = 'center'
@@ -294,8 +310,14 @@ function showstats(e,no,sound){
 
         var img = document.createElement('img');
         img.src = 'images/'+iconarr[i];
-        img.width = (window.innerWidth*0.05).toString();
-        img.height = (window.innerHeight*0.07).toString();
+        if (1.5*window.innerWidth > window.innerHeight) {
+          img.width = (window.innerWidth*0.05).toString();
+          img.height = (window.innerHeight*0.07).toString();
+        }
+        else{
+          img.width = (window.innerWidth*0.12).toString();
+          img.height = (window.innerHeight*0.07).toString();
+        }
         document.getElementById("div1").appendChild(img);
 
         text = document.createElement('p')
@@ -545,10 +567,15 @@ function showstats(e,no,sound){
 
       
       document.getElementById("2048board").style.position = 'absolute';
+      if (1.5*window.innerWidth < window.innerHeight) {
+        document.getElementById("2048board").style.left = '21%';
+      }
+      else {
+        document.getElementById("2048board").style.left = Math.floor(0.33*window.innerHeight).toString() + 'px';
+      }
       document.getElementById("2048board").style.bottom = Math.floor(0.01*window.innerHeight).toString() + 'px';;
       document.getElementById("2048board").style.border = "1px solid"
       document.getElementById("2048board").style.borderLeft = "1px solid"
-      document.getElementById("2048board").style.left = Math.floor(0.33*window.innerHeight).toString() + 'px';
       document.getElementById("2048board").style.display = "grid";
       document.getElementById("2048board").style.height = Math.floor(0.3*window.innerHeight).toString() + 'px';
       document.getElementById("2048board").style.width = Math.floor(0.3*window.innerHeight).toString() + 'px';
@@ -559,23 +586,68 @@ function showstats(e,no,sound){
       document.getElementById("2048board").style.textAlign = 'center';
 
       
+                    
 
-      document.addEventListener('keydown', function(e) {
-        switch (e.keyCode) {
-            case 37:
+      if (1.5*window.innerWidth < window.innerHeight) {
+        document.addEventListener('touchstart', handleTouchStart, false);        
+        document.addEventListener('touchmove', handleTouchMove, false);
+        
+        var xDown = null;                                                        
+        var yDown = null;                                                        
+        
+        function handleTouchStart(evt) {                                         
+            xDown = evt.originalEvent.touches[0].clientX;                                      
+            yDown = evt.originalEvent.touches[0].clientY;                                      
+        };   
+
+        function handleTouchMove(evt) {
+          alert('You swiped!')
+          if ( ! xDown || ! yDown ) {
+              return;
+          }
+
+          var xUp = evt.originalEvent.touches[0].clientX;                                    
+          var yUp = evt.originalEvent.touches[0].clientY;
+
+          var xDiff = xDown - xUp;
+          var yDiff = yDown - yUp;
+
+          if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
+              if ( xDiff > 0 ) {
                 movedir('left');
-                break
-            case 38:
-                movedir('up');
-                break
-            case 39:
+              } else {
                 movedir('right');
-                break
-            case 40:
+              }                       
+          } else {
+              if ( yDiff > 0 ) {
+                movedir('up'); 
+              } else { 
                 movedir('down');
-                break
+              }                                                                 
+          }
+          /* reset values */
+          xDown = null;
+          yDown = null;                                             
         }
-      });
+      }
+      else {
+        document.addEventListener('keydown', function(e) {
+          switch (e.keyCode) {
+              case 37:
+                  movedir('left');
+                  break
+              case 38:
+                  movedir('up');
+                  break
+              case 39:
+                  movedir('right');
+                  break
+              case 40:
+                  movedir('down');
+                  break
+          }
+        });
+      }
 
       if (autoreset == 1) {
         reset2048()
