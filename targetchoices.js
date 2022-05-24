@@ -129,7 +129,7 @@ function showstats(e,no,sound){
       if (lang == 'English') {
           text.innerText = '• Welcome to my hub. My name is Panagiotis and I am a graduate in electrical engineering and information technology. \r\n' +
           '• I am a passionate self taught web designer, skilled in CSS, HTML and Javascript. \r\n' +
-          '• I enjoy creating interactive websites with advanced UI, as evidenced by this particular one which I created from scratch. \r\n' +
+          '• I enjoy creating interactive websites with advanced UI and UX, as evidenced by this particular one which I created from scratch. \r\n' +
           '• I am excited to expand my knowledge on the beautiful world of web developing and turn my passion into a career. \r\n' +
           '• My field of expertise also extends to hardware design, which also happens to be the subject of my graduation thesis. \r\n' +
           '• I am open to anything on that spectrum, as long as I get to be creative and achieve a sufficient amount of short term goals. \r\n' +
@@ -137,10 +137,14 @@ function showstats(e,no,sound){
           "• Feel free to message me using the contact form I set up, by clicking 'Contact' on the menu below."
       }
       if (lang == 'Greek') {
-        text.innerText =  'Καλως ήρθατε στο προφίλ μου. Είμαι απόφοιτος ηλεκτρολόγος μηχανικός και τεχνολογίας υπολογιστών. \r\n' +
-        'Μου αρέσει να εκτελώ πρότζεκτς σαν και αυτό ως junior web developer. \r\n' +
-        'Οι γνώσεις μου επεκτείνονται και στο σχεδιασμό ολοκληρωμένων κυκλωμάτων, το οποίο αποτελεί και το αντικείμενο της διπλωματικής εργασίας μου. \r\n' +
-        'Θα ήθελα να επεκτείνω τις γνώσεις μου επάνω στον τομέα της τεχνολογίας υπολογιστών (IT) και να μετατρέψω το ενδιαφέρον μου σε εργασία'
+        text.innerText = '• Καλωσήρθατε στην προσωπική μου σελίδα. Ονομάζομαι Παναγιώτης και είμαι απόφοιτος ηλεκτρολόγος μηχανικός. \r\n' +
+          '• Είμαι ένας ενθουσιώδης αυτοδίδακτος σχεδιαστής ιστοσελίδων, με καλές γνώσεις CSS, HTML και Javascript. \r\n' +
+          '• Μου αρέσει να φτιάχνω διαδραστικές ιστοσελίδες με εξελιγμένο γραφικό περιβάλλον, όπως αυτήν την σελίδα την οποία δημιούργησα από το μηδέν. \r\n' +
+          '• Ενδιαφέρομαι να επεκτείνω τις γνώσεις μου στον όμορφο κόσμο του σχεδιασμού ιστοσελίδων και να μετατρέψω το πάθος μου σε επάγγελμα. \r\n' +
+          '• Οι γνώσεις μου επεκτείνονται και στον σχεδιασμό ολοκληρωμένων κυκλωμάτων, το οποίο αποτελέι και το αντικείμενο της διπλωματικής εργασίας μου. \r\n' +
+          '• Είμαι ανοιχτός σε οτιδήποτε σε αυτούς τους τομείς, αρκεί να έχω δημιουργική ελεύθερια και να πετυχαίνω τους στόχους μου. \r\n' +
+          '• Για να μετακινηθείτε στη σελίδα, ρίξτε τα βέλη (πατώντας το αριστερό κλικ) στους αντίστοιχους στόχους για να δείτε παραπάνω πληροφορίες για μένα. \r\n' +
+          "• Σε περίπτωση που θέλετε να επικοινωνήσετε μαζί μου, στείλτε μου ένα μύνημα μέσω της επιλογής 'Επικοινωνία'."
       }
       document.getElementById('screeninfo').appendChild(text);
   
@@ -158,7 +162,7 @@ function showstats(e,no,sound){
 
       if (1.5*window.innerWidth < window.innerHeight) {
         document.getElementById('text1').style.fontSize = '3vmin';
-        document.getElementById('text2').style.fontSize = '2.5vmin';
+        document.getElementById('text2').style.fontSize = '2.2vmin';
         document.getElementById('text2').style.fontWeight = 'bold';
         document.getElementById('myface').style.width = '24vw';
         document.getElementById('myface').style.height = '24vmin';
