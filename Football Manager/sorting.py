@@ -41,13 +41,13 @@ for row in csvreader:
 
 f1 = open("leaguenames.txt", "a")
 f1.truncate(0)
-f1.write('[')
+f1.write('["')
 for element in leaguenames:
     if element != leaguenames[len(leaguenames)-1]:
-        f1.write(element + ",")
+        f1.write(element + '","')
     else:
         f1.write(element)
-f1.write(']')    
+f1.write('"]')    
 f1.close()
 
 
@@ -57,7 +57,7 @@ text = pprint.pformat(leagueclubs)
 text2 = ''
 text2 = text2 + text[0]
 for i in range(1,len(text)):
-    if text[i] == "'":
+    if text[i] == "'" and (text[i+1] == ',' or text[i+1] == ']' or text[i-1] == ',' or text[i-1] == '['):
         text2 = text2 + '"'
     elif (text[i] != '\n') and (text[i] != ' ' or text2[len(text2)-1] != ','):
         text2 = text2 + text[i]
@@ -72,7 +72,7 @@ text = pprint.pformat(leagueplayers)
 text3 = ''
 text3 = text3 + text[0]
 for i in range(1,len(text)):
-    if text[i] == "'":
+    if text[i] == "'" and (text[i+1] == ',' or text[i+1] == ']' or text[i-1] == ',' or text[i-1] == '['):
         text3 = text3 + '"'
     elif (text[i] != '\n') and (text[i] != ' ' or text3[len(text3)-1] != ','):
         text3 = text3 + text[i]
