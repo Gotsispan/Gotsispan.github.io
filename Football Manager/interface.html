@@ -9,10 +9,73 @@
     <link rel="stylesheet" href="interface.css">
 </head>
 
+<div>
+    
+    <button onclick="findplayers()">RE</button>
+
+    <input type="text" id="name" value=""><br><br>
+
+    <select id="position">
+        <option value="Any">Any</option>
+    </select>
+
+    <div>
+        <p>Overall Score</p>
+        <p>More than:</p>
+        <input type="number" id="overlow" value="0"><br><br>
+        <p>Less than:</p>
+        <input type="number" id="overhigh" value="99"><br><br>
+    </div>
+
+    <div>
+        <p>Price</p>
+        <p>More than (thousand):</p>
+        <input type="number" id="pricelow" value="5"><br><br>
+        <p>Less than (thousand):</p>
+        <input type="number" id="pricehigh" value="200000"><br><br>
+    </div>
+
+    <div>
+        <p>Age</p>
+        <p>More than (years):</p>
+        <input type="number" id="agelow" value="14"><br><br>
+        <p>Less than (years):</p>
+        <input type="number" id="agehigh" value="50"><br><br>
+    </div>
+
+    <div>
+        <p>Height</p>
+        <p>More than (cm):</p>
+        <input type="number" id="heightlow" value="100"><br><br>
+        <p>Less than (cm):</p>
+        <input type="number" id="heighthigh" value="250"><br><br>
+    </div>
+
+    <div>
+        <p>Weight</p>
+        <p>More than:</p>
+        <input type="number" id="weightlow" value="30"><br><br>
+        <p>Less than:</p>
+        <input type="number" id="weighthigh" value="200"><br><br>
+    </div>
+
+    <input type="text" id="nation" value = "Any"><br><br>
+
+    <select id="team">
+        <option value="Any">Any</option>
+    </select>
+
+    <select id="league">
+        <option value="Any">Any</option>
+    </select>
+
+</div>
+
 
 <body>
 
 <script src = 'getlists.js'></script>
+<script src = 'my_game.js'></script>
 
 </body>
 
