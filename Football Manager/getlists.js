@@ -27,6 +27,41 @@ var arrayleagues = JSON.parse(text2)
 var text3 = readTextFile('leagueplayers.txt')
 var arrayplayers = JSON.parse(text3)
 
+varposarray = ['GK','RB','RWB','CB','LB','LWB','CDM','CM','CAM','RM','RW','LM','LW','RF','CF','LF','ST']
+
+var option = ''
+for (i=0; i<varposarray.length; i++) {
+    option = document.createElement('option');
+    option.value = varposarray[i];
+    option.innerHTML = varposarray[i];
+    document.getElementById('position').appendChild(option)
+}
+
+for (i=0; i<arrayleagues.length; i++) {
+    option = document.createElement('option');
+    option.value = arrayleagues[i];
+    option.innerHTML = arrayleagues[i];
+    document.getElementById('league').appendChild(option)
+}
+
+function changeFunc() {
+    document.getElementById('team').replaceChildren()
+    if (document.getElementById("league").value != 'Any') {
+        for (i=0; i<arrayclubs[arrayleagues.indexOf(document.getElementById("league").value)].length; i++) {
+            option = document.createElement('option');
+            option.value = arrayclubs[arrayleagues.indexOf(document.getElementById("league").value)][i][0];
+            option.innerHTML = arrayclubs[arrayleagues.indexOf(document.getElementById("league").value)][i][0];
+            document.getElementById('team').appendChild(option)
+        }
+    }
+    else {
+        option = document.createElement('option');
+        option.value = 'Any';
+        option.innerHTML = 'Any';
+        document.getElementById('team').appendChild(option)
+    }
+}
+
 //name:0,position:1,overall:2,value:3,wage:4,age:5,height:6,weight:7,nationality:8,team:9,league:10
 
 function find_players(arr){
@@ -38,7 +73,7 @@ function find_players(arr){
         for (j=0; j<arrayplayers[i].length; j++) {
             for (k=0; k<arrayplayers[i][j].length; k++) {
                 playersolo = []
-                truee = (arr[0] == '' || arrayplayers[i][j][k][0].includes(arr[0])) 
+                truee = (arr[0] == '' || arrayplayers[i][j][k][0].toUpperCase().includes(arr[0].toUpperCase())) 
                 && (arr[1] == 'Any' || arrayplayers[i][j][k][1].includes(arr[1]))
                 && (eval(arrayplayers[i][j][k][2]) >= arr[2][0] && eval(arrayplayers[i][j][k][2]) <= arr[2][1]) 
                 && (eval(arrayplayers[i][j][k][3]) >= arr[3][0] && eval(arrayplayers[i][j][k][3]) <= arr[3][1]) 
@@ -46,7 +81,7 @@ function find_players(arr){
                 && (eval(arrayplayers[i][j][k][5]) >= arr[5][0] && eval(arrayplayers[i][j][k][5]) <= arr[5][1]) 
                 && (eval(arrayplayers[i][j][k][6]) >= arr[6][0] && eval(arrayplayers[i][j][k][6]) <= arr[6][1]) 
                 && (arr[7] == 'Any' || arrayplayers[i][j][k][8] == 'https://cdn.sofifa.net/flags/' + arr[7] + '.png') 
-                && (arr[8] == 'Any' || arrayclubs[i][j] == arr[8]) 
+                && (arr[8] == 'Any' || arrayclubs[i][j][0] == arr[8]) 
                 && (arr[9] == 'Any' || arrayleagues[i] == arr[9]) 
                 if(truee) {
                     for (m=0; m<arrayplayers[i][j][k].length; m++) {
@@ -77,9 +112,8 @@ function findplayers() {
     array[6][0] = document.getElementById("weightlow").value
     array[6][1] = document.getElementById("weighthigh").value
     array[7] = document.getElementById("nation").value
-    array[8] = document.getElementById("team").innerText
-    array[9] = document.getElementById("league").innerText
-    console.log(array)
+    array[8] = document.getElementById("team").value
+    array[9] = document.getElementById("league").value
     console.log(find_players(array))
 }
 
