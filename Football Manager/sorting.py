@@ -57,8 +57,11 @@ text = pprint.pformat(leagueclubs)
 text2 = ''
 text2 = text2 + text[0]
 for i in range(1,len(text)):
-    if (text[i] != '\n') and (text[i] != ' ' or text2[len(text2)-1] != ','):
+    if text[i] == "'":
+        text2 = text2 + '"'
+    elif (text[i] != '\n') and (text[i] != ' ' or text2[len(text2)-1] != ','):
         text2 = text2 + text[i]
+
 
 f2.write(text2)
 f2.close()
@@ -69,7 +72,9 @@ text = pprint.pformat(leagueplayers)
 text3 = ''
 text3 = text3 + text[0]
 for i in range(1,len(text)):
-    if (text[i] != '\n') and (text[i] != ' ' or text3[len(text3)-1] != ','):
+    if text[i] == "'":
+        text3 = text3 + '"'
+    elif (text[i] != '\n') and (text[i] != ' ' or text3[len(text3)-1] != ','):
         text3 = text3 + text[i]
 f3.write(text3)
 f3.close()
