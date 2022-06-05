@@ -39,7 +39,7 @@ for row in csvreader:
     else:
         leagueplayers[leaguenames.index(row[15])][leagueclubs[leaguenames.index(row[15])].index([row[14],row[106]])].append(player)
 
-f1 = open("leaguenames.txt", "a")
+f1 = open("leaguenames.txt", "a",encoding='utf8')
 f1.truncate(0)
 f1.write('["')
 for element in leaguenames:
@@ -51,34 +51,34 @@ f1.write('"]')
 f1.close()
 
 
-f2 = open("leagueclubs.txt", "a",encoding='utf8')
-f2.truncate(0)
-text = pprint.pformat(leagueclubs)
-text2 = ''
-text2 = text2 + text[0]
-for i in range(1,len(text)):
-    if text[i] == "'" and (text[i+1] == ',' or text[i+1] == ']' or text[i-1] == ',' or text[i-1] == '['):
-        text2 = text2 + '"'
-    elif (text[i] != '\n') and (text[i] != ' ' or text2[len(text2)-1] != ','):
-        text2 = text2 + text[i]
+#f2 = open("leagueclubs.txt", "a",encoding='utf8')
+#f2.truncate(0)
+#text = pprint.pformat(leagueclubs)
+#text2 = ''
+#text2 = text2 + text[0]
+#for i in range(1,len(text)):
+ #   if text[i] == "'" and (text[i+1] == ',' or text[i+1] == ']' or text[i-1] == ',' or text[i-1] == '['):
+ #       text2 = text2 + '"'
+ #   elif (text[i] != '\n') and (text[i] != ' ' or text2[len(text2)-1] != ','):
+ #       text2 = text2 + text[i]
 
 
-f2.write(text2)
-f2.close()
+#f2.write(text2)
+#f2.close()
 
-f3 = open("leagueplayers.txt", "a",encoding='utf8')
-f3.truncate(0)
-text = pprint.pformat(leagueplayers)
-print(text[0:100])
-text3 = ''
-text3 = text3 + text[0]
-for i in range(1,len(text)):
-    if text[i] == "'" and (text[i+1] == ',' or text[i+1] == ']' or text3[len(text3)-1] == ',' or text3[len(text3)-1] == '['):
-        text3 = text3 + '"'
-    elif (text[i] != '\n') and (text[i] != ' ' or text3[len(text3)-1] != ','):
-        text3 = text3 + text[i]
-f3.write(text3)
-f3.close()
+#f3 = open("leagueplayers.txt", "a",encoding='utf8')
+#f3.truncate(0)
+#text = pprint.pformat(leagueplayers)
+#print(text[0:100])
+#text3 = ''
+#text3 = text3 + text[0]
+#for i in range(1,len(text)):
+#    if text[i] == "'" and (text[i+1] == ',' or text[i+1] == ']' or text3[len(text3)-1] == ',' or text3[len(text3)-1] == '['):
+#        text3 = text3 + '"'
+#    elif (text[i] != '\n') and (text[i] != ' ' or text3[len(text3)-1] != ','):
+#        text3 = text3 + text[i]
+#f3.write(text3)
+#f3.close()
 
         
 
