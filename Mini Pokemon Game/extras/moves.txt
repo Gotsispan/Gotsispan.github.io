@@ -1,0 +1,695 @@
+function movesecondary(PKMN1,PKMN2,PKMNbase1,PKMNbase2,MAXHP1,MAXHP2,move1,field1,field2,succin) {
+
+    if (PKMN1.item == "Choice Scarf" || PKMN1.item == "Choice Scarf" || PKMN1.item == "Choice Scarf") {
+        PKMN1.locked = [move1.name,999];
+    }
+
+    succrate = 100;
+
+    var burnimm = ["Water Veil","Water Bubble"].includes(PKMN2.ability) || PKMN2.type1 == 'Fire' || PKMN2.type2 == 'Fire';
+    var flinchimm = ["Shield Dust","Inner Focus"].includes(PKMN2.ability) || PKMN2.status2.includes('flinch');
+    var confuseimm = ["Own Tempo"].includes(PKMN2.ability) || PKMN2.status2.includes('confusion');;
+    var sleepimm = ["Insomnia","Vital Spirit","Sweet Veil"].includes(PKMN2.ability);
+    var poisonimm = ["Immunity","Pastel Veil"].includes(PKMN2.ability) || PKMN2.type1 == 'Poison' || PKMN2.type2 == 'Poison' || PKMN2.type1 == 'Steel' || PKMN2.type2 == 'Steel';
+    var paralyzeimm = ["Limber"].includes(PKMN2.ability) || PKMN2.type1 == 'Electric' || PKMN2.type2 == 'Electric';
+    var attractimm = PKMN1.gender == PKMN2.gender || PKMN1.gender != 'none' || PKMN2.gender != 'none' || PKMN2.status2.includes('attraction');;
+    var statusimm = field2.rem.includes("Safeguard") || (PKMN2.ability == 'Leaf Guard' && field1.weather == 'sun') || PKMN2.ability == "Comatose";
+    var freezeimm = ["Magma Armor","Comatose","Shield Dust"].includes(PKMN2.ability) || field1.weather == 'sun' || PKMN2.type1 == 'Ice' || PKMN2.type2 == 'Ice';
+
+    var codee = move1.code;
+
+    if (codee == "00D" && field1.weather == 'hail') {
+        succrate = 100;
+    }
+    if (codee == "011" && PKMN1.status != 'sleep') {
+        succrate = 0;
+    }   
+    if (codee == "012" && field1.turnsin1 > 1) {
+        succrate = 0;
+    }
+
+    if (codee == "016" && attractimm) {
+        succrate = 0;
+    }
+
+    if (codee == "04E" && attractimm) {
+        succrate = 0;
+    }
+
+    if (move1.kind == 'Status' && move1.accuracy == 0) {
+        succrate = 100;
+    }
+
+    
+
+    //calculate chance
+    if (succin == '-1') {
+        succ = 0;       
+        var succrand = (Math.random());
+        if (succrand > 1-succrate/100) {
+            var succ = 1;
+        }
+ 
+    }
+    else {
+        var succ = succin
+    }
+
+    var eff = typechart[dict[move1.type]][dict[PKMN2.type1]] * typechart[dict[move1.type]][dict[PKMN2.type2]];
+    var secondrate = move1.statchance;
+
+    if (eff>1 && PKMN2.item == "Weakness Policy") {
+        PKMN2.attackstage + 2;
+        PKMN2.spatkstage + 2;
+    }
+
+    if (move1.kind == 'Status' && move1.statchance == 0) {
+        secondrate = 100;
+    }
+    var secondrand = (Math.random());
+
+    //
+
+    //no serene grace
+    if (succ == 1 && eff != 0 && secondrand > 1-secondrate/100) {
+
+        if (codee == "018" && (PKMN1.status == 'burn' || PKMN1.status == 'paralysis' || PKMN1.status == 'poison')) {
+            console.log( PKMN1.nickname + 'is cured from status effects')
+            PKMN1.status = 'none';
+        }
+
+        if (codee == "01A") {
+            console.log(PKMN1.nickname + 'protects itself')
+            field1.rem.push('Safeguard');
+            field1.rem.push(5)
+        }
+
+        if (codee == "016") {
+            PKMN2.status2.push('attract');
+        }
+        
+        if (codee == "01B" && PKMN2.status == 'none' && PKMN1.status != 'none') {
+            PKMN2.status = PKMN1.status;
+            PKMN1.status = 'none';
+        }
+
+        if (codee == "01C") {
+            PKMN1.attackstage += 1;
+        }
+
+        if (codee == "01D" && codee == "01E") {
+            PKMN1.defstage += 1;
+        }
+
+        if (codee == "01F") {
+            PKMN1.speedstage += 1;
+        }
+
+        if (codee == "020") {
+            PKMN1.spatkstage += 1;
+        }
+
+        if (codee == "022") {
+            PKMN1.evasionstage += 1;
+        }
+
+        if (codee == "023") {
+            PKMN1.critstage += 2;
+        }
+
+        if (codee == "024") {
+            PKMN1.attackstage += 1;
+            PKMN1.defstage += 1;
+        }
+
+        if (codee == "025") {
+            PKMN1.attackstage += 1;
+            PKMN1.defstage += 1;
+            PKMN1.accuracystage += 1;
+        }
+
+        if (codee == "026") {
+            PKMN1.attackstage += 1;
+            PKMN1.speedstage += 1;
+        }
+
+        if (codee == "027") {
+            PKMN1.attackstage += 1;
+            PKMN1.spatkstage += 1;
+        }
+
+        if (codee == "028") {
+            PKMN1.attackstage += 1;
+            PKMN1.spatkstage += 1;
+            if (weather = 'sun') {
+                PKMN1.attackstage += 1;
+                PKMN1.spatkstage += 1; 
+            }
+        }
+        
+        if (codee == "029") {
+            PKMN1.attackstage += 1;
+            PKMN1.accuracystage += 1;
+        }
+
+        if (codee == "02A") {
+            PKMN1.defstage += 1;
+            PKMN1.spdefstage += 1;
+        }
+
+        if (codee == "02B") {
+            PKMN1.spatkstage += 1;
+            PKMN1.speedstage += 1;
+            PKMN1.spdefstage += 1;
+        }
+
+        if (codee == "02C") {
+            PKMN1.spatkstage += 1;
+            PKMN1.spdefstage += 1;
+        }
+
+        if (codee == "02D") {
+            PKMN1.attackstage += 1;
+            PKMN1.defstage += 1;
+            PKMN1.spatkstage += 1;
+            PKMN1.spdefstage += 1;
+            PKMN1.speedstage += 1;
+        }
+
+        if (codee == "02E") {
+            PKMN1.attackstage += 2;
+        }
+        
+        if (codee == "02F") {
+            PKMN1.defstage += 2;
+        }
+
+        if (codee == "030" || codee == "031") {
+            PKMN1.speedstage += 2;
+        }
+
+        if (codee == "032") {
+            PKMN1.spatkstage += 2;
+        }
+
+        if (codee == "033") {
+            PKMN1.spdef += 2;
+        }
+
+        if (codee == "034") {
+            PKMN1.evasionstage += 2;
+        }
+
+        if (codee == "035") {
+            PKMN1.attackstage += 2;
+            PKMN1.defstage -= 1;
+            PKMN1.spatkstage += 2;
+            PKMN1.spdefstage -= 1;
+            PKMN1.speedstage += 2;
+        }
+
+        if (codee == "036") {
+            PKMN1.speedstage += 2;
+            PKMN1.attackstage += 1;
+        }
+
+        if (codee == "037") {
+            randstat = floor(Math.random()*7);
+            if (randstat == 0) {
+                PKMN1.attackstage += 2;
+            }
+            if (randstat == 1) {
+                PKMN1.defstage += 2;
+            }
+            if (randstat == 2) {
+                PKMN1.spatktage += 2;
+            }
+            if (randstat == 3) {
+                PKMN1.spdefstage += 2;
+            }
+            if (randstat == 4) {
+                PKMN1.speedstage += 2;
+            }
+            if (randstat == 5) {
+                PKMN1.accuracystage += 2;
+            }
+            if (randstat == 6) {
+                PKMN1.evasionstage += 2;
+            }
+        }
+
+        if (codee == "038") {
+            PKMN1.defstage += 3;
+        }
+
+        if (codee == "039") {
+            PKMN1.spatkstage += 3;
+        }
+
+        if (codee == "03A" && PKMN1.hpperc > 50) {
+            PKMN1.hpperc -= 50;
+            PKMN1.hpcurr -= 50*hpcurr/hpperc;
+            PKMN1.atkstage += 6; 
+        }
+
+        if (codee == "03B") {
+            PKMN1.atkstage -= 1;
+            PKMN1.defstage -= 1;
+        }
+
+        if (codee == "03C") {
+            PKMN1.defstage -= 1;
+            PKMN1.spdefstage -= 1;
+        }
+
+        if (codee == "03D") {
+            PKMN1.speedstage -= 1;
+        }
+
+        if (codee == "03F") {
+            PKMN1.spatkstage -= 2;
+        }
+        
+        //with serene grace
+        if (PKMN1.ability == 'Serene Grace') {
+            secondrate = 2*secondrate;
+        }
+
+        if (field2.nonrem.includes('Protect')) {
+            secondrate = 0;
+        }
+
+        if (field2.nonrem.includes('Quick Guard') && move1.priority > 0) {
+            secondrate = 0;
+        }
+
+        if (secondrand > 1-secondrate/100 && (PKMN1.ability != "Sheer Force" || move1.kind == "Status" )) {
+
+            if (codee == "002") {
+                PKMN1.hpcurr = PKMN1.hpcurr - 1/4 * 25*PKMN1.hpcurr/PKMN1.hpperc;
+            }
+
+            if (codee == "003" && PKMN2.status == 'none' && !sleepimm && !statusimm) {
+                console.log(PKMN2.nickname + 'fell asleep')
+                PKMN2.status = 'sleep';
+            }
+
+            if (codee == "005" && PKMN2.status == 'none' && !poisonimm && !statusimm) {
+                console.log(PKMN2.nickname + ' got poisoned')
+                PKMN2.status = 'poison';
+            }
+
+            if (codee == "006" && PKMN2.status == 'none' && !poisonimm && !statusimm) {
+                console.log(PKMN2.nickname + ' got badly poisoned')
+                PKMN2.status = 'bpoison';
+            }
+
+            if ((codee == "007" || codee == "008")  && !paralyzeimm && !statusimm && PKMN2.status == 'none') {
+                console.log(PKMN2.nickname + ' got paralyzed and may be unable to move')
+                PKMN2.status = 'paralyze';
+            }
+
+            if (codee == "009") {
+                randstat = Math.random();
+                if (randstat > 0.5 && !paralyzeimm && PKMN2.status == 'none' && !statusimm) {
+                    console.log(PKMN2.nickname + 'got paralyzed and may be unable to move')
+                    PKMN2.status = 'paralyze';
+                }
+                else if (!flinchimm) {
+                    console.log(PKMN2.nickname + ' flinched')
+                    PKMN2.status2.push('flinch');
+                }
+            }
+
+            if (codee == "00A" && PKMN2.status == 'none' && !burnimm && !statusimm) {
+                console.log(PKMN2.nickname + 'got burnt')
+                PKMN2.status = 'burn';
+            }
+
+            if (codee == "00B") {
+                randstat = Math.random();
+                if (randstat > 0.5 && PKMN2.status == 'none' && !burnimm && !statusimm) {
+                    console.log(PKMN2.nickname + ' got burnt')
+                    PKMN2.status = 'burn';
+                }
+                else if (!flinchimm) {
+                    console.log(PKMN2.nickname + ' flinched')
+                    PKMN2.status2.push('flinch');
+                }
+            }
+
+            if ((codee == "00C" || codee == "00D") && PKMN2.status == 'none' && !freezeimm && !statusimm) {
+                console.log(PKMN2.nickname + ' got frozen')
+                PKMN2.status = 'freeze';
+            }
+
+            if (codee == "00E") {
+                randstat = Math.random();
+                if (randstat > 0.5 && PKMN2.status == 'none' && !freezeimm && !statusimm) {
+                    console.log(PKMN2.nickname + ' got frozen')
+                    PKMN2.status = 'freeze';
+                }
+                else if (!flinchimm) {
+                    console.log(PKMN2.nickname + ' flinched')
+                    PKMN2.status2.push('flinch');
+                }
+            }
+
+            if (codee == "00F" && !flinchimm) {
+                console.log(PKMN2.nickname + ' flinched')
+                PKMN2.status2.push('flinch');
+            }
+
+            if (codee == "011" && !flinchimm) {
+                console.log(PKMN2.nickname + ' flinched')
+                PKMN2.status2.push('flinch');
+            }
+
+            if (codee == "012" && !flinchimm) {
+                console.log(PKMN2.nickname + ' flinched')
+                PKMN2.status2.push('flinch');
+            }
+
+            if ((codee == "013" || codee == "015") && !confuseimm) {
+                console.log(PKMN2.nickname + ' is confused')
+                PKMN2.status2.push('confusion');
+            }
+
+            if (codee == "017" && PKMN2.status == 'none') {
+                randstat = Math.random();
+                if (randstat < 0.33 && !freezeimm && !statusimm) {
+                    console.log(PKMN2.nickname + ' is frozen solid')
+                    PKMN2.status = 'freeze';
+                }
+                else if ( randstat > 0.33 && randstat < 0.66 && !paralyzeimm && !statusimm){
+                    console.log(PKMN2.nickname + ' got paralyzed and may be unable to move')
+                    PKMN2.status2 = 'paralyze';
+                }
+                else if (!burnimm && !statusimm) {
+                    console.log(PKMN2.nickname + ' got burnt')
+                    PKMN2.status2 = 'burn';
+                }
+            }
+
+            if (codee == "040" && PKMN2.status == 'none' && !confuseimm) {
+                PKMN2.spatkstage += 1;
+                console.log(PKMN2.nickname + ' is confused')
+                PKMN2.status2.push('confusion');
+            }
+
+            if (codee == "041" && PKMN2.status == 'none' && !confuseimm ) {
+                PKMN2.attackstage += 2;
+                console.log(PKMN2.nickname + ' is confused')
+                PKMN2.status2.push('confusion');
+            }
+
+            if (codee == "042") {
+                PKMN2.attackstage -= 1;
+            }
+
+            if (codee == "043") {
+                PKMN2.attackstage -= 1;
+            }
+
+            if (codee == "045") {
+                PKMN2.speedstage -= 1;
+            }
+
+            if (codee == "046") {
+                PKMN2.spdefstage -= 1;
+            }
+
+            if (codee == "047") {
+                PKMN2.accuracystage -= 1;
+            }
+
+            if (codee == "048") {
+                PKMN2.evasionstage -= 2;
+            }
+
+            if (codee == "049") {
+                PKMN2.evasionstage -= 1;
+                field1.rem = []
+                field1.rem = []
+            }
+
+            if (codee == "04A") {
+                PKMN2.attackstage -= 1;
+                PKMN2.defstage -= 1;
+            }
+
+            if (codee == "04B") {
+                PKMN2.attackstage -= 2;
+            }
+
+            if (codee == "04C") {
+                PKMN2.defstage -= 2;
+            }
+
+            if (codee == "04D") {
+                PKMN2.speedstage -= 2;
+            }
+
+            if (codee == "04E") {
+                PKMN2.spatkstage -= 2;
+            }
+
+            if (codee == "04F") {
+                PKMN2.spdefstage -= 2;
+            }
+
+            if (codee == "050") {
+                PKMN2.attackstage = 0;
+                PKMN2.defstage = 0;
+                PKMN2.spatkstage = 0;
+                PKMN2.spdefstage = 0;
+                PKMN2.speedstage = 0;
+            }
+
+            if (codee == "051") {  
+                PKMN2.attackstage = 0;
+                PKMN2.defstage = 0;
+                PKMN2.spatkstage = 0;
+                PKMN2.spdefstage = 0;
+                PKMN2.speedstage = 0;
+
+                PKMN1.attackstage = 0;
+                PKMN1.defstage = 0;
+                PKMN1.spatkstage = 0;
+                PKMN1.spdefstage = 0;
+                PKMN1.speedstage = 0;
+            }
+
+            if (codee == "052") {
+                saveatkstage = PKMN1.attackstage
+                savespatkstage = PKMN1.spatkstage
+                PKMN1.attackstage = PKMN2.attackstage
+                PKMN1.spatkstage = PKMN2.spatkstage
+                PKMN2.attackstage = saveatkstage
+                PKMN2.spattackstage = savespatkstage
+            }
+
+            if (codee == "053") {
+                savedefstage = PKMN1.defstage
+                savespdefstage = PKMN1.spefstage
+                PKMN1.defstage = PKMN2.defstage
+                PKMN1.spdefstage = PKMN2.spdefstage
+                PKMN2.defstage = savedefstage
+                PKMN2.spdefstage = savespdefstage
+            }
+
+            if (codee == "054") { 
+                var saveatkstage =  PKMN1.attackstage
+                var savedefstage = PKMN1.defstage
+                var savespatkstage = PKMN1.spatkstage
+                var savespdefstage = PKMN1.spdefstage
+                var savespeedstage = PKMN1.speedstage
+
+                PKMN1.attackstage = PKMN2.attackstage;
+                PKMN1.defstage = PKMN2.defstage;
+                PKMN1.spatkstage = PKMN2.spatkstage;
+                PKMN1.spdefstage = PKMN2.spdefstage;
+                PKMN1.speedstage = PKMN2.speedstage;
+
+                
+                PKMN2.attackstage = saveatkstage;
+                PKMN2.defstage = savedefstage;
+                PKMN2.spatkstage = savespatkstage;
+                PKMN2.spdefstage = savespdefstage;
+                PKMN2.speedstage = savespeedstage;
+
+            }
+
+            if (codee == "055") { 
+                PKMN1.attackstage = PKMN2.attackstage;
+                PKMN1.defstage = PKMN2.defstage;
+                PKMN1.spatkstage = PKMN2.spatkstage;
+                PKMN1.spdefstage = PKMN2.spdefstage;
+                PKMN1.speedstage = PKMN2.speedstage;
+            }
+
+            if (codee == "057") { 
+                savedef = PKMN1base.atkbase;
+                PKMN1base.atk = PKMN1base.defbase;
+                PKMN1base.defbase = savedef;
+            }
+
+            if (codee == "058") { 
+                saveatk = Math.floor((PKMN1base.atkbase+PKMN2base.atkbase)/2);
+                savespatk = Math.floor((PKMN1base.spatkbase+PKMN2base.spatkbase)/2);
+                PKMN1base.atkbase = saveatk;
+                PKMN2base.atkbase = saveatk;
+                PKMN1base.spatkbase = savespatk;
+                PKMN2base.spatkbase = savespatk;
+            }
+
+            if (codee == "059") { 
+                savedef = Math.floor((PKMN1base.defbase+PKMN2base.defbase)/2);
+                savespdef = Math.floor((PKMN1base.spdefbase+PKMN2base.spdefbase)/2);
+                PKMN1base.defbase = savedef;
+                PKMN2base.defbase = savedef;
+                PKMN1base.spdefbase = savespdef;
+                PKMN2base.spdefbase = savespdef;
+            }
+
+            if (codee == "05A") {
+                HPsave = Math.floor((PKMN1.hpcurr + PKMN2.hpcurr)/2)
+                PKMN1.hpcurr = HPsave;
+                PKMN2.hpcurr = HPsave;
+                if (PKMN1.hpcurr > MAXHP1) {
+                    PKMN1.hpcurr = MAXHP1
+                }
+                if (PKMN2.hpcurr > MAXHP2) {
+                    PKMN2.hpcurr = MAXHP2
+                }
+            }
+
+            if (codee == "05B") {
+                field1.nonrem.push('Tailwind')
+                field1.nonrem.push(5)
+            }
+
+            if (codee == '061') {
+                PKMN2.type1 = 'Water'
+                PKMN2.type2 = 'none'
+            }
+
+            if (codee == "062") {
+                PKMN2.type1 = PKMN1.type1;
+                PKMN2.type2 = PKMN1.type2;
+            }
+
+            if (codee == "063") {
+                PKMN2.ability = 'Simple'
+            }
+
+            if (codee == "064") {
+                PKMN2.ability = 'Insomnia'
+            }
+
+            if (codee == "065") {
+                PKMN1.ability = PKMN2.ability
+            }
+
+            if (codee == "066") {
+                PKMN2.ability = PKMN1.ability
+            }
+
+            if (codee == "067") {
+                saveability = PKMN1.ability
+                PKMN1.ability = PKMN2.ability
+                PKMN2.ability = saveability
+            }
+
+            if (codee == "068") {
+                PKMN2.ability = 'none'
+            }
+
+            if (codee == "069") {
+                var currentstats = {
+                    nickname: PKMN1.nickname,
+                    species: PKMN2.species,
+                    gender: PKMN2.gender,
+                    type1: PKMN2.type1,
+                    type2: PKMN2.type2,
+                    item: PKMN1.item,
+                    level: PKMN2.level,
+                    ability: PKMN2.ability,
+                    nature: PKMN2.nature,
+                    status: PKMN1.status,
+                    status2: PKMN1.status2,
+                    HPIV: PKMN1.HPIV,
+                    ATKIV: PKMN2.ATKIV,
+                    DEFIV: PKMN2.DEFIV,
+                    SPATKIV: PKMN2.SPATKIV,
+                    SPDEFIV: PKMN2.SPDEFIV,
+                    SPEEDIV: PKMN2.SPEEDIV,
+                    HPEV: PKMN1.HPEV,
+                    ATKEV: PKMN2.ATKEV,
+                    DEFEV: PKMN2.DEFEV,
+                    SPATKEV: PKMN2.SPATKEV,
+                    SPDEFEV: PKMN2.SPDEFEV,
+                    SPEEDEV: PKMN2.SPEEDEV,
+                    attackstage: PKMN2.attackstage,
+                    defstage: PKMN2.defstage,
+                    spatkstage: PKMN2.spatkstage,
+                    spdefstage: PKMN2.spdefstage,
+                    speedstage: PKMN2.speedstage,
+                    evasionstage: PKMN2.evasionstage,
+                    accuracystage: PKMN2.accuracystage,
+                    critstage: PKMN2.critstage,
+                    hpperc: PKMN1.hpperc,
+                    hpcurr: PKMN1.hpcurr,
+                    atkcurr: PKMN2.atkcurr,
+                    defcurr: PKMN2.defcurr,
+                    spatkcurr: PKMN2.spatkcurr,
+                    spdefcurr: PKMN2.spdefcurr,
+                    speedcurr: PKMN2.speedcurr,
+                    moveset: PKMN2.moveset,
+                    movePP: [5,5,5,5]
+                }
+                
+                PKMN1 = currentstats;
+                PKMN1 = calculatestats(PKMN1,PKMN1base,0,1);
+            }
+
+            if (move1.code == "09D") {
+                field2.nonrem.push('Mud Sport')
+                field2.nonrem.push(5)
+            }
+    
+            if (move1.code == "09E") {
+                field2.nonrem.push('Water Sport')
+                field2.nonrem.push(5)
+            }
+    
+            if (move1.code == "09E") {
+                field1.nonrem.push('Reflect')
+                field1.nonrem.push(5)
+            }
+    
+            if (move1.code == "09E") {
+                field1.nonrem.push('Light Screen')
+                field1.nonrem.push(5)
+            }
+            
+            if (move1.code == "0AA") {
+                field1.nonrem.push('Protect')
+                field1.nonrem.push(1)
+            }
+
+            if (move1.code == "0AB") {
+                field1.nonrem.push('Quick Guard')
+                field1.nonrem.push(1)
+            }
+
+        }
+
+    }
+    array = [];
+    array.push(PKMN1)
+    array.push(PKMN2)
+    return array;
+}
+
+legalmovecodes = ["000"]
