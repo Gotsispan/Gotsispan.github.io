@@ -21,6 +21,7 @@ function readTextFile(file) {
 
 
 var text1 = readTextFile('leagueclubs.txt')
+console.log(text1)
 console.log(text1.slice(20,30))
 var arrayclubs = JSON.parse(text1)
 
