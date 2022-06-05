@@ -69,10 +69,11 @@ f2.close()
 f3 = open("leagueplayers.txt", "a",encoding='utf8')
 f3.truncate(0)
 text = pprint.pformat(leagueplayers)
+print(text[0:100])
 text3 = ''
 text3 = text3 + text[0]
 for i in range(1,len(text)):
-    if text[i] == "'" and (text[i+1] == ',' or text[i+1] == ']' or text[i-1] == ',' or text[i-1] == '['):
+    if text[i] == "'" and (text[i+1] == ',' or text[i+1] == ']' or text3[len(text3)-1] == ',' or text3[len(text3)-1] == '['):
         text3 = text3 + '"'
     elif (text[i] != '\n') and (text[i] != ' ' or text3[len(text3)-1] != ','):
         text3 = text3 + text[i]
