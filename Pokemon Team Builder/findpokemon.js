@@ -1,3 +1,6 @@
+var pokebase = []
+var nameslist = []
+
 function readTextFile(file)
 {
     var rawFile = new XMLHttpRequest();
@@ -10,8 +13,6 @@ function readTextFile(file)
             {
                 var allText = rawFile.responseText;
                 arr = allText.split('\n');
-                var pokebase = []
-                var nameslist = []
                 for (let i=1; i< arr.length; i++) {
                     pokebase.push(arr[i].split('\t'))
                     nameslist.push(pokebase[pokebase.length-1][1])
@@ -117,6 +118,8 @@ function autocomplete(inp, arr) {
   document.addEventListener("click", function (e) {
       closeAllLists(e.target);
   });
-  }
+}
+  
 
 readTextFile("https://raw.githubusercontent.com/Gotsispan/Gotsispan.github.io/main/Pokemon%20Team%20Builder/Pokestats.txt");
+autocomplete(document.getElementById("myInput"), nameslist);
