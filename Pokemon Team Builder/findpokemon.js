@@ -15,7 +15,15 @@ function readTextFile(file)
                 arr = allText.split('\n');
                 for (let i=1; i< arr.length; i++) {
                     pokebase.push(arr[i].split('\t'))
-                    nameslist.push(pokebase[pokebase.length-1][1])
+                    console.log()
+                    if (pokebase[pokebase.length-1][2] == '') {
+                        nameslist.push(pokebase[pokebase.length-1][1])
+                    }
+                    else {
+                        console.log(pokebase[pokebase.length-1])
+                        nameslist.push(pokebase[pokebase.length-1][2]) 
+                    }
+
                 }   
             }
         }
@@ -119,7 +127,13 @@ function autocomplete(inp, arr) {
       closeAllLists(e.target);
   });
 }
-  
+
+function findweak(n) {
+    alert(n)
+}
 
 readTextFile("https://raw.githubusercontent.com/Gotsispan/Gotsispan.github.io/main/Pokemon%20Team%20Builder/Pokestats.txt");
-autocomplete(document.getElementById("myInput"), nameslist);
+for (let i=1; i<7; i++){
+    autocomplete(document.getElementById("myInput"+i), nameslist);
+}
+
