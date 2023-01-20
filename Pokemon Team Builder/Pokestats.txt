@@ -169,9 +169,9 @@ Number	Name	Form	Type 1	Type 2	HP	Attack	Defense	Sp.Attack	Sp.Defense	Speed
 127	Pinsir		Bug		65	125	100	55	70	85
 127	Pinsir	Mega Pinsir	Bug	Flying	65	155	120	65	90	105
 128	Tauros		Normal		75	100	95	40	70	110
-128	Tauros	Combat Breed	Fighting		75	110	105	30	70	100
-128	Tauros	Blaze Breed	Fighting	Fire	75	110	105	30	70	100
-128	Tauros	Aqua Breed	Fighting	Water	75	110	105	30	70	100
+128	Tauros	Combat Breed Tauros	Fighting		75	110	105	30	70	100
+128	Tauros	Blaze Breed Tauros	Fighting	Fire	75	110	105	30	70	100
+128	Tauros	Aqua Breed Tauros	Fighting	Water	75	110	105	30	70	100
 129	Magikarp		Water		20	10	55	15	20	80
 130	Gyarados		Water	Flying	95	125	79	60	100	81
 130	Gyarados	Mega Gyarados	Water	Dark	95	155	109	70	130	81
