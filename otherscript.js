@@ -5,8 +5,8 @@
 //Language change
 
 var lastno = -1;
-var engterms = ['About  me','Education','Hardware Design','Web Developing','Other Prog. Skills','Languages','Other Projects','Play a Game!','My Hobbies','Contact']
-var greterms = ['Πληροφορίες','Εκπαίδευση','Σχεδιαση Ολοκληρωμένων','Ανάπτυξη ιστοσελίδων','Άλλες γνώσεις','Γλώσσες','Άλλα πρότζεκτ','Παίξε ένα παιχνίδι','Ενδιαφέροντα','Επικοινωνία']
+var engterms = ['About  me','Education and Experience','Hardware Design Skills','Web Developing Skills','Other Prog. Skills','Languages','Other Projects','Play a Game!','My Hobbies','Contact']
+var greterms = ['Πληροφορίες','Εκπαίδευση και Εμπειρία','Εργαλεία Σχεδιασης Ολοκληρωμένων','Εργαλεία Ανάπτυξης ιστοσελίδων','Άλλες γνώσεις','Γλώσσες','Άλλα πρότζεκτ','Παίξε ένα παιχνίδι','Ενδιαφέροντα','Επικοινωνία']
 
 document.getElementById("engbut").innerHTML = '<img id = "engflag" src="images/ENG.ico" />';
 document.getElementById("grebut").innerHTML = '<img id = "greflag" src="images/GRE.png" />';

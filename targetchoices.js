@@ -180,10 +180,10 @@ function showstats(e,no,sound){
       div.setAttribute("id", "div1");
       document.getElementById('screeninfo').appendChild(div);
 
-      let textarreng = ["• Graduated from the Department of Electrical Engineering of the University of Patras (Greece) in April of 2022 ","• My graduation thesis was called 'Hardware architectures for convolutional LDPC codes' and it involved designing an integrated circuit that uses a specific error correction algorithm. The thesis is published in Greek but you can read its abstract (in English) by clicking the link below: "]
-      let textarrgre = ["• Αποφοίτησα απο το τμήμα Ηλεκτρολόγων Μηχανικών και Τεχνολογίας Υπολογιστών της Πάτρας τον Απρίλιο του 2022.","• Η διπλωματική εργασία μου ονομάζεται 'Αρχιτεκτονικές υλικού για συνελικτικούς LDPC κώδικες' και αφορά το σχεδιασμό ενός ολοκληρωμένου κυκλώματος το οποίο υλοποιεί ένα συγκεκριμένο αλγόριθμο διόρθωσης λαθών. Μπορείτε να δείτε την περίληψη (καθώς και όλο το αρχείο) στο από κάτω link:"]
-      let linkarreng = ['Ptyxia/ECE_Upatras.pdf#zoom=35%','https://nemertes.library.upatras.gr/jspui/bitstream/10889/16021/3/Nemertes_Gkotsis%28ele%29.pdf.pdf#page=9']
-      let linkarrgre = ['Ptyxia/ECE_Upatras.pdf#zoom=35%','https://nemertes.library.upatras.gr/jspui/bitstream/10889/16021/3/Nemertes_Gkotsis%28ele%29.pdf.pdf#page=8']
+      let textarreng = ["• Graduated from the Department of Electrical Engineering of the University of Patras (Greece) in April of 2022 ","• My graduation thesis was called 'Hardware architectures for convolutional LDPC codes' and it involved designing an integrated circuit that uses a specific error correction algorithm. The thesis is published in Greek but you can read its abstract (in English) by clicking the link below: ","• Internship at Greek Army as general IT support (2022-2023). \n This includes computer software and hardware service, as well as army network upkeep and management. \n Skills learned include customer service, working in team environment, experience with IP networking, software repair, repair of PC and other office appliances"]
+      let textarrgre = ["• Αποφοίτησα απο το τμήμα Ηλεκτρολόγων Μηχανικών και Τεχνολογίας Υπολογιστών της Πάτρας τον Απρίλιο του 2022.","• Η διπλωματική εργασία μου ονομάζεται 'Αρχιτεκτονικές υλικού για συνελικτικούς LDPC κώδικες' και αφορά το σχεδιασμό ενός ολοκληρωμένου κυκλώματος το οποίο υλοποιεί ένα συγκεκριμένο αλγόριθμο διόρθωσης λαθών. Μπορείτε να δείτε την περίληψη (καθώς και όλο το αρχείο) στο από κάτω link:","• Πρακτική άσκηση στο γραφείο έρευνας και πληροφορικής του Ελληνικού Στρατού (2022-2023).\n Αυτό το πόστο περιλαμβάνει επισκευή software και hardware υπολογιστών, καθώς και συντήρηση και διαχείριση του στρατιωτικού δικτύου.\n Οι δεξιότητες που αποκτήθηκαν περιλαμβάνουν εξυπηρέτηση πελατών, εργασία σε ομαδικό περιβάλλον, εμπειρία με δικτύωση IP , επισκευή λογισμικού, επισκευή Η/Υ και άλλων συσκευών γραφείου"]
+      let linkarreng = ['Ptyxia/ECE_Upatras.pdf#zoom=35%','https://nemertes.library.upatras.gr/server/api/core/bitstreams/3605b667-1619-4dc3-b950-94004c3bf87b/content#page=9']
+      let linkarrgre = ['Ptyxia/ECE_Upatras.pdf#zoom=35%','https://nemertes.library.upatras.gr/server/api/core/bitstreams/3605b667-1619-4dc3-b950-94004c3bf87b/content#page=8']
 
       if (lang == 'English') {
           textarr = textarreng;
@@ -207,6 +207,7 @@ function showstats(e,no,sound){
           link.setAttribute("id","link"+i)
           link.innerText = linktrans
           link.href = linkarr[i];
+          link.target = "_blank"
           document.getElementById('div1').appendChild(link);
 
           document.getElementById('text' + i).style.fontSize = '2vh';
@@ -234,13 +235,13 @@ function showstats(e,no,sound){
       if (no == 3){
         iconarr = ['html.png','css.png','javascript.png']
         langarr = ['HTML','CSS','Javascript']
-        skillarr = [3,3,4]
+        skillarr = [4,3,4]
       
       }
       if (no == 4){
         iconarr = ['Python.png','Excel.png','Mtlb.webp','MySQL.png']
         langarr = ['Python','Excel','Matlab','My SQL']
-        skillarr = [3,3,4,2]
+        skillarr = [4,3,4,2]
       }
 
       var div = document.createElement("div");
@@ -343,6 +344,7 @@ function showstats(e,no,sound){
           link.innerText = certwordarr[i];
           link.setAttribute("id","link"+i)
           link.href = certarr[i];
+          link.target = "_blank"
           document.getElementById('div1').appendChild(link);
           document.getElementById("link"+i).style.textAlign =  'center';
           document.getElementById("link"+i).style.display = 'inline-block';
@@ -791,8 +793,44 @@ function showstats(e,no,sound){
           }
         }
       }
+    }
 
-    } 
+    if (no == 8) {
+      const div = document.createElement("div");
+      div.setAttribute("id", "hobbydiv");
+      div.style.display = "grid";
+      div.style.height = '100%';
+      div.style.width = '100%';
+      div.style.gridTemplateColumns = "33% 33% 33%"
+      document.getElementById('screeninfo').appendChild(div);
+      var hobbiesarr = ['Animation','Sports','Programming','Nature','Gaming','Music']
+      var hobbiesource = ['animation.jpg','sports.jpg','programming.jpg','nature.jpg','gaming.jpg','music.jpg']
+      for (i=0; i<hobbiesarr.length; i++) {
+        divv = document.createElement("div");
+        divv.setAttribute("id", "hobbyd" + i);
+        divv.style.display = 'grid'
+        divv.style.justifyContent = 'center'
+        divv.style.padding = '9%'
+        var elem = document.createElement("img");
+        elem.src = 'images/' + hobbiesource[i];
+        elem.style.width = '20vh';
+        elem.style.height = '20vh';
+        elem.style.border = "1px solid #e4e5f1";
+        elem.style.borderRadius = "4px";
+        var texx = document.createElement("div");
+        //texx.style
+        texx.style.display = 'grid'
+        texx.style.fontSize = '2.3vh'
+        texx.style.justifyContent = 'center'
+        texx.style.fontWeight = 'bold'
+        texx.style.color = '#e4e5f1'
+        texx.style.textDecorationLine = 'underline'
+        texx.innerText = hobbiesarr[i]
+        divv.appendChild(texx);
+        divv.appendChild(elem);
+        div.appendChild(divv);
+      }
+    }
 
     
     if (color == 'light') {
