@@ -113,10 +113,10 @@ function showstats(e,no,sound){
       text.innerText = ''
   
       if (lang == 'English') {
-        text.innerText +=  'Panagiotis Gotsis \r\n Date of Birth: 6/10/1995 \r\n Gender: Male \r\n Country of origin: Greece \r\n Email: ece8306@upnet.gr \r\n'
+        text.innerText +=  'Panagiotis Gotsis \r\n Date of Birth: 6/10/1995 \r\n Gender: Male \r\n Country of origin: Greece \r\n Email: gotsispan95@gmail.com \r\n'
       }
       if (lang == 'Greek') {
-        text.innerText +=  'Παναγιώτης Γκότσης \r\n Ημερομηνία Γέννησης: 6/10/1995 \r\n Φύλο: Άντρας \r\n Χώρα καταγωγής: Ελλάδα \r\n Email: ece8306@upnet.gr \r\n'
+        text.innerText +=  'Παναγιώτης Γκότσης \r\n Ημερομηνία Γέννησης: 6/10/1995 \r\n Φύλο: Άντρας \r\n Χώρα καταγωγής: Ελλάδα \r\n Email: gotsispan95@gmail.com \r\n'
       }
   
       document.getElementById('div1').appendChild(text);
@@ -230,18 +230,18 @@ function showstats(e,no,sound){
       if (no == 2) {
         iconarr = ['vhdl.png','vivado.png','Microwind.png']
         langarr = ['VHDL','Xilinx Vivado','Microwind']
-        skillarr = [4,3,1]
+        skillarr = [4,3,2]
       }
       if (no == 3){
-        iconarr = ['html.png','css.png','javascript.png']
-        langarr = ['HTML','CSS','Javascript']
-        skillarr = [4,3,4]
+        iconarr = ['html.png','css.png','javascript.png','microsoftsql.png']
+        langarr = ['HTML','CSS','Javascript','Microsoft SQL']
+        skillarr = [4,3,4,3]
       
       }
       if (no == 4){
-        iconarr = ['Python.png','Excel.png','Mtlb.webp','MySQL.png']
-        langarr = ['Python','Excel','Matlab','My SQL']
-        skillarr = [4,3,4,2]
+        iconarr = ['Python.png','Excel.png','Mtlb.webp']
+        langarr = ['Python','Excel','Matlab']
+        skillarr = [4,4,4]
       }
 
       var div = document.createElement("div");
@@ -391,7 +391,7 @@ function showstats(e,no,sound){
 
       form = document.createElement('form')
       form.setAttribute("id","form")
-      form.action = "https://formsubmit.co/ece8306@upnet.gr"
+      form.action = "https://formsubmit.co/gotsispan95@gmail.com"
       form.method = "POST"
       document.getElementById('div1').appendChild(form);
 
@@ -803,8 +803,8 @@ function showstats(e,no,sound){
       div.style.width = '100%';
       div.style.gridTemplateColumns = "33% 33% 33%"
       document.getElementById('screeninfo').appendChild(div);
-      var hobbiesarr = ['Animation','Sports','Programming','Nature','Gaming','Music']
-      var hobbiesource = ['animation.jpg','sports.jpg','programming.jpg','nature.jpg','gaming.jpg','music.jpg']
+      var hobbiesarr = ['Programming','Sports','Animation','Nature','Gaming','Music']
+      var hobbiesource = ['programming.jpg','sports.jpg','animation.jpg','nature.jpg','gaming.jpg','music.jpg']
       for (i=0; i<hobbiesarr.length; i++) {
         divv = document.createElement("div");
         divv.setAttribute("id", "hobbyd" + i);
