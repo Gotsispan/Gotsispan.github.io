@@ -391,7 +391,7 @@ function showstats(e,no,sound){
 
       form = document.createElement('form')
       form.setAttribute("id","form")
-      form.action = "https://formsubmit.co/gotsispan95@gmail.com"
+      form.action = "https://formsubmit.co/7dc6ef70a821b6f72a2204d45e43720d"
       form.method = "POST"
       document.getElementById('div1').appendChild(form);
 
