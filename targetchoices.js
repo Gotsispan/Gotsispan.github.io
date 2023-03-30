@@ -804,6 +804,7 @@ function showstats(e,no,sound){
       div.style.gridTemplateColumns = "33% 33% 33%"
       document.getElementById('screeninfo').appendChild(div);
       var hobbiesarr = ['Programming','Sports','Animation','Nature','Gaming','Music']
+      var hobbiesarrgre = ['Προγραμματισμός','Σπορ','Κινούμενα Σχέδια','Φύση','Βιντεοπαιχνίδια','Μουσική']
       var hobbiesource = ['programming.jpg','sports.jpg','animation.jpg','nature.jpg','gaming.jpg','music.jpg']
       for (i=0; i<hobbiesarr.length; i++) {
         divv = document.createElement("div");
@@ -823,9 +824,19 @@ function showstats(e,no,sound){
         texx.style.fontSize = '2.3vh'
         texx.style.justifyContent = 'center'
         texx.style.fontWeight = 'bold'
-        texx.style.color = '#e4e5f1'
+         if (color == 'light') {
+            texx.style.color = '#2f2f2f'
+         }
+         else {
+            texx.style.color = '#e4e5f1'
+         }
         texx.style.textDecorationLine = 'underline'
-        texx.innerText = hobbiesarr[i]
+        if (lang == 'English') {
+          texx.innerText = hobbiesarr[i]
+        }
+        else {
+          texx.innerText = hobbiesarrgre[i]
+        }
         divv.appendChild(texx);
         divv.appendChild(elem);
         div.appendChild(divv);
