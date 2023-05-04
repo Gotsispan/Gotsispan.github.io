@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Images</title>
+
+</head>
+<body>
+	<h1 id = 'title'></h1>
+    <button id = 'butt'>←</button>
+    <img id = "logoo" src = "images/mylogodark.png"></img>
+    <div id = 'div1'> 
+        <p id = 'p1'></p>
+        <img id = 'Image 1'>
+    </div>
+
+    <div id = 'div2'> 
+        <p id = 'p2'></p>
+        <img id = 'Image 2'>
+    </div>
+
+    <div id = 'div3'> 
+        <p id = 'p3'></p>
+        <img id = 'Image 3'>
+    </div>
+
+    <div id = 'div4'> 
+        <p id = 'p4'></p>
+        <img id = 'Image 4'>
+    </div>
+
+
+    <script>
+
+        var projectfile = 'Calculator_Android';
+        var itemno = 4;
+        var explanations = ['Calculate mathematical expressions','Calculate Circumference, Area and Volume of different shapes','Convert units of measurement to other ones for the same metric','Solve mathematical equations']
+        var explanationsgre = ['Υπολόγισε μαθηματικές εκφράσεις','Υπολόγισε περίμετρο, επιφάνεια και εμβαδά διάφορων σχημάτων','Μετέτρεψε μονάδες μέτρησεις σε άλλες για το ίδιο μέγεθος','Λύσε μαθηματικές εξισώσεις']
+        var pngjpgarr = ['jpg','jpg','jpg','jpg']
+        var color = localStorage.getItem("color");
+        var lang = localStorage.getItem("lang")
+        var img = document.getElementById("logoo")
+        img.style.position = 'absolute';
+        img.style.top = '5px';
+        img.style.height = '150px';
+        img.style.left = '5px';
+
+        var but = document.getElementById("butt")
+        but.style.position = "absolute"
+        but.style.right = "5%"
+        but.style.top = "5%"
+        but.style.fontSize = '2.3em'
+        but.style.height = "4%"
+        but.style.display = "flex";
+		but.style.justifyContent = "center";
+		but.style.alignItems = "center";
+        but.style.width = "5%"
+        but.addEventListener("click", function() {
+        window.location.href = "index.html";
+        });
+
+        var tit = document.getElementById("title")
+        tit.style.display = 'grid'
+        tit.style.fontSize = '7h'
+        tit.style.paddingTop = '20px'
+        tit.style.justifyContent = 'center'
+        tit.style.fontWeight = 'bold'
+        tit.style.height = '100%';
+        tit.style.color = '#e4e5f1'
+        if (color == "dark") {
+            tit.style.color = '#e4e5f1'
+        }
+        else {
+            tit.style.color = '#2f2f2f'
+        }
+        tit.style.textDecorationLine = 'underline'
+        if (lang == 'English') {
+            tit.innerText = 'Scientific Calculator'
+        }
+        else {
+            tit.innerText = 'Επιστημονικό Κομπιουτεράκι'
+        }
+
+        divwidth = (document.documentElement.clientWidth-40*(itemno-1))/itemno;
+
+        for (i=0; i<itemno; i++)  {
+            var divv = document.getElementById("div" + (i+1))
+            var imgg = document.getElementById("Image " + (i+1))
+            var pp = document.getElementById("p" + (i+1))
+            divv.style.position = "absolute"
+            divv.style.top = (img.clientHeight + 30) + 'px';
+            divv.style.left = (30*(i+1) + divwidth * i) + 'px'; 
+            divv.style.width = divwidth + 'px';
+            divv.style.height = "620px"
+
+            imgg.src = "My_projects/" + projectfile + '/' + (i+1) + '.'  + pngjpgarr[i]
+            var aspectRatio = imgg.naturalHeight / imgg.naturalWidth;
+            var height = (divwidth-60) * aspectRatio;
+            imgg.style.position = "absolute";
+            imgg.style.top = '40px';
+            imgg.style.left = '20px';
+            if (height < 600) 
+                {imgg.style.height = `${height}px`;}
+            else {
+                imgg.style.height = '600px';
+            }
+            imgg.style.width = (divwidth-60) + 'px';
+
+            pp.style.position = "absolute"  
+           
+            pp.style.width =  (divwidth-60) + 'px';
+            pp.style.textAlign = 'center';
+            pp.style.verticalAlign = 'center';
+            pp.style.alignSelf = 'center';
+            pp.style.height = '40px';
+            pp.style.top = '-20px';
+            pp.style.left = '20px'; 
+            pp.style.zIndex = 1;
+
+            if (color == "dark") {
+                pp.style.color = '#e4e5f1'
+            }
+            else {
+                pp.style.color = '#2f2f2f'
+            }
+
+            if (lang == 'English') {
+                pp.innerText = explanations[i]
+            }
+            else {
+                pp.innerText = explanationsgre[i]
+            }
+
+        }
+
+        if (color == "dark") {
+            var newBackground = "images/night.png";
+            img.src =  "images/mylogolight.png"
+        }
+        else {
+            var newBackground = "images/day.jpg";
+            img.src =  "images/mylogodark.png"
+        }
+        document.body.style.backgroundImage = "url('" + newBackground + "')";
+    </script>
+
+</body>
+</html>

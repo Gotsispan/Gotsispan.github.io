@@ -35,6 +35,7 @@ document.getElementById("lightbut").style.backgroundColor = '#e4e5f1'
 
 function updateLang(langg) {
     lang = langg
+    localStorage.setItem("lang",langg)
     if (lastno != -1) {
       showstats('yes',lastno,0)
     }
@@ -50,6 +51,7 @@ function updateColor(colorr) {
   }
 
   if (colorr == 'dark') {
+    localStorage.setItem("color", 'dark');
     document.getElementById('screen').src = 'images/screendark.png'
     document.getElementById("container").style.color = '#e4e5f1'
     for (i=0; i<10; i++) {
@@ -69,6 +71,7 @@ function updateColor(colorr) {
   }
 
   if (colorr == 'light') {
+    localStorage.setItem("color", 'light');
     document.getElementById('screen').src = 'images/screen.png'
     document.getElementById("container").style.color = '#2f2f2f'
     for (i=0; i<10; i++) {

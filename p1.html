@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Images</title>
+
+</head>
+<body>
+	<h1 id = 'title'></h1>
+    <button id = 'butt'>←</button>
+    <img id = "logoo" src = "images/mylogodark.png"></img>
+    <div id = 'div1'> 
+        <p id = 'p1'></p>
+        <img id = 'Image 1' src = "My_projects/My_Calendar/1.jpg">
+    </div>
+
+    <div id = 'div2'> 
+        <p id = 'p2'></p>
+        <img id = 'Image 2' src = "My_projects/My_Calendar/2.jpg">
+    </div>
+
+    <div id = 'div3'> 
+        <p id = 'p3'></p>
+        <img id = 'Image 3' src = "My_projects/My_Calendar/3.jpg">
+    </div>
+
+
+    <script>
+        var projectfile = 'My_Calendar';
+        var pngjpgarr = ['png','png','png']
+        var itemno = 3;
+        var explanations = ['See your notes for every day of the year by hovering on the box','Add a new note with a specific timeframe and custom message','Your note was added and sorted by importance']
+        var explanationsgre = ['Δες τις σημειώσεις σου για κάθε μέρα του χρόνου βάζοντας το ποντίκι σου πάνω στο τετράγωνο','Πρόσθεσε νέες σημειώσεις με συγκεκριμένο χρονικό περιθώριο και μήνυμα','Η σημείωση σου προστέθηκε και ανακατανομήθηκε ανάλογα με την σημαντικότητα της']
+        var color = localStorage.getItem("color");
+        var lang = localStorage.getItem("lang")
+        var img = document.getElementById("logoo")
+        img.style.position = 'absolute';
+        img.style.top = '5px';
+        img.style.height = '150px';
+        img.style.left = '5px';
+
+        var but = document.getElementById("butt")
+        but.style.position = "absolute"
+        but.style.right = "5%"
+        but.style.top = "5%"
+        but.style.fontSize = '2.3em'
+        but.style.height = "4%"
+        but.style.display = "flex";
+		but.style.justifyContent = "center";
+		but.style.alignItems = "center";
+        but.style.width = "5%"
+        but.addEventListener("click", function() {
+        window.location.href = "index.html";
+        });
+
+        var tit = document.getElementById("title")
+        tit.style.display = 'grid'
+        tit.style.fontSize = '7h'
+        tit.style.paddingTop = '20px'
+        tit.style.justifyContent = 'center'
+        tit.style.fontWeight = 'bold'
+        tit.style.height = '100%';
+        tit.style.color = '#e4e5f1'
+        if (color == "dark") {
+            tit.style.color = '#e4e5f1'
+        }
+        else {
+            tit.style.color = '#2f2f2f'
+        }
+        tit.style.textDecorationLine = 'underline'
+        if (lang == 'English') {
+            tit.innerText = 'My Calendar'
+        }
+        else {
+            tit.innerText = 'Προσωπικό Ημερολόγιο'
+        }
+
+        divwidth = (document.documentElement.clientWidth-40*(itemno-1))/itemno;
+
+        for (i=0; i<itemno; i++)  {
+            var divv = document.getElementById("div" + (i+1))
+            var imgg = document.getElementById("Image " + (i+1))
+            var pp = document.getElementById("p" + (i+1))
+            divv.style.position = "absolute"
+            divv.style.top = (img.clientHeight + 30) + 'px';
+            divv.style.left = (30*(i+1) + divwidth * i) + 'px'; 
+            divv.style.width = divwidth + 'px';
+            divv.style.height = "620px"
+
+            imgg.addEventListener("load", function() {
+                var aspectRatio = imgg.naturalWidth / imgg.naturalHeight;
+                var newHeight = imgg.width / aspectRatio;
+                if (newheight < 600) 
+                    {imgg.style.height = `${newheight}px`;}
+                else {
+                    imgg.style.height = '600px';
+                }
+            });
+            imgg.style.width = (divwidth-60) + 'px';
+            imgg.style.position = "absolute"
+            imgg.style.left = '20px';
+            imgg.style.top = '40px';
+
+            pp.style.position = "absolute";  
+           
+            pp.style.width =  (divwidth-60) + 'px';
+            pp.style.textAlign = 'center';
+            pp.style.verticalAlign = 'center';
+            pp.style.alignSelf = 'center';
+            pp.style.height = '40px';
+            pp.style.top = '-20px';
+            pp.style.left = '20px'; 
+            pp.style.zIndex = 1;
+
+            if (color == "dark") {
+                pp.style.color = '#e4e5f1'
+            }
+            else {
+                pp.style.color = '#2f2f2f'
+            }
+
+            if (lang == 'English') {
+                pp.innerText = explanations[i]
+            }
+            else {
+                pp.innerText = explanationsgre[i]
+            }
+
+        }
+
+        if (color == "dark") {
+            var newBackground = "images/night.png";
+            img.src =  "images/mylogolight.png"
+        }
+        else {
+            var newBackground = "images/day.jpg";
+            img.src =  "images/mylogodark.png"
+        }
+        document.body.style.backgroundImage = "url('" + newBackground + "')";
+    </script>
+
+</body>
+</html>

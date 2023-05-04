@@ -1,5 +1,6 @@
 var lang = 'English';
 var color = 'dark';
+localStorage.setItem("color", "dark");
 var lastno = -1;
 
 function loadstart(){
@@ -58,14 +59,14 @@ function loadstart(){
     
     document.getElementById('text1').style.fontSize = '3vmin';
     document.getElementById('text1').style.fontWeight = 'bold';
-    document.getElementById('text2').style.fontSize = '1.8vmin';
+    document.getElementById('text2').style.fontSize = '1.9vmin';
     document.getElementById('text2').style.textAlign = 'justify';
     document.getElementById('text2').style.paddingLeft = '2%';
     document.getElementById('text2').style.paddingRight = '2%';
     document.getElementById('text2').style.lineHeight = '110%';
     document.getElementById('text2').style.fontWeight = 'bold';
-    document.getElementById('myface').style.width = '12vw';
-    document.getElementById('myface').style.height = '24vmin';
+    document.getElementById('myface').style.width = '13vw';
+    document.getElementById('myface').style.height = '25vmin';
 
     var taglinkarr = ['aboutme.jpg','education.jpg','hardware.jpg','webdev.jpg','otherskills.jpg','languages.jpg','projects.jpg','game.jpg','hobby.jpg','contact.jpg']
     for (i=0; i<10; i++) {

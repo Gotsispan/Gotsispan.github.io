@@ -182,8 +182,8 @@ function showstats(e,no,sound){
 
       let textarreng = ["• Graduated from the Department of Electrical Engineering of the University of Patras (Greece) in April of 2022 ","• My graduation thesis was called 'Hardware architectures for convolutional LDPC codes' and it involved designing an integrated circuit that uses a specific error correction algorithm. The thesis is published in Greek but you can read its abstract (in English) by clicking the link below: ","• Internship at Greek Army as general IT support (2022-2023). \n This includes computer software and hardware service, as well as army network upkeep and management. \n Skills learned include customer service, working in team environment, experience with IP networking, software repair, repair of PC and other office appliances"]
       let textarrgre = ["• Αποφοίτησα απο το τμήμα Ηλεκτρολόγων Μηχανικών και Τεχνολογίας Υπολογιστών της Πάτρας τον Απρίλιο του 2022.","• Η διπλωματική εργασία μου ονομάζεται 'Αρχιτεκτονικές υλικού για συνελικτικούς LDPC κώδικες' και αφορά το σχεδιασμό ενός ολοκληρωμένου κυκλώματος το οποίο υλοποιεί ένα συγκεκριμένο αλγόριθμο διόρθωσης λαθών. Μπορείτε να δείτε την περίληψη (καθώς και όλο το αρχείο) στο από κάτω link:","• Πρακτική άσκηση στο γραφείο έρευνας και πληροφορικής του Ελληνικού Στρατού (2022-2023).\n Αυτό το πόστο περιλαμβάνει επισκευή software και hardware υπολογιστών, καθώς και συντήρηση και διαχείριση του στρατιωτικού δικτύου.\n Οι δεξιότητες που αποκτήθηκαν περιλαμβάνουν εξυπηρέτηση πελατών, εργασία σε ομαδικό περιβάλλον, εμπειρία με δικτύωση IP , επισκευή λογισμικού, επισκευή Η/Υ και άλλων συσκευών γραφείου"]
-      let linkarreng = ['Ptyxia/ECE_Upatras.pdf#zoom=35%','https://nemertes.library.upatras.gr/server/api/core/bitstreams/3605b667-1619-4dc3-b950-94004c3bf87b/content#page=9']
-      let linkarrgre = ['Ptyxia/ECE_Upatras.pdf#zoom=35%','https://nemertes.library.upatras.gr/server/api/core/bitstreams/3605b667-1619-4dc3-b950-94004c3bf87b/content#page=8']
+      let linkarreng = ['Ptyxia/ECE_Upatras.pdf#zoom=35%','https://nemertes.library.upatras.gr/server/api/core/bitstreams/3605b667-1619-4dc3-b950-94004c3bf87b/content#page=9','Ptyxia/GEP_Certificate.pdf#zoom=25%']
+      let linkarrgre = ['Ptyxia/ECE_Upatras.pdf#zoom=35%','https://nemertes.library.upatras.gr/server/api/core/bitstreams/3605b667-1619-4dc3-b950-94004c3bf87b/content#page=8','Ptyxia/GEP_Certificate.pdf#zoom=25%']
 
       if (lang == 'English') {
           textarr = textarreng;
@@ -206,6 +206,9 @@ function showstats(e,no,sound){
           link = document.createElement('a');
           link.setAttribute("id","link"+i)
           link.innerText = linktrans
+          if ((i==0 || i==2) && lang == 'English') {
+            link.innerText += ' (in Greek)';
+          }
           link.href = linkarr[i];
           link.target = "_blank"
           document.getElementById('div1').appendChild(link);
@@ -233,9 +236,9 @@ function showstats(e,no,sound){
         skillarr = [4,3,2]
       }
       if (no == 3){
-        iconarr = ['html.png','css.png','javascript.png','microsoftsql.png']
-        langarr = ['HTML','CSS','Javascript','Microsoft SQL']
-        skillarr = [4,3,4,3]
+        iconarr = ['html.png','css.png','javascript.png','microsoftsql.png','Csharp.png']
+        langarr = ['HTML','CSS','Javascript','Microsoft SQL','.NET (C#)']
+        skillarr = [4,3,4,3,4]
       
       }
       if (no == 4){
@@ -840,6 +843,140 @@ function showstats(e,no,sound){
         divv.appendChild(texx);
         divv.appendChild(elem);
         div.appendChild(divv);
+      }
+    }
+
+    
+    if (no == 6) {
+      const div = document.createElement("div");
+      div.setAttribute("id", "projectdiv");
+      div.style.display = "grid";
+      div.style.height = '100%';
+      div.style.width = '100%';
+      document.getElementById('screeninfo').appendChild(div);
+      var projectarr = ['Calendar App','Scientific Calculator'];
+      var projectarrgre = ['Ημερολόγιο','Επιστημονικό Κομπιουτεράκι'];
+      var projectdesc = ['Windows Forms application of a simple calendar that stores/displays custom notes written with C#','A scientific calculator app written in React for Android which is also able to solve basic equations, calculate volume and circumference of common shapes and do unit conversions.'];
+      var projectdescgre = ['Εφαρμογή σε windows forms (χρησιμοποιώντας C#) ενός ημερολογίου που αποθηκεύει και παρουσιάζει προσαρμοσμένες σημειώσεις.','Επιστημονικό κομπιουτεράκι (σε γλώσσα React για Android) όπου επίσης υπολογίζει εμβαδά,όγκους και περίμετρους σχημάτων,λύνει βασικές εξισώσεις και έχει μετατροπές μονάδων μέτρησης'];
+      var projectimage = ['calendar.png','calculator.png'];
+      var partt = Math.floor(100/projectarr.length)-2 + '%';
+      var divrows = '';
+      for (i=0; i<projectarr.length; i++) {
+         divrows += ' ' + partt + ' 2% ';
+      }
+      div.style.gridAutoRows = divrows;
+
+      for (i=0; i<projectarr.length; i++) {
+        divv = document.createElement("div");
+        divv.setAttribute("id", "project" + i);
+        divv.style.display = 'grid'
+        divv.height = '100%';
+        //divv.padding = '2%';
+        //divv.style.justifyContent = 'center'
+        divv.style.gridTemplateRows = "15% 70% 15%"
+
+        var texx = document.createElement("div");
+        //texx.style
+        texx.style.display = 'grid'
+        texx.style.fontSize = '2.3vh'
+        texx.style.justifyContent = 'center'
+        texx.style.fontWeight = 'bold'
+        texx.style.height = '100%';
+        if (color == "dark") {
+          texx.style.color = '#e4e5f1'
+        }
+        else {
+            texx.style.color = '#2f2f2f'
+        }
+        texx.style.textDecorationLine = 'underline'
+        if (lang == 'English') {
+          texx.innerText = projectarr[i]
+        }
+        else {
+          texx.innerText = projectarrgre[i]
+        }
+
+        var divina = document.createElement("div");
+        divina.setAttribute("id", "divina" + i);
+        divina.style.display = 'grid'
+        divina.style.gridTemplateColumns = "25% 75%"
+        divina.style.justifyContent = 'center'
+        divina.style.alignItems = 'center' 
+
+        var divimg = document.createElement("div"); // get the div element
+        divimg.style.height = '100%';
+        divimg.style.display = "flex"; // set the display property to flex
+        divimg.style.position = "relative";  // center the image vertically
+
+        var elem = document.createElement("img");
+        elem.src = 'images/' + projectimage[i];
+        elem.style.height = '100%'; 
+        elem.style.width = elem.style.height;
+        elem.style.position = "absolute"; // set the position property of the image to absolute
+        elem.style.top = "0"; 
+        elem.style.objectFit = "contain";
+        //elem.style.alignSelf = 'center';
+
+        var texxin = document.createElement("div");
+        //texx.style
+        texxin.style.fontSize = '2.3vh'
+        texxin.style.width = '100%';
+        texxin.style.height = '100%';
+        texxin.style.display = "flex";
+        //texxin.style.justifyContent = 'center'
+        texxin.style.paddingLeft = '5%'
+        texxin.style.alignItems = 'center'
+        texxin.style.fontWeight = 'bold'
+        if (color == "dark") {
+          texxin.style.color = '#e4e5f1'
+        }
+        else {
+            texxin.style.color = '#2f2f2f'
+        }
+        if (lang == 'English') {
+          texxin.innerText = projectdesc[i]
+        }
+        else {
+          texxin.innerText = projectdescgre[i]
+        }
+        
+        divimg.appendChild(elem)
+        divina.appendChild(divimg)
+        divina.appendChild(texxin)
+
+        var texx2 = document.createElement('a');
+        //texx.style
+        texx2.style.display = 'grid'
+        texx2.style.fontSize = '2.3vh'
+        texx2.style.justifyContent = 'center'
+        texx2.style.fontWeight = 'bold'
+        texx2.href = 'p' + (i+1) + '.html'
+        texx2.style.height = '100%';
+        if (color == "dark") {
+          texx2.style.color = '#e4e5f1'
+        }
+        else {
+            texx2.style.color = '#2f2f2f'
+        }
+        texx2.style.textDecorationLine = 'underline'
+        if (lang == 'English') {
+          texx2.innerText = 'Images'
+        }
+        else {
+          texx2.innerText = 'Εικόνες'
+        }
+        
+
+        divv.appendChild(texx);
+        divv.appendChild(divina);
+        divv.appendChild(texx2);
+        div.appendChild(divv);
+
+        if (i != projectarr.length-1) {
+          div2per = document.createElement("div");
+          div.appendChild(div2per)
+        }
+
       }
     }
 
